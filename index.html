@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sergei Solovev — TradFi → AI → DeFi</title>
+    <meta
+      name="description"
+      content="Practitioner with 20+ years in financial markets transitioning into applied AI research at the intersection of TradFi, AI/ML, and DeFi."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: {
+              glass: "0 14px 42px rgba(37, 99, 235, 0.12)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.3.1",
+          "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+          "three": "https://esm.sh/three@0.171.0",
+          "gsap": "https://esm.sh/gsap@3.12.5",
+          "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+          "@studio-freight/lenis": "https://esm.sh/@studio-freight/lenis@1.0.42"
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #f4f3ef;
+        --bg-2: #ece9e2;
+        --card: rgba(255, 255, 255, 0.66);
+        --card-strong: rgba(255, 255, 255, 0.8);
+        --stroke: rgba(15, 23, 42, 0.12);
+        --stroke-soft: rgba(51, 65, 85, 0.12);
+        --text: #111827;
+        --text-dim: #374151;
+        --text-muted: #6b7280;
+        --tradfi: #334155;
+        --ai: #b38a5a;
+        --defi: #1f2937;
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        min-height: 100%;
+        margin: 0;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      body {
+        font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: var(--text);
+        line-height: 1.65;
+        background:
+          radial-gradient(circle at 10% 8%, rgba(15, 23, 42, 0.08), transparent 34%),
+          radial-gradient(circle at 88% 12%, rgba(148, 163, 184, 0.14), transparent 32%),
+          radial-gradient(circle at 60% 92%, rgba(179, 138, 90, 0.1), transparent 38%),
+          linear-gradient(150deg, var(--bg), var(--bg-2));
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.24;
+        z-index: 1;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 280 280' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+      }
+
+      .font-serif {
+        font-family: "Instrument Serif", serif;
+      }
+
+      .font-mono {
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .glass {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        backdrop-filter: blur(14px);
+      }
+
+      .glass-strong {
+        background: var(--card-strong);
+        border: 1px solid var(--stroke-soft);
+        backdrop-filter: blur(14px);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+
+      .gradient-line {
+        position: fixed;
+        left: 34px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        z-index: 2;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(51, 65, 85, 0.38), rgba(100, 116, 139, 0.3), rgba(179, 138, 90, 0.34));
+      }
+
+      .gradient-line::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--ai);
+        box-shadow: 0 0 18px rgba(179, 138, 90, 0.42);
+        animation: tracker 9s ease-in-out infinite;
+      }
+
+      @keyframes tracker {
+        0% { top: 0%; background: var(--tradfi); }
+        50% { top: 50%; background: var(--ai); }
+        100% { top: 100%; background: var(--defi); }
+      }
+
+      .section-wrap {
+        padding: 84px 24px 10px 70px;
+      }
+
+      .visual-sep {
+        padding: 34px 24px 34px 70px;
+      }
+
+      .scene-shell {
+        width: min(1160px, 100%);
+        margin: 0 auto;
+        height: 300px;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(100, 116, 139, 0.22);
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(241, 239, 234, 0.66));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74), 0 20px 38px rgba(17, 24, 39, 0.08);
+      }
+
+      .scene-shell canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .gradient-line {
+          left: 12px;
+        }
+
+        .section-wrap,
+        .visual-sep {
+          padding-left: 24px;
+          padding-right: 16px;
+        }
+
+        .scene-shell {
+          height: 220px;
+          border-radius: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gradient-line"></div>
+    <div id="root"></div>
+
+    <script>
+      (function () {
+        var path = location.pathname;
+        var hasExtension = /\.[a-zA-Z0-9]+$/.test(path);
+        if (!hasExtension && path !== "/" && !location.search.includes("redirected=1")) {
+          var newUrl = location.origin + path + "/?redirected=1" + (location.hash || "");
+          history.replaceState(null, "", newUrl);
+        }
+      })();
+    </script>
+
+    <script type="module">
+      import React, { useEffect, useMemo, useRef } from "react";
+      import { createRoot } from "react-dom/client";
+      import * as THREE from "three";
+      import gsap from "gsap";
+      import ScrollTrigger from "gsap/ScrollTrigger";
+      import Lenis from "@studio-freight/lenis";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      function useLenis() {
+        useEffect(() => {
+          const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduced) return;
+
+          const lenis = new Lenis({
+            duration: 1.05,
+            smoothWheel: true,
+            smoothTouch: false,
+          });
+
+          let raf = 0;
+          const loop = (time) => {
+            lenis.raf(time);
+            raf = requestAnimationFrame(loop);
+          };
+
+          raf = requestAnimationFrame(loop);
+          lenis.on("scroll", ScrollTrigger.update);
+          gsap.ticker.lagSmoothing(0);
+
+          return () => {
+            cancelAnimationFrame(raf);
+            lenis.destroy();
+          };
+        }, []);
+      }
+
+      function useReveal() {
+        useEffect(() => {
+          const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduced) {
+            document.querySelectorAll(".reveal").forEach((el) => {
+              el.style.opacity = 1;
+              el.style.transform = "none";
+            });
+            return;
+          }
+
+          const ctx = gsap.context(() => {
+            gsap.utils.toArray(".reveal").forEach((el, i) => {
+              gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: i * 0.02,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 88%",
+                },
+              });
+            });
+          });
+
+          return () => {
+            ctx.revert();
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+          };
+        }, []);
+      }
+
+      function ThreeSeparator({ type }) {
+        const mountRef = useRef(null);
+
+        useEffect(() => {
+          const host = mountRef.current;
+          if (!host) return;
+
+          const scene = new THREE.Scene();
+          scene.background = new THREE.Color("#ece9e2");
+
+          const camera = new THREE.PerspectiveCamera(54, 1, 0.1, 60);
+          camera.position.set(0, 1.55, 4.6);
+          camera.lookAt(0, 0.25, 0);
+
+          const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+          renderer.outputColorSpace = THREE.SRGBColorSpace;
+          renderer.setClearAlpha(0);
+          host.appendChild(renderer.domElement);
+
+          const ambient = new THREE.AmbientLight(0xffffff, 0.78);
+          const lightA = new THREE.DirectionalLight(0x64748b, 1.15);
+          lightA.position.set(2, 3, 2);
+          const lightB = new THREE.DirectionalLight(0xb38a5a, 0.7);
+          lightB.position.set(-2, 2, -1);
+          scene.add(ambient, lightA, lightB);
+
+          const group = new THREE.Group();
+          group.position.y = type === "descent" ? 0.52 : type === "chain" ? 0.46 : 0.4;
+          scene.add(group);
+
+          const mouse = new THREE.Vector2(0, 0);
+          const pointer = new THREE.Vector3(0, 0, 0);
+          const raycaster = new THREE.Raycaster();
+          const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+          const target = new THREE.Vector3();
+          const soft = new THREE.Vector3();
+          let active = false;
+          let isVisible = true;
+
+          const disposables = [];
+          let morphState = null;
+          let nodes = [];
+          let aiOrbit = null;
+
+          if (type === "descent") {
+            const geom = new THREE.PlaneGeometry(6.2, 4.9, 92, 72);
+            const pos = geom.attributes.position;
+            const base = new Float32Array(pos.count);
+
+            for (let i = 0; i < pos.count; i++) {
+              const x = pos.getX(i);
+              const y = pos.getY(i);
+              const z = 0.25 * Math.sin(x * 1.6) + 0.18 * Math.cos(y * 2.2);
+              pos.setZ(i, z);
+              base[i] = z;
+            }
+
+            geom.computeVertexNormals();
+            morphState = { geom, pos, base };
+
+            const mat = new THREE.MeshStandardMaterial({
+              color: 0x64748b,
+              wireframe: true,
+              roughness: 0.38,
+              metalness: 0.1,
+              transparent: true,
+              opacity: 0.92,
+            });
+            const mesh = new THREE.Mesh(geom, mat);
+            mesh.rotation.x = -Math.PI / 2.2;
+            group.add(mesh);
+            disposables.push(geom, mat);
+
+            const orbGeom = new THREE.SphereGeometry(0.11, 26, 26);
+            const orbMat = new THREE.MeshStandardMaterial({ color: 0xb38a5a, emissive: 0x78350f, emissiveIntensity: 0.2 });
+            const orb = new THREE.Mesh(orbGeom, orbMat);
+            orb.position.set(-1.7, 0.35, 0.2);
+            group.add(orb);
+            nodes = [orb];
+            disposables.push(orbGeom, orbMat);
+          }
+
+          if (type === "chain") {
+            const nodeGeom = new THREE.SphereGeometry(0.08, 16, 16);
+            const nodeMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.33, metalness: 0.08 });
+            disposables.push(nodeGeom, nodeMat);
+
+            const pts = [];
+            for (let i = 0; i < 34; i++) {
+              const p = new THREE.Vector3((Math.random() - 0.5) * 3.2, (Math.random() - 0.5) * 1.8, (Math.random() - 0.5) * 2.6);
+              pts.push(p);
+              const n = new THREE.Mesh(nodeGeom, nodeMat);
+              n.position.copy(p);
+              n.userData.base = p.clone();
+              group.add(n);
+              nodes.push(n);
+            }
+
+            const lineMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.42 });
+            disposables.push(lineMat);
+            for (let i = 0; i < pts.length; i++) {
+              const links = [7, 13].map((offset) => pts[(i + offset) % pts.length]);
+              links.forEach((p2) => {
+                const g = new THREE.BufferGeometry().setFromPoints([pts[i], p2]);
+                const line = new THREE.Line(g, lineMat);
+                group.add(line);
+                disposables.push(g);
+              });
+            }
+          }
+
+          if (type === "ai") {
+            const coreGeom = new THREE.IcosahedronGeometry(0.36, 1);
+            const coreMat = new THREE.MeshStandardMaterial({
+              color: 0x334155,
+              roughness: 0.22,
+              metalness: 0.35,
+              emissive: 0x0f172a,
+              emissiveIntensity: 0.08,
+            });
+            const core = new THREE.Mesh(coreGeom, coreMat);
+            group.add(core);
+
+            const shellGeom = new THREE.IcosahedronGeometry(0.78, 0);
+            const shellMat = new THREE.MeshBasicMaterial({ color: 0x94a3b8, wireframe: true, transparent: true, opacity: 0.42 });
+            const shell = new THREE.Mesh(shellGeom, shellMat);
+            group.add(shell);
+
+            const blockGeom = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+            const blockMat = new THREE.MeshStandardMaterial({ color: 0xb38a5a, roughness: 0.28, metalness: 0.22 });
+            const blocks = [];
+
+            for (let i = 0; i < 14; i++) {
+              const angle = (i / 14) * Math.PI * 2;
+              const block = new THREE.Mesh(blockGeom, blockMat);
+              block.position.set(Math.cos(angle) * 1.65, Math.sin(i * 0.7) * 0.18, Math.sin(angle) * 1.18);
+              block.rotation.set(0.4 + i * 0.05, angle, 0.2);
+              block.userData.phase = i * 0.45;
+              block.userData.baseY = block.position.y;
+              group.add(block);
+              blocks.push(block);
+            }
+
+            const linkMat = new THREE.LineBasicMaterial({ color: 0x64748b, transparent: true, opacity: 0.54 });
+            const links = [];
+            for (let i = 0; i < blocks.length; i++) {
+              const from = i;
+              const to = (i + 1) % blocks.length;
+              const geom = new THREE.BufferGeometry();
+              geom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
+              const line = new THREE.Line(geom, linkMat);
+              group.add(line);
+              links.push({ line, from, to });
+              disposables.push(geom);
+            }
+
+            const nodeGeom = new THREE.SphereGeometry(0.045, 12, 12);
+            const nodeMat = new THREE.MeshStandardMaterial({ color: 0x9ca3af, roughness: 0.3, metalness: 0.12 });
+            const satellites = [];
+            for (let i = 0; i < 18; i++) {
+              const sat = new THREE.Mesh(nodeGeom, nodeMat);
+              sat.userData.angle = (i / 18) * Math.PI * 2;
+              sat.userData.radius = 1.0 + (i % 4) * 0.14;
+              sat.userData.height = (i % 5 - 2) * 0.09;
+              sat.userData.speed = 0.45 + (i % 6) * 0.06;
+              group.add(sat);
+              satellites.push(sat);
+            }
+
+            aiOrbit = { core, shell, blocks, links, satellites };
+            disposables.push(coreGeom, coreMat, shellGeom, shellMat, blockGeom, blockMat, linkMat, nodeGeom, nodeMat);
+          }
+
+          const resize = () => {
+            const w = host.clientWidth;
+            const h = host.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h, false);
+          };
+
+          resize();
+          window.addEventListener("resize", resize);
+
+          const onMove = (e) => {
+            const rect = host.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            mouse.set(x * 2 - 1, -(y * 2 - 1));
+            active = true;
+          };
+
+          const onLeave = () => {
+            active = false;
+          };
+
+          host.addEventListener("pointermove", onMove, { passive: true });
+          host.addEventListener("pointerleave", onLeave, { passive: true });
+
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              isVisible = entry.isIntersecting;
+            });
+          }, { threshold: 0.1 });
+          io.observe(host);
+
+          let raf = 0;
+          let t = 0;
+
+          const animate = () => {
+            t += 0.013;
+
+            raycaster.setFromCamera(mouse, camera);
+            raycaster.ray.intersectPlane(plane, target);
+            if (active && isVisible) {
+              soft.lerp(target, 0.08);
+            } else {
+              soft.lerp(new THREE.Vector3(0, 0, 0), 0.045);
+            }
+
+            group.rotation.y += type === "chain" ? 0.003 : 0.0018;
+            group.rotation.x = Math.sin(t * 0.37) * 0.07;
+
+            if (morphState) {
+              const { pos, base } = morphState;
+              for (let i = 0; i < pos.count; i++) {
+                const vx = pos.getX(i);
+                const vy = pos.getY(i);
+                const dist = Math.hypot(vx - soft.x, vy - soft.z);
+                const influence = Math.max(0, 1 - dist / 2.1);
+                const wobble = Math.sin(t * 2.7 + vx * 1.5 + vy * 1.2) * 0.012;
+                const targetZ = base[i] + influence * 0.24 + wobble;
+                pos.setZ(i, pos.getZ(i) + (targetZ - pos.getZ(i)) * 0.1);
+              }
+              pos.needsUpdate = true;
+              morphState.geom.computeVertexNormals();
+
+              if (nodes[0]) {
+                nodes[0].position.x = Math.sin(t * 1.15) * 1.7 + soft.x * 0.22;
+                nodes[0].position.z = Math.cos(t * 1.05) * 1.38 + soft.z * 0.2;
+                nodes[0].position.y = 0.24 + Math.sin(t * 2.4) * 0.08;
+              }
+            }
+
+            if (nodes.length > 1) {
+              nodes.forEach((node, i) => {
+                const base = node.userData.base;
+                const dir = base.clone().sub(soft);
+                const dist = Math.max(dir.length(), 0.001);
+                const power = Math.max(0, 1 - dist / 2.4);
+                const pull = dir.normalize().multiplyScalar(power * 0.07);
+
+                const toMouse = soft.clone().sub(node.position);
+                const mouseDist = Math.max(toMouse.length(), 0.001);
+                const mousePower = Math.max(0, 1 - mouseDist / 2.2);
+                const mouseLift = toMouse.normalize().multiplyScalar(mousePower * 0.2);
+
+                node.position.x += (base.x + pull.x + mouseLift.x + Math.sin(t + i * 0.25) * 0.01 - node.position.x) * 0.11;
+                node.position.y += (base.y + mouseLift.y * 0.4 + Math.cos(t * 1.1 + i * 0.31) * 0.02 - node.position.y) * 0.1;
+                node.position.z += (base.z + pull.z + mouseLift.z - node.position.z) * 0.11;
+              });
+            }
+
+            if (aiOrbit) {
+              aiOrbit.core.rotation.x += 0.008;
+              aiOrbit.core.rotation.y += 0.01;
+
+              aiOrbit.shell.rotation.y -= 0.006;
+              aiOrbit.shell.rotation.x += 0.002;
+
+              aiOrbit.blocks.forEach((block, i) => {
+                block.position.y = block.userData.baseY + Math.sin(t * 1.7 + block.userData.phase) * 0.07;
+                block.rotation.y += 0.006;
+                block.rotation.x += 0.002;
+              });
+
+              aiOrbit.links.forEach(({ line, from, to }) => {
+                const p1 = aiOrbit.blocks[from].position;
+                const p2 = aiOrbit.blocks[to].position;
+                const attr = line.geometry.attributes.position;
+                attr.setXYZ(0, p1.x, p1.y, p1.z);
+                attr.setXYZ(1, p2.x, p2.y, p2.z);
+                attr.needsUpdate = true;
+              });
+
+              aiOrbit.satellites.forEach((sat, i) => {
+                const a = sat.userData.angle + t * sat.userData.speed;
+                const wobble = Math.sin(t * 1.8 + i * 0.5) * 0.08;
+                sat.position.x = Math.cos(a) * (sat.userData.radius + wobble) + soft.x * 0.1;
+                sat.position.z = Math.sin(a) * (sat.userData.radius + wobble) + soft.z * 0.1;
+                sat.position.y = sat.userData.height + Math.cos(t * 1.4 + i * 0.35) * 0.07;
+              });
+            }
+
+            renderer.render(scene, camera);
+            raf = requestAnimationFrame(animate);
+          };
+
+          raf = requestAnimationFrame(animate);
+
+          return () => {
+            cancelAnimationFrame(raf);
+            io.disconnect();
+            host.removeEventListener("pointermove", onMove);
+            host.removeEventListener("pointerleave", onLeave);
+            window.removeEventListener("resize", resize);
+            disposables.forEach((d) => {
+              if (d && typeof d.dispose === "function") d.dispose();
+            });
+            renderer.dispose();
+            if (renderer.domElement.parentNode === host) host.removeChild(renderer.domElement);
+          };
+        }, [type]);
+
+        return React.createElement("div", { className: "scene-shell", ref: mountRef });
+      }
+
+      function App() {
+        useLenis();
+        useReveal();
+
+        const transition = useMemo(
+          () => [
+            {
+              era: "2006 — Present",
+              title: "TradFi",
+              text: "Portfolio management >$4B, multi-asset trading, risk models (VaR, GARCH), treasury operations. Bloomberg BQNT quantitative tools.",
+            },
+            {
+              era: "2024 — Research",
+              title: "AI / ML",
+              text: "Three MSc programs in AI, CV, and Financial Engineering. Document AI, time-series forecasting, smart-contract vulnerability detection via ML.",
+            },
+            {
+              era: "Frontier",
+              title: "DeFi",
+              text: "Full DeFi lifecycle: mining → wrapping → liquidity (Uniswap, Aave, Curve). Smart-contract architecture, tokenomics, Solidity. ML-based security.",
+            },
+          ],
+          []
+        );
+
+        const timeline = useMemo(
+          () => [
+            {
+              date: "FEB 2026 — PRESENT",
+              role: "Advisor to the President",
+              org: "Mosoblbank (PSB Group)",
+              text: "Leading AI transformation: roadmap, use-case prioritization, pilot launches. Supervising Treasury and Financial Markets Operations.",
+              tags: ["AI Strategy", "Banking", "Transformation"],
+            },
+            {
+              date: "MAR 2022 — FEB 2026",
+              role: "Director, Financial Markets Operations",
+              org: "SMP Bank / Mosoblbank (PSB Group)",
+              text: "Securities portfolio >$4B, daily money-market ops up to RUB 100B. Built quantitative tools in Bloomberg BQNT: Eurobond screener (1000+ issuers), US equity DCF screener (2000+ companies).",
+              tags: ["$4B Portfolio", "Bloomberg BQNT", "Quant Tools"],
+            },
+            {
+              date: "MAY 2012 — MAR 2022",
+              role: "Chief Trader",
+              org: "SMP Bank / Mosoblbank",
+              text: "Multi-asset trading and portfolio management: bonds, Eurobonds, FX, derivatives. Built trading infrastructure from scratch under sanctions regime since 2014.",
+              tags: ["Multi-asset", "Derivatives", "Infrastructure"],
+            },
+            {
+              date: "AUG 2009 — MAY 2012",
+              role: "Head of Market Risk",
+              org: "Globex Bank (VEB Group)",
+              text: "Led risk team. VaR models (SMA, EWMA, GARCH, historical simulation), stress testing, limit framework. CBR regulatory interaction.",
+              tags: ["VaR Models", "Risk Management", "GARCH"],
+            },
+            {
+              date: "2006 — 2009",
+              role: "Earlier Roles",
+              org: "IFD Kapital (Lukoil Group) · South Telecom (Rostelecom)",
+              text: "OTC derivatives risk, collateral management, Basel II. Investor relations and rating agency communications.",
+              tags: ["OTC Derivatives", "Basel II", "Investor Relations"],
+            },
+          ],
+          []
+        );
+
+        const skills = useMemo(
+          () => [
+            ["Programming", ["Python", "Jupyter", "C++", "Git", "SQL", "Bloomberg BQNT"]],
+            ["ML / Data Science", ["Feature Engineering", "LightGBM / XGBoost", "Time-Series", "Classification", "Validation"]],
+            ["Document AI", ["EasyOCR", "DBNet+CRNN", "LayoutLMv3", "Donut"]],
+            ["Finance", ["Bloomberg Terminal", "VaR Models", "Stress Testing", "Derivatives Pricing", "Credit Analysis"]],
+            ["DeFi & Blockchain", ["Uniswap", "Aave", "Curve", "Solidity", "EVM Bytecode", "Tokenomics"]],
+            ["Languages", ["English — Fluent", "Russian — Native", "German — Basic"]],
+          ],
+          []
+        );
+
+        return React.createElement(
+          "main",
+          { className: "relative z-[3]" },
+          React.createElement(
+            "nav",
+            { className: "fixed top-0 left-0 right-0 z-20 border-b border-slate-200/70 bg-white/62 backdrop-blur-lg" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" },
+              React.createElement("div", { className: "font-serif text-2xl leading-none text-slate-900" }, "S. Solovev"),
+              React.createElement(
+                "div",
+                { className: "hidden md:flex gap-6 text-[11px] uppercase tracking-[0.16em] font-mono text-slate-500" },
+                [
+                  ["Transition", "#transition"],
+                  ["Experience", "#experience"],
+                  ["Research", "#research"],
+                  ["Skills", "#skills"],
+                  ["Contact", "#contact"],
+                ].map(([label, href]) => React.createElement("a", { key: label, href, className: "hover:text-slate-900" }, label))
+              )
+            )
+          ),
+
+          React.createElement(
+            "section",
+            { id: "hero", className: "section-wrap pt-32" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement(
+                "div",
+                { className: "glass rounded-[26px] p-6 md:p-10 shadow-glass" },
+                React.createElement(
+                  "div",
+                  { className: "grid md:grid-cols-[1.25fr_0.75fr] gap-8 items-center" },
+                  React.createElement(
+                    "div",
+                    null,
+                    React.createElement(
+                      "div",
+                      { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500 flex flex-wrap gap-2 mb-4" },
+                      React.createElement("span", { className: "px-2.5 py-1 rounded-full border border-slate-300/80 bg-white/70" }, "Moscow, Russia"),
+                      React.createElement("span", { className: "px-2.5 py-1 rounded-full border border-amber-200/80 bg-white/70" }, "Available 2026")
+                    ),
+                    React.createElement("h1", { className: "font-serif text-5xl sm:text-7xl leading-[0.98] tracking-tight" }, "Sergei Solovev"),
+                    React.createElement(
+                      "h2",
+                      { className: "font-serif text-3xl sm:text-4xl mt-1 text-slate-800" },
+                      "TradFi → AI → DeFi"
+                    ),
+                    React.createElement(
+                      "p",
+                      { className: "text-slate-600 text-base sm:text-lg mt-5 max-w-2xl" },
+                      "Practitioner with 20+ years in financial markets transitioning into applied AI research. Operating at the rare intersection of classical finance, AI/ML/DL, and decentralized finance."
+                    ),
+                    React.createElement(
+                      "div",
+                      { className: "grid sm:grid-cols-3 gap-4 mt-8" },
+                      [
+                        ["$4B+", "Portfolio managed"],
+                        ["20+", "Years in finance"],
+                        ["3×", "MSc programs"],
+                      ].map(([val, label]) =>
+                        React.createElement(
+                          "div",
+                          { key: label, className: "glass-strong rounded-2xl p-4" },
+                          React.createElement("div", { className: "font-mono text-2xl font-semibold text-slate-900" }, val),
+                          React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500 mt-1" }, label)
+                        )
+                      )
+                    )
+                  ),
+                  React.createElement(
+                    "div",
+                    { className: "justify-self-center md:justify-self-end" },
+                    React.createElement(
+                      "div",
+                      { className: "glass-strong rounded-3xl p-3 w-[290px] shadow-glass" },
+                      React.createElement("img", {
+                        src: "sergey solovyev.png",
+                        alt: "Sergei Solovev",
+                        className: "w-full h-[360px] object-cover rounded-2xl",
+                      }),
+                      React.createElement("div", { className: "font-mono text-[10px] uppercase tracking-[0.14em] text-slate-500 text-center mt-3" }, "Advisor to the President · Mosoblbank")
+                    )
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement(
+            "section",
+            { id: "transition", className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "The Journey"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Three Domains, One Vision"),
+              React.createElement(
+                "div",
+                { className: "grid md:grid-cols-3 gap-4" },
+                transition.map((item, i) =>
+                  React.createElement(
+                    "article",
+                    { key: item.title, className: "glass rounded-3xl p-6 hover:-translate-y-1 transition-transform" },
+                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.14em] text-slate-500 mb-2" }, item.era),
+                    React.createElement("h4", { className: "font-serif text-3xl mb-3", style: { color: ["#1f2937", "#334155", "#b38a5a"][i] } }, item.title),
+                    React.createElement("p", { className: "text-slate-600 text-sm leading-relaxed" }, item.text)
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement("section", { className: "visual-sep reveal" }, React.createElement("div", { className: "max-w-6xl mx-auto" }, React.createElement(ThreeSeparator, { type: "descent" }))),
+
+          React.createElement(
+            "section",
+            { id: "experience", className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Career"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Professional Experience"),
+              React.createElement(
+                "div",
+                { className: "space-y-4" },
+                timeline.map((it) =>
+                  React.createElement(
+                    "article",
+                    { key: it.date + it.role, className: "glass rounded-3xl p-6" },
+                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.13em] text-slate-500" }, it.date),
+                    React.createElement("h4", { className: "text-2xl font-semibold mt-2" }, it.role),
+                    React.createElement("div", { className: "text-slate-700 font-medium text-sm mt-1" }, it.org),
+                    React.createElement("p", { className: "text-slate-600 text-sm mt-3" }, it.text),
+                    React.createElement(
+                      "div",
+                      { className: "flex flex-wrap gap-2 mt-4" },
+                      it.tags.map((tag) => React.createElement("span", { key: tag, className: "font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1 rounded-full border border-slate-300 bg-white/74 text-slate-600" }, tag))
+                    )
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement(
+            "section",
+            { id: "research", className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Academic"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Research Interests"),
+              React.createElement(
+                "div",
+                { className: "space-y-4" },
+                [
+                  ["01", "AI-Driven Transformation of Classical Banking", "ML and deep learning for document understanding to modernize compliance-intensive banking workflows. Intelligent document processing, decision support for credit and risk."],
+                  ["02", "ML for Security of Digital Financial Systems", "Vulnerability detection in smart contracts from EVM bytecode with noisy labels. Bridging TradFi risk management with DeFi security."],
+                  ["03", "AI × DeFi: Intelligent Decentralized Systems", "On-chain anomaly detection, protocol risk scoring, AMM optimization, intelligent liquidity management. DeFi as testbed for autonomous ML agents."],
+                ].map(([num, title, text]) =>
+                  React.createElement(
+                    "article",
+                    { key: num, className: "glass rounded-3xl p-6 md:p-7 grid md:grid-cols-[56px_1fr] gap-4 items-start" },
+                    React.createElement("div", { className: "font-serif text-4xl text-slate-400" }, num),
+                    React.createElement(
+                      "div",
+                      null,
+                      React.createElement("h4", { className: "text-2xl font-semibold leading-tight" }, title),
+                      React.createElement("p", { className: "text-slate-600 text-sm mt-2" }, text)
+                    )
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement("section", { className: "visual-sep reveal" }, React.createElement("div", { className: "max-w-6xl mx-auto" }, React.createElement(ThreeSeparator, { type: "chain" }))),
+
+          React.createElement(
+            "section",
+            { className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Publications"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Preprints & Awards"),
+              React.createElement(
+                "div",
+                { className: "space-y-4" },
+                [
+                  [
+                    "Machine Learning–Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering",
+                    "Solovev, S. (2026) · Preprint, Figshare",
+                    "https://doi.org/10.6084/m9.figshare.31429971",
+                  ],
+                  [
+                    "OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction",
+                    "Solovev, S. (2026) · Preprint, Figshare",
+                    "https://doi.org/10.6084/m9.figshare.31430086",
+                  ],
+                  [
+                    "Prize-winner — Ritmy Prodazh Hackathon (VK AllCups / VK Education)",
+                    "Feb 2026 · Sales forecasting & dynamic pricing",
+                    null,
+                  ],
+                ].map(([title, meta, link]) =>
+                  React.createElement(
+                    "article",
+                    { key: title, className: "glass rounded-3xl p-6" },
+                    React.createElement("div", { className: "text-xl italic leading-snug" }, title),
+                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.11em] text-slate-500 mt-2" }, meta),
+                    link
+                      ? React.createElement("a", { href: link, target: "_blank", rel: "noreferrer", className: "inline-block mt-3 text-slate-700 hover:text-slate-900 font-mono text-xs" }, "Open DOI →")
+                      : null
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement(
+            "section",
+            { id: "education", className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Education"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Academic Foundation"),
+              React.createElement(
+                "div",
+                { className: "grid md:grid-cols-2 xl:grid-cols-4 gap-4" },
+                [
+                  ["EXPECTED 2027", "MSc in Artificial Intelligence", "HSE University, Faculty of Computer Science — Moscow", "Thesis: Multi-Agent AI for Smart-Contract Security"],
+                  ["EXPECTED 2027", "MSc in AI & Computer Vision", "HSE University × Neymark Institute", "English-taught, grant-funded"],
+                  ["EXPECTED 2027", "MSc in Financial Engineering", "WorldQuant University — Washington, DC", ""],
+                  ["2006", "Specialist in Finance & Credit", "Kuban State University — Krasnodar", ""],
+                ].map(([year, title, place, note]) =>
+                  React.createElement(
+                    "article",
+                    { key: title, className: "glass rounded-3xl p-6" },
+                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.13em] text-amber-700" }, year),
+                    React.createElement("h4", { className: "text-xl font-semibold mt-2 leading-snug" }, title),
+                    React.createElement("p", { className: "text-sm text-slate-600 mt-2" }, place),
+                    note ? React.createElement("p", { className: "text-xs text-slate-500 mt-2 italic" }, note) : null
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement(
+            "section",
+            { id: "skills", className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Technical"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Skills & Tools"),
+              React.createElement(
+                "div",
+                { className: "grid md:grid-cols-2 xl:grid-cols-3 gap-4" },
+                skills.map(([title, list]) =>
+                  React.createElement(
+                    "article",
+                    { key: title, className: "glass rounded-3xl p-5" },
+                    React.createElement("h4", { className: "font-mono text-[11px] uppercase tracking-[0.16em] text-slate-700 mb-3" }, title),
+                    React.createElement(
+                      "div",
+                      { className: "flex flex-wrap gap-2" },
+                      list.map((item) => React.createElement("span", { key: item, className: "text-sm px-3 py-1.5 rounded-lg border border-slate-300 bg-white/74 text-slate-600" }, item))
+                    )
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement("section", { className: "visual-sep reveal" }, React.createElement("div", { className: "max-w-6xl mx-auto" }, React.createElement(ThreeSeparator, { type: "ai" }))),
+
+          React.createElement(
+            "section",
+            { className: "section-wrap" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Community"),
+              React.createElement("h3", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Service & Affiliations"),
+              React.createElement(
+                "div",
+                { className: "grid md:grid-cols-3 gap-4" },
+                [
+                  ["Board Member, ACI Russia", "International Association of Currency and Money Market Traders."],
+                  ["Regular Conference Speaker", "ACI Russia, Atlanty Business Club, Private Money Forum, T-Zh."],
+                  ["Certifications", "Sber University DeFi 1.0 & 2.0 · Yale Financial Markets (R. Shiller) · NAUFOR FSFR 1.0 & 5.0"],
+                ].map(([title, text]) =>
+                  React.createElement(
+                    "article",
+                    { key: title, className: "glass rounded-3xl p-6" },
+                    React.createElement("h4", { className: "text-2xl font-semibold leading-tight" }, title),
+                    React.createElement("p", { className: "text-sm text-slate-600 mt-3" }, text)
+                  )
+                )
+              )
+            )
+          ),
+
+          React.createElement(
+            "section",
+            { id: "contact", className: "section-wrap pb-24" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto reveal" },
+              React.createElement(
+                "div",
+                { className: "glass rounded-[26px] p-7 sm:p-10 text-center" },
+                React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500" }, "Get in Touch"),
+                React.createElement("h3", { className: "font-serif text-4xl sm:text-6xl leading-[1.05] mt-4" }, "Let’s Build the Future of Finance"),
+                React.createElement(
+                  "p",
+                  { className: "text-slate-600 max-w-2xl mx-auto mt-4" },
+                  "Open to research collaborations, advisory roles, and applied AI projects at the intersection of finance and technology."
+                ),
+                React.createElement(
+                  "div",
+                  { className: "flex flex-wrap justify-center gap-3 mt-7" },
+                  React.createElement("a", { href: "mailto:sssolovjov@gmail.com", className: "font-mono text-xs uppercase tracking-[0.12em] px-5 py-3 rounded-full bg-slate-900 text-white hover:bg-slate-800" }, "Email Me"),
+                  React.createElement("a", { href: "https://github.com/SergeySolovyev", target: "_blank", rel: "noreferrer", className: "font-mono text-xs uppercase tracking-[0.12em] px-5 py-3 rounded-full border border-slate-300 bg-white/72 text-slate-700 hover:text-slate-900" }, "GitHub"),
+                  React.createElement("a", { href: "mailto:sesesolovev@edu.hse.ru", className: "font-mono text-xs uppercase tracking-[0.12em] px-5 py-3 rounded-full border border-amber-200 bg-white/72 text-slate-700 hover:text-slate-900" }, "HSE Mail")
+                )
+              )
+            )
+          ),
+
+          React.createElement(
+            "footer",
+            { className: "border-t border-slate-200/70 bg-white/48 backdrop-blur-md" },
+            React.createElement(
+              "div",
+              { className: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between" },
+              React.createElement(
+                "div",
+                null,
+                React.createElement("div", { className: "font-serif text-3xl leading-none" }, "Sergei Solovev"),
+                React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500 mt-1" }, "© 2026 · TradFi → AI → DeFi")
+              ),
+              React.createElement(
+                "div",
+                { className: "flex gap-5 font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500" },
+                React.createElement("a", { href: "https://github.com/SergeySolovyev", target: "_blank", rel: "noreferrer", className: "hover:text-slate-900" }, "GitHub"),
+                React.createElement("a", { href: "mailto:sssolovjov@gmail.com", className: "hover:text-slate-900" }, "Email"),
+                React.createElement("a", { href: "#hero", className: "hover:text-slate-900" }, "Back to Top ↑")
+              )
+            )
+          )
+        );
+      }
+
+      createRoot(document.getElementById("root")).render(React.createElement(App));
+    </script>
+
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+          (m[i].a = m[i].a || []).push(arguments);
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) return;
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(106617027, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+      });
+    </script>
+    <noscript>
+      <div>
+        <img src="https://mc.yandex.ru/watch/106617027" style="position: absolute; left: -9999px" alt="" />
+      </div>
+    </noscript>
+
+    <script async defer data-website-id="YOUR_UMAMI_WEBSITE_ID" src="https://cloud.umami.is/script.js"></script>
+  </body>
+</html>
