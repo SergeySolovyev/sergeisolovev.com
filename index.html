@@ -873,31 +873,64 @@
                 { className: "space-y-4" },
                 [
                   [
+                    "When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection",
+                    "Solovev, S. (May 2026) · Preprint, Figshare",
+                    "https://doi.org/10.6084/m9.figshare.32141182",
+                    "/papers/rag-solidity.html",
+                  ],
+                  [
+                    "AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification",
+                    "Solovev, S. (May 2026) · Preprint, Figshare",
+                    "https://doi.org/10.6084/m9.figshare.32141167",
+                    "/papers/ai-yield-vault.html",
+                  ],
+                  [
+                    "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction",
+                    "Solovev, S. (Mar 2026) · Preprint, Figshare",
+                    "https://doi.org/10.6084/m9.figshare.31859557",
+                    "/papers/lob-mid-price.html",
+                  ],
+                  [
                     "Machine Learning–Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering",
-                    "Solovev, S. (2026) · Preprint, Figshare",
+                    "Solovev, S. (Feb 2026) · Preprint, Figshare",
                     "https://doi.org/10.6084/m9.figshare.31429971",
+                    "/papers/ml-vuln-detection.html",
                   ],
                   [
                     "OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction",
-                    "Solovev, S. (2026) · Preprint, Figshare",
+                    "Solovev, S. (Feb 2026) · Preprint, Figshare",
                     "https://doi.org/10.6084/m9.figshare.31430086",
+                    "/papers/ocr-vs-donut.html",
                   ],
                   [
                     "Prize-winner — Ritmy Prodazh Hackathon (VK AllCups / VK Education)",
                     "Feb 2026 · Sales forecasting & dynamic pricing",
                     null,
+                    null,
                   ],
-                ].map(([title, meta, link]) =>
+                ].map(([title, meta, link, local]) =>
                   React.createElement(
                     "article",
                     { key: title, className: "glass rounded-3xl p-6" },
                     React.createElement("div", { className: "text-xl italic leading-snug" }, title),
                     React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.11em] text-slate-500 mt-2" }, meta),
-                    link
-                      ? React.createElement("a", { href: link, target: "_blank", rel: "noreferrer", className: "inline-block mt-3 text-slate-700 hover:text-slate-900 font-mono text-xs" }, "Open DOI →")
-                      : null
+                    React.createElement(
+                      "div",
+                      { className: "mt-3 flex gap-4 flex-wrap" },
+                      link
+                        ? React.createElement("a", { href: link, target: "_blank", rel: "noreferrer", className: "text-slate-700 hover:text-slate-900 font-mono text-xs" }, "Open DOI →")
+                        : null,
+                      local
+                        ? React.createElement("a", { href: local, className: "text-slate-700 hover:text-slate-900 font-mono text-xs" }, "Paper page →")
+                        : null
+                    )
                   )
                 )
+              ),
+              React.createElement(
+                "div",
+                { className: "mt-6" },
+                React.createElement("a", { href: "/publications.html", className: "font-mono text-xs text-slate-600 hover:text-slate-900 underline" }, "View all publications →")
               )
             )
           ),
