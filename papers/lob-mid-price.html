@@ -1,118 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction | Sergei Solovev</title>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction | Sergei Solovev</title>
 
-    <!-- Highwire Press citation metadata for Google Scholar -->
-    <meta name="citation_title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction">
-    <meta name="citation_author" content="Solovev, Sergei">
-    <meta name="citation_author_institution" content="HSE University, Faculty of Computer Science">
-    <meta name="citation_publication_date" content="2026/03/26">
-    <meta name="citation_doi" content="10.6084/m9.figshare.31859557">
-    <meta name="citation_pdf_url" content="https://sergeisolovev.com/papers/lob-mid-price.pdf">
-    <meta name="citation_abstract_html_url" content="https://sergeisolovev.com/papers/lob-mid-price.html">
-    <meta name="citation_keywords" content="limit order book; high-frequency finance; recurrent neural networks; mid-price prediction; weighted Pearson; Wunder Fund challenge">
-    <meta name="citation_journal_title" content="Preprint, Figshare">
-    <meta name="citation_language" content="en">
+            <!-- Highwire Press citation metadata for Google Scholar -->
+            <meta name="citation_title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction">
+            <meta name="citation_author" content="Solovev, Sergei">
+            <meta name="citation_author_institution" content="HSE University, Faculty of Computer Science">
+            <meta name="citation_publication_date" content="2026/03/26">
+            <meta name="citation_doi" content="10.6084/m9.figshare.31859557">
+            <meta name="citation_pdf_url" content="https://sergeisolovev.com/papers/lob-mid-price.pdf">
+            <meta name="citation_abstract_html_url" content="https://sergeisolovev.com/papers/lob-mid-price.html">
+            <meta name="citation_keywords" content="limit order book; high-frequency finance; recurrent neural networks; mid-price prediction; weighted Pearson; Wunder Fund challenge">
+            <meta name="citation_journal_title" content="Preprint, Figshare">
+            <meta name="citation_language" content="en">
 
-    <!-- Dublin Core (secondary, for non-Scholar crawlers) -->
-    <meta name="DC.title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction">
-    <meta name="DC.creator" content="Solovev, Sergei">
-    <meta name="DC.date" content="2026/03/26">
-    <meta name="DC.identifier" content="doi:10.6084/m9.figshare.31859557">
-    <meta name="DC.format" content="application/pdf">
+            <!-- Dublin Core (secondary, for non-Scholar crawlers) -->
+            <meta name="DC.title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction">
+            <meta name="DC.creator" content="Solovev, Sergei">
+            <meta name="DC.date" content="2026/03/26">
+            <meta name="DC.identifier" content="doi:10.6084/m9.figshare.31859557">
+            <meta name="DC.format" content="application/pdf">
 
-    <meta name="description" content="Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).">
-    <link rel="canonical" href="https://sergeisolovev.com/papers/lob-mid-price.html">
+            <meta name="description" content="Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).">
+            <link rel="canonical" href="https://sergeisolovev.com/papers/lob-mid-price.html">
 
-    <style>
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            max-width: 760px;
-            margin: 48px auto;
-            padding: 0 24px;
-            color: #1a1a1a;
-            line-height: 1.55;
-        }
-        h1 {
-            font-size: 1.7rem;
-            line-height: 1.25;
-            margin: 0 0 8px;
-        }
-        .authors {
-            font-size: 1.05rem;
-            color: #444;
-            margin: 4px 0 18px;
-        }
-        .meta {
-            font-size: 0.92rem;
-            color: #666;
-            margin-bottom: 22px;
-        }
-        .actions a {
-            display: inline-block;
-            margin-right: 14px;
-            padding: 8px 16px;
-            background: #1f2937;
-            color: #f8fafc;
-            text-decoration: none;
-            border-radius: 6px;
-            font-family: system-ui, sans-serif;
-            font-size: 0.9rem;
-        }
-        .actions a.secondary {
-            background: transparent;
-            color: #1f2937;
-            border: 1px solid #1f2937;
-        }
-        .abstract {
-            margin-top: 28px;
-            font-size: 1rem;
-        }
-        .abstract h2 {
-            font-size: 1.1rem;
-            font-family: system-ui, sans-serif;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: #475569;
-            margin-bottom: 6px;
-        }
-        .keywords {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #475569;
-        }
-        nav {
-            margin-top: 36px;
-            padding-top: 18px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.85rem;
-        }
-        nav a { color: #475569; margin-right: 16px; }
-    </style>
-</head>
-<body>
-    <h1>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction</h1>
-    <p class="authors">Sergei Solovev</p>
-    <p class="meta">2026-03-26 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.31859557">10.6084/m9.figshare.31859557</a></p>
+            <!-- Open Graph (Facebook, LinkedIn, Slack, Telegram link previews) -->
+            <meta property="og:type" content="article">
+            <meta property="og:site_name" content="Sergei Solovev">
+            <meta property="og:title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction">
+            <meta property="og:description" content="Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).">
+            <meta property="og:url" content="https://sergeisolovev.com/papers/lob-mid-price.html">
+            <meta property="og:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+            <meta property="article:author" content="Sergei Solovev">
+            <meta property="article:published_time" content="2026-03-26">
 
-    <div class="actions">
-        <a href="lob-mid-price.pdf">Download PDF</a>
-        <a class="secondary" href="https://doi.org/10.6084/m9.figshare.31859557">View on Figshare</a>
-    </div>
+            <!-- Twitter Card -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction">
+            <meta name="twitter:description" content="Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).">
+            <meta name="twitter:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
 
-    <section class="abstract">
-        <h2>Abstract</h2>
-        <p>Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).</p>
-    </section>
+            <!-- JSON-LD ScholarlyArticle (Schema.org) — primary signal for Google Knowledge Graph -->
+            <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction",
+  "name": "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction",
+  "author": {
+    "@type": "Person",
+    "name": "Sergei Solovev",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "HSE University, Faculty of Computer Science"
+    },
+    "url": "https://sergeisolovev.com"
+  },
+  "datePublished": "2026-03-26",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "DOI",
+      "value": "10.6084/m9.figshare.31859557"
+    }
+  ],
+  "sameAs": "https://doi.org/10.6084/m9.figshare.31859557",
+  "url": "https://sergeisolovev.com/papers/lob-mid-price.html",
+  "abstract": "Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).",
+  "keywords": "limit order book; high-frequency finance; recurrent neural networks; mid-price prediction; weighted Pearson; Wunder Fund challenge",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "figshare"
+  },
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://sergeisolovev.com/papers/lob-mid-price.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+            </script>
 
-    <p class="keywords"><strong>Keywords:</strong> limit order book; high-frequency finance; recurrent neural networks; mid-price prediction; weighted Pearson; Wunder Fund challenge</p>
+            <style>
+                body {
+                    font-family: Georgia, "Times New Roman", serif;
+                    max-width: 760px;
+                    margin: 48px auto;
+                    padding: 0 24px;
+                    color: #1a1a1a;
+                    line-height: 1.55;
+                }
+                h1 {
+                    font-size: 1.7rem;
+                    line-height: 1.25;
+                    margin: 0 0 8px;
+                }
+                .authors {
+                    font-size: 1.05rem;
+                    color: #444;
+                    margin: 4px 0 18px;
+                }
+                .meta {
+                    font-size: 0.92rem;
+                    color: #666;
+                    margin-bottom: 22px;
+                }
+                .actions a {
+                    display: inline-block;
+                    margin-right: 14px;
+                    padding: 8px 16px;
+                    background: #1f2937;
+                    color: #f8fafc;
+                    text-decoration: none;
+                    border-radius: 6px;
+                    font-family: system-ui, sans-serif;
+                    font-size: 0.9rem;
+                }
+                .actions a.secondary {
+                    background: transparent;
+                    color: #1f2937;
+                    border: 1px solid #1f2937;
+                }
+                .abstract {
+                    margin-top: 28px;
+                    font-size: 1rem;
+                }
+                .abstract h2 {
+                    font-size: 1.1rem;
+                    font-family: system-ui, sans-serif;
+                    letter-spacing: 0.04em;
+                    text-transform: uppercase;
+                    color: #475569;
+                    margin-bottom: 6px;
+                }
+                .keywords {
+                    margin-top: 20px;
+                    font-size: 0.9rem;
+                    color: #475569;
+                }
+                nav {
+                    margin-top: 36px;
+                    padding-top: 18px;
+                    border-top: 1px solid #e2e8f0;
+                    font-size: 0.85rem;
+                }
+                nav a { color: #475569; margin-right: 16px; }
+            </style>
+        </head>
+        <body>
+            <h1>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction</h1>
+            <p class="authors">Sergei Solovev</p>
+            <p class="meta">2026-03-26 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.31859557">10.6084/m9.figshare.31859557</a></p>
 
-    <nav>
-        <a href="/">&larr; Home</a>
-        <a href="/publications.html">All publications</a>
-    </nav>
-</body>
-</html>
+            <div class="actions">
+                <a href="lob-mid-price.pdf">Download PDF</a>
+                <a class="secondary" href="https://doi.org/10.6084/m9.figshare.31859557">View on Figshare</a>
+            </div>
+
+            <section class="abstract">
+                <h2>Abstract</h2>
+                <p>Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).</p>
+            </section>
+
+            <p class="keywords"><strong>Keywords:</strong> limit order book; high-frequency finance; recurrent neural networks; mid-price prediction; weighted Pearson; Wunder Fund challenge</p>
+
+            <nav>
+                <a href="/">&larr; Home</a>
+                <a href="/publications.html">All publications</a>
+            </nav>
+        </body>
+        </html>

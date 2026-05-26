@@ -1,0 +1,66 @@
+        <?xml version="1.0" encoding="UTF-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom">
+          <id>https://sergeisolovev.com/feed.xml</id>
+          <title>Sergei Solovev — Preprints</title>
+          <subtitle>Smart contract security, machine learning, decentralized finance.</subtitle>
+          <link href="https://sergeisolovev.com/" rel="alternate" type="text/html"/>
+          <link href="https://sergeisolovev.com/feed.xml" rel="self" type="application/atom+xml"/>
+          <updated>2026-05-26T12:00:00Z</updated>
+          <author><name>Sergei Solovev</name><uri>https://sergeisolovev.com</uri></author>
+          <rights>CC BY 4.0</rights>
+        <entry>
+  <id>https://sergeisolovev.com/papers/rag-solidity.html</id>
+  <title>When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection</title>
+  <link href="https://sergeisolovev.com/papers/rag-solidity.html" rel="alternate" type="text/html"/>
+  <link href="https://sergeisolovev.com/papers/rag-solidity.pdf" rel="enclosure" type="application/pdf"/>
+  <published>2026-05-01T00:00:00Z</published>
+  <updated>2026-05-01T00:00:00Z</updated>
+  <author><name>Sergei Solovev</name></author>
+  <category term="smart contract security"/>
+  <summary type="html">Empirical study showing a sample-size sign reversal in naive RAG for Solidity vulnerability detection: +2.0% Macro-F1 at n=100 flips to -2.7% at n=250 on SolidiFI. Argues for bootstrap confidence intervals in any RAG evaluation.</summary>
+</entry>
+<entry>
+  <id>https://sergeisolovev.com/papers/ai-yield-vault.html</id>
+  <title>AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification</title>
+  <link href="https://sergeisolovev.com/papers/ai-yield-vault.html" rel="alternate" type="text/html"/>
+  <link href="https://sergeisolovev.com/papers/ai-yield-vault.pdf" rel="enclosure" type="application/pdf"/>
+  <published>2026-05-01T00:00:00Z</published>
+  <updated>2026-05-01T00:00:00Z</updated>
+  <author><name>Sergei Solovev</name></author>
+  <category term="decentralized finance"/>
+  <summary type="html">Autonomous AI agent managing an ERC-4626 yield vault via MCDM scoring (APY/Risk/Cost/Stability). EIP-712 signed decisions, UUPS-upgradeable, 67 unit tests, 76,800+ invariant calls with zero violations. Sepolia deployment included.</summary>
+</entry>
+<entry>
+  <id>https://sergeisolovev.com/papers/lob-mid-price.html</id>
+  <title>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction</title>
+  <link href="https://sergeisolovev.com/papers/lob-mid-price.html" rel="alternate" type="text/html"/>
+  <link href="https://sergeisolovev.com/papers/lob-mid-price.pdf" rel="enclosure" type="application/pdf"/>
+  <published>2026-03-26T00:00:00Z</published>
+  <updated>2026-03-26T00:00:00Z</updated>
+  <author><name>Sergei Solovev</name></author>
+  <category term="limit order book"/>
+  <summary type="html">Dual-branch BiGRU-CNN for high-frequency LOB mid-price prediction. Weighted Pearson rho_w = 0.266, outperforming LightGBM on 58.3% of sequences. Documents feature sufficiency and the negative ensemble effect on HF data (Wunder Fund RNN challenge).</summary>
+</entry>
+<entry>
+  <id>https://sergeisolovev.com/papers/ml-vuln-detection.html</id>
+  <title>Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering</title>
+  <link href="https://sergeisolovev.com/papers/ml-vuln-detection.html" rel="alternate" type="text/html"/>
+  <link href="https://sergeisolovev.com/papers/ml-vuln-detection.pdf" rel="enclosure" type="application/pdf"/>
+  <published>2026-02-26T00:00:00Z</published>
+  <updated>2026-02-26T00:00:00Z</updated>
+  <author><name>Sergei Solovev</name></author>
+  <category term="smart contract security"/>
+  <summary type="html">XGBoost + Optuna on 117,091 Slither-labelled Ethereum contracts achieves F1=0.948 using 65 hand-crafted bytecode features in 15 SWC-mapped semantic categories. Binary classification: recall 0.950, MCC 0.832, PR-AUC 0.990.</summary>
+</entry>
+<entry>
+  <id>https://sergeisolovev.com/papers/ocr-vs-donut.html</id>
+  <title>OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction: A Comparative Study on SROIE 2019</title>
+  <link href="https://sergeisolovev.com/papers/ocr-vs-donut.html" rel="alternate" type="text/html"/>
+  <link href="https://sergeisolovev.com/papers/ocr-vs-donut.pdf" rel="enclosure" type="application/pdf"/>
+  <published>2026-02-26T00:00:00Z</published>
+  <updated>2026-02-26T00:00:00Z</updated>
+  <author><name>Sergei Solovev</name></author>
+  <category term="OCR"/>
+  <summary type="html">EasyOCR + heuristic rules vs. Donut end-to-end Transformer on SROIE 2019. Error taxonomy under image degradation typical of messenger-grade distortions (compression, rotation, blur).</summary>
+</entry>
+        </feed>
