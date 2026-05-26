@@ -1,0 +1,8 @@
+# robots.txt for sergeisolovev.com
+# Sergei Solovev — academic homepage with preprints
+
+User-agent: *
+Disallow:
+
+# Sitemap auto-discovery hint for all crawlers
+Sitemap: https://sergeisolovev.com/sitemap.xml
