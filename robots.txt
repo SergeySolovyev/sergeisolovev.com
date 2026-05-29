@@ -6,3 +6,4 @@ Disallow:
 
 # Sitemap auto-discovery hint for all crawlers
 Sitemap: https://sergeisolovev.com/sitemap.xml
+Disallow: /cockpit-091361181a/
