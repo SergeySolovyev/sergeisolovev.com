@@ -3,21 +3,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction | Sergei Solovev</title>
-<meta name="description" content="A recurring assumption in LOB research is that more features and model diversity should improve predictive performance. The data suggests otherwise on both counts. Working with 12,">
+<meta name="description" content="A common assumption in applied ML: more features and ensemble diversity improve generalization. Two findings in this LOB work challenge that directly. We trained models on limit or">
 <link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Sergei Solovev">
 <meta property="og:title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction">
-<meta property="og:description" content="A recurring assumption in LOB research is that more features and model diversity should improve predictive performance. The data suggests otherwise on both counts. Working with 12,">
+<meta property="og:description" content="A common assumption in applied ML: more features and ensemble diversity improve generalization. Two findings in this LOB work challenge that directly. We trained models on limit or">
 <meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html">
-<meta property="og:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.png">
 <meta property="article:author" content="Sergei Solovev">
 <meta property="article:published_time" content="2026-06-09">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction">
-<meta name="twitter:description" content="A recurring assumption in LOB research is that more features and model diversity should improve predictive performance. The data suggests otherwise on both counts. Working with 12,">
-<meta name="twitter:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction", "author": {"@type": "Person", "name": "Sergei Solovev", "url": "https://sergeisolovev.com"}, "datePublished": "2026-06-09", "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html"}</script>
+<meta name="twitter:description" content="A common assumption in applied ML: more features and ensemble diversity improve generalization. Two findings in this LOB work challenge that directly. We trained models on limit or">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction", "image": "https://sergeisolovev.com/blog/assets/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.png", "author": {"@type": "Person", "name": "Sergei Solovev", "url": "https://sergeisolovev.com"}, "datePublished": "2026-06-09", "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html"}</script>
 <style>
 :root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
 body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
@@ -27,6 +27,8 @@ header a{color:var(--tradfi);text-decoration:none;font-weight:600}
 .spine{color:var(--ai);font-weight:600}
 h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
 .meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
 p{margin:14px 0} a{color:var(--tradfi)}
 .cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
  border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
@@ -38,13 +40,14 @@ footer a{color:var(--tradfi)}
  &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
 <h1>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction</h1>
 <div class="meta">2026-06-09 &middot; Sergei Solovev, HSE University</div>
-<p>A recurring assumption in LOB research is that more features and model diversity should improve predictive performance. The data suggests otherwise on both counts.</p>
-<p>Working with 12,165 LOB sequences (12.1M timesteps), we found that a unidirectional GRU trained on 53 basic features achieves statistically equivalent performance to one trained on 219 engineered features — rolling statistics, EMAs, lag/difference transforms included. The recurrent hidden state appears to implicitly learn what the feature engineering pipeline was trying to make explicit. We call this the &quot;feature sufficiency&quot; effect.</p>
-<p>The second finding is more counterintuitive: combining a sequential GRU with gradient boosting consistently degraded prediction quality. Not marginally — the negative ensemble effect held across experiments, directly contradicting the standard model-diversity argument.</p>
-<p>The proposed architecture, DA-BiGRU-CNN, addresses a different problem: structural separation. Price and volume channels in a LOB carry distinct microstructure signals, and routing them through dedicated bidirectional GRU encoders before fusing via a multi-scale convolutional bottleneck (kernels 3, 5, 7) is a principled way to respect that. The GRU baseline alone achieves a weighted Pearson correlation of 0.266, outperforming LightGBM by 58%.</p>
-<p>These results apply across centralized and on-chain LOB venues — the microstructure assumptions are the same.</p>
-<p>Full paper: <a href="https://doi.org/10.6084/m9.figshare.31859557">https://doi.org/10.6084/m9.figshare.31859557</a></p>
-<p>#QuantFinance #DeFi #ML</p>
+<figure class="hero"><img src="assets/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.svg" alt="Bar chart comparing weighted Pearson correlation: GRU with 53 features scores 0.266 versus LightGBM at approximately 0.168, a 58% difference, on 12,165 LOB sequences"></figure>
+<p>A common assumption in applied ML: more features and ensemble diversity improve generalization. Two findings in this LOB work challenge that directly.</p>
+<p>We trained models on limit order book data — 12,165 sequences, 12.1M timesteps — to predict short-term mid-price movements. First, a unidirectional GRU with 53 raw features achieves statistically equivalent performance to one trained on 219 engineered features (rolling statistics, exponential moving averages, lag/difference transforms). The recurrent hidden state appears to implicitly learn the same temporal structure that hand-crafted features encode explicitly — a &quot;feature sufficiency&quot; effect worth taking seriously before investing in feature pipelines.</p>
+<p>Second, combining a GRU with LightGBM consistently degraded prediction quality — what we call a &quot;negative ensemble effect.&quot; Model diversity does not help when the components represent structurally incompatible inductive biases.</p>
+<p>Our domain-aware architecture, DA-BiGRU-CNN, addresses the problem differently: it separates price and volume into dedicated bidirectional GRU branches, then fuses representations through a multi-scale convolutional bottleneck (kernels k=3,5,7). The GRU baseline alone achieves a weighted Pearson correlation of 0.266 — 58% above LightGBM.</p>
+<p>The practical implication extends to DeFi. On-chain LOB protocols face the same microstructure dynamics with tighter latency budgets, where leaner architectures carry real operational value.</p>
+<p><a href="https://doi.org/10.6084/m9.figshare.31859557">https://doi.org/10.6084/m9.figshare.31859557</a></p>
+<p>#QuantFinance #ML #DeFi</p>
 <footer>&copy; Sergei Solovev &middot;
  <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
  <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
