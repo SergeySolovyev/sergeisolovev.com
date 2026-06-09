@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019) | Sergei Solovev</title>
+<meta name="description" content="A common assumption in document AI is that end-to-end models are simply better than cascaded OCR pipelines. The data from this comparison suggest the picture is more nuanced. Evalu">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)">
+<meta property="og:description" content="A common assumption in document AI is that end-to-end models are simply better than cascaded OCR pipelines. The data from this comparison suggest the picture is more nuanced. Evalu">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html">
+<meta property="og:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-06-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)">
+<meta name="twitter:description" content="A common assumption in document AI is that end-to-end models are simply better than cascaded OCR pipelines. The data from this comparison suggest the picture is more nuanced. Evalu">
+<meta name="twitter:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)", "author": {"@type": "Person", "name": "Sergei Solovev", "url": "https://sergeisolovev.com"}, "datePublished": "2026-06-09", "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html"}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)</h1>
+<div class="meta">2026-06-09 &middot; Sergei Solovev, HSE University</div>
+<p>A common assumption in document AI is that end-to-end models are simply better than cascaded OCR pipelines. The data from this comparison suggest the picture is more nuanced.</p>
+<p>Evaluating EasyOCR-based extraction against fine-tuned Donut on the ICDAR 2019 SROIE benchmark — 80 validation receipts, three target fields (vendor, date, total) — neither paradigm dominates. Donut achieves higher overall micro-F1 (0.75 vs. 0.63), but the OCR pipeline outperforms it specifically on date extraction (F1 = 0.78 vs. 0.63), where regex patterns over a closed vocabulary are simply more reliable than learned generation.</p>
+<p>The more actionable finding: a 12-category error taxonomy shows the two systems fail on largely non-overlapping document subsets (Pearson r = 0.30). That low failure correlation is a direct argument for ensemble strategies rather than treating the paradigm choice as binary.</p>
+<p>On corrupted images, Donut degrades less sharply (ΔF1 = −0.12 vs. −0.17), consistent with the theoretical expectation that errors compound across stages in multi-step systems.</p>
+<p>For anyone building document extraction pipelines — invoices, financial records, RAG ingestion of unstructured documents — the practical takeaway is that field type and corruption profile matter more than paradigm when making the architecture decision. Code, data, and trained checkpoints are publicly available.</p>
+<p><a href="https://doi.org/10.6084/m9.figshare.31430086">https://doi.org/10.6084/m9.figshare.31430086</a></p>
+<p>#ML #RAG #AIagents</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
