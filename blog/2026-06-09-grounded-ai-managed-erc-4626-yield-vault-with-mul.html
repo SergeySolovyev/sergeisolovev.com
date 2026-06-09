@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making | Sergei Solovev</title>
+<meta name="description" content="Most yield optimisers pick the protocol with the highest APY and call it done. That single-metric approach ignores risk, gas costs, and rate volatility — factors that matter the mo">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making">
+<meta property="og:description" content="Most yield optimisers pick the protocol with the highest APY and call it done. That single-metric approach ignores risk, gas costs, and rate volatility — factors that matter the mo">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html">
+<meta property="og:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-06-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making">
+<meta name="twitter:description" content="Most yield optimisers pick the protocol with the highest APY and call it done. That single-metric approach ignores risk, gas costs, and rate volatility — factors that matter the mo">
+<meta name="twitter:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making", "author": {"@type": "Person", "name": "Sergei Solovev", "url": "https://sergeisolovev.com"}, "datePublished": "2026-06-09", "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html"}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making</h1>
+<div class="meta">2026-06-09 &middot; Sergei Solovev, HSE University</div>
+<p>Most yield optimisers pick the protocol with the highest APY and call it done. That single-metric approach ignores risk, gas costs, and rate volatility — factors that matter the moment market conditions shift.</p>
+<p>In this paper I formalise the alternative: an off-chain Python agent applies Multi-Criteria Decision Making with weighted scoring across four dimensions — yield, risk, cost-efficiency, and stability — then signs each rebalance decision with EIP-712 typed data before submitting it on-chain. The result is a hybrid ERC-4626 vault that routes USDC between Aave V3 and Compound V3 with every allocation decision cryptographically verifiable on-chain.</p>
+<p>The safety question is where I spent the most effort. Invariant testing ran 76,800+ randomised function calls against the contract with zero violations. The system also includes a Chainlink Automation fallback to preserve liveness if the agent is unavailable. The full system is deployed and validated on Ethereum Sepolia.</p>
+<p>The practical implication: MCDM lets you encode explicit, auditable trade-offs rather than embedding them implicitly in code logic. When regulators or counterparties ask why the vault moved funds, there is a signed, verifiable answer on-chain — not a black box.</p>
+<p>Paper: <a href="https://doi.org/10.6084/m9.figshare.32141167">https://doi.org/10.6084/m9.figshare.32141167</a></p>
+<p>#DeFi #AIagents #SmartContracts</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
