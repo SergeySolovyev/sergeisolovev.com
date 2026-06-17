@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw — Skills</title>
+<style>
+  :root{ --bg:#0f1623; --panel:#1a2233; --panel2:#141b29; --gold:#b38a5a; --txt:#e8edf5; --dim:#9aa6b8; --line:#2a3447;
+         --t1:#34d399; --t2:#fbbf24; --t3:#f87171; }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(160deg,#0f1623,#0a0f18);color:var(--txt);
+       font-family:"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.45;padding:32px 28px 80px}
+  h1{margin:0 0 2px;font-size:30px;font-weight:800}
+  h1 .rocket{margin-right:8px}
+  .sub{color:var(--dim);font-size:14px;margin-bottom:6px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 28px;font-size:12.5px;color:var(--dim)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .cat{margin:30px 0 10px;font-size:18px;font-weight:700;border-left:4px solid var(--gold);padding-left:10px}
+  .cat small{color:var(--dim);font-weight:400;margin-left:8px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card h3{margin:0 0 4px;font-size:15.5px;font-family:ui-monospace,Menlo,Consolas,monospace;color:#cfe0ff}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .b{font-size:10.5px;padding:2px 8px;border-radius:999px;font-weight:700;letter-spacing:.3px}
+  .b.t1{background:rgba(52,211,153,.16);color:var(--t1)}
+  .b.t2{background:rgba(251,191,36,.16);color:var(--t2)}
+  .b.t3{background:rgba(248,113,113,.16);color:var(--t3)}
+  .b.noll{background:rgba(154,166,184,.15);color:var(--dim)}
+  .b.ver{background:rgba(179,138,90,.16);color:var(--gold)}
+  .desc{font-size:13px;color:#c7d2e0;white-space:pre-wrap;margin-bottom:10px}
+  .meta{font-size:11.5px;color:var(--dim);border-top:1px solid var(--line);padding-top:9px}
+  .meta b{color:#b9c4d6;font-weight:600}
+  .tools code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin:2px 3px 0 0;
+              display:inline-block;font-size:11px;color:#a9d3c7}
+  .flow{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:6px 0 8px;font-size:13px;color:#c7d2e0}
+  .flow b{color:var(--gold)}
+</style>
+</head>
+<body>
+  <h1><span class="rocket">🦾</span>OpenClaw — Skills</h1>
+  <div class="sub">Декларативные YAML-скилы агента бренда (<code>/opt/brand-agent/skills/</code> на DigitalOcean-дроплете). 18 скиллов · 9 категорий.</div>
+  <div class="flow">Поток: <b>strategy</b> → <b>discovery</b> находит → <b>composition</b> пишет → <b>escalation</b>/human_approval ждёт твой тап → <b>action</b> публикует → <b>monitoring</b> смотрит отклик → <b>memory</b> учится.</div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--t3)"></i> Tier 3 — всегда human approval</span>
+    <span><i class="dot" style="background:var(--t2)"></i> Tier 2 — Critic-gated</span>
+    <span><i class="dot" style="background:var(--t1)"></i> Tier 1 — low-stakes</span>
+    <span><i class="dot" style="background:var(--dim)"></i> no-LLM / internal</span>
+  </div>
+  <div id="app"></div>
+
+<script>
+const SKILLS = [{"category": "action", "name": "publish_blog_post", "version": "1.0.0", "description": "Publish an approved blog post draft to sergeisolovev.com via GitHub PR.\nCreates a new branch, commits the draft to /blog/, opens a PR.\nTier 2: requires Critic PASS verdict on the draft; Sergei sees PR\nnotification and can review/merge or revert.", "duration": 30, "cost": 0.0, "tools": ["filesystem (read draft)", "github_mcp (create PR)", "git (local clone of blog repo)"], "inputs": ["draft_path", "critic_verdict"]}, {"category": "action", "name": "publish_linkedin", "version": "1.0.0", "description": "Publish an approved LinkedIn draft via Browser-Use. Uses authenticated session (cookies persisted in encrypted volume). Always requires explicit /approve verdict from Sergei via Telegram bot before firing.\n\nCaptures screenshot of published post for audit trail. Records URL.", "duration": 60, "cost": "0.05-0.15", "tools": ["browser-use", "filesystem", "sqlite", "secret:LINKEDIN_SESSION_COOKIES"], "inputs": ["draft_path", "include_first_comment"]}, {"category": "action", "name": "publish_telegram", "version": "1.0.0", "description": "Publish an approved draft to Sergei's Telegram channel via Bot API. Records publication URL, ID, timestamp. Idempotent — skips if same draft_path already published.", "duration": 8, "cost": 0.0, "tools": ["http", "filesystem", "sqlite", "secret:TELEGRAM_BOT_TOKEN"], "inputs": ["draft_path", "channel", "disable_web_page_preview", "pin_message"]}, {"category": "action", "name": "publish_x_thread", "version": "1.0.0", "description": "Publish an approved X (Twitter) thread via Browser-Use. Posts tweet 1, then each subsequent tweet as a reply to the previous. Captures the thread URL.\n\nAuth method: persistent cookies (refreshed manually quarterly). No paid X API needed — Browser-Use drives the standard web UI.", "duration": 90, "cost": "0.08-0.20", "tools": ["browser-use", "filesystem", "sqlite", "secret:X_SESSION_COOKIES"], "inputs": ["draft_path"]}, {"category": "composition", "name": "compose_blog_post", "version": "1.0.0", "description": "Draft a long-form technical blog post for sergeisolovev.com/blog/. Output is a Markdown file with frontmatter, ready for Critic review. Composer persona handles the actual drafting per personas/composer.md.", "duration": 90, "cost": "0.05-0.12", "tools": ["browser_use (verify source URLs)", "filesystem (write draft)", "sqlite (read knowledge_base)", "llm:claude-sonnet-4-5"], "inputs": ["topic", "target_audience", "sources", "hook_angle", "length_words"]}, {"category": "composition", "name": "compose_linkedin", "version": "1.0.0", "description": "Draft a LinkedIn post (200-400 words) in Sergei's professional voice. Output goes to data/drafts/, queued for Critic review, then Tier 3 human approval in Telegram before browser-driven publication.", "duration": 30, "cost": "0.02-0.05", "tools": ["filesystem", "sqlite", "llm:claude-sonnet-4-5"], "inputs": ["topic", "hook", "target_audience", "sources", "hashtags_seed"]}, {"category": "composition", "name": "compose_telegram_ru", "version": "1.0.0", "description": "Draft a Russian-language Telegram channel post (100-200 words). Casual but technically precise. Goes through Critic review before publish (Tier 2 by default; Tier 1 if explicitly marked low-stakes by Strategist).", "duration": 25, "cost": "0.015-0.04", "tools": ["filesystem", "sqlite", "llm:claude-sonnet-4-5"], "inputs": ["topic", "angle", "source_links", "tier_override"]}, {"category": "composition", "name": "compose_x_thread", "version": "1.0.0", "description": "Draft a 5-10 tweet X (Twitter) thread in English. Hook-first style: first tweet must stop the scroll without clickbait. Technical depth appropriate for DeFi/AI engineering audience.\n\nTier 3 — always requires human approval before browser-driven publish (X is high-stakes for commercial brand; mistakes are screen-shotted).", "duration": 40, "cost": "0.03-0.07", "tools": ["filesystem", "sqlite", "llm:claude-sonnet-4-5"], "inputs": ["topic", "hook_angle", "source_links", "max_tweets"]}, {"category": "discovery", "name": "scan_cfp_calls", "version": "1.0.0", "description": "Aggregate CFPs (Call-For-Papers) and submission deadlines across AI/ML/DeFi/security/finance venues. Sources: AI Deadlines, WikiCFP, arXiv, dblp, easychair, Russian sources. Match score uses overlap between Sergei's topics (RAG, smart contracts, LOB, document AI, MCDM) and CFP scope.", "duration": 150, "cost": "0.00-0.20", "tools": ["http", "browser-use", "sqlite"], "inputs": ["max_deadline_days", "min_deadline_days", "tracks_of_interest", "venue_quality_min", "include_russian_journals"]}, {"category": "discovery", "name": "scan_grants", "version": "1.0.0", "description": "Discover open grant calls relevant to Sergei's research portfolio (DeFi security, RAG evaluation, MCDM, LOB prediction, document AI). Aggregates EU/RU/ETH/Russian innovation programs. Computes a match score per grant. NO-LLM monitor by default; if enable_scoring, calls Haiku to score relevance.", "duration": 180, "cost": "0.00-0.30", "tools": ["browser-use", "http", "sqlite", "llm:claude-haiku-4-5"], "inputs": ["keyword_seeds", "max_deadline_days", "min_deadline_days", "enable_scoring", "sources"]}, {"category": "discovery", "name": "scan_hackathons", "version": "1.0.0", "description": "Discover upcoming hackathons aligned with Sergei's portfolio (DeFi, smart contracts, AI/ML, ZK, RAG). Polls ETHGlobal, Devpost, DoraHacks, Encode Club + Russian sources (Yandex Cup, T-Bank, MTS). Filters by alignment, prize pool, remote vs in-person, registration deadline.", "duration": 120, "cost": 0.0, "tools": ["browser-use", "http", "sqlite"], "inputs": ["max_days_until_start", "max_days_until_registration_close", "keyword_seeds", "prize_threshold_usd", "include_russian"]}, {"category": "engagement", "name": "reply_to_mention", "version": "1.0.0", "description": "Compose a reply to an inbound mention on LinkedIn / X / GitHub. Reads the context, drafts a thoughtful reply that adds value (not just acknowledgement).\n\nALL replies Tier 3 — engagement carries reputational risk. Human approves verbatim.", "duration": 35, "cost": "0.04-0.08", "tools": ["browser-use", "filesystem", "sqlite", "llm:claude-sonnet-4-5"], "inputs": ["mention_url", "platform", "parent_context", "reply_intent"]}, {"category": "escalation", "name": "emit_critical_event", "version": "1.0.0", "description": "Emit an event with severity-based dual-channel routing.\nHard contract: (1) ALWAYS git commit first (durable record even if Telegram fails); (2) THEN telegram push; (3) CRITICAL: retry telegram every 30 min until /ack; (4) HIGH/CRITICAL: append to audit/events.jsonl.\nGit-first: Telegram is best-effort, git is source of truth.", "duration": 4, "cost": 0.0, "tools": ["filesystem", "sqlite", "http", "secret:TELEGRAM_BOT_TOKEN", "secret:REPORTS_REPO_DEPLOY_KEY"], "inputs": ["kind", "severity", "title", "body", "slug", "suggested_actions"]}, {"category": "escalation", "name": "human_approval", "version": "1.0.0", "description": "Tier 3 approval gate via Telegram inline keyboard. Sends draft to Sergei, waits up to N hours for /approve, /reject, or /revise <feedback>. On approve, invokes the channel-specific publish skill. On revise, sends back to Composer with the feedback string.", "duration": "variable", "cost": 0.0, "tools": ["telegram (send + receive)", "sqlite (track approval queue state)"], "inputs": ["draft_path", "channel", "critic_verdict", "timeout_hours", "reminder_after_hours"]}, {"category": "memory", "name": "learn_pattern", "version": "1.0.0", "description": "Persistent pattern memory. When a draft lands well or fails, extracts the lesson and stores it. Downstream skills read matching patterns when drafting/reviewing.\nTypes captured: voice · structure · taboo · timing.\nHybrid search: SQL exact tag match + LLM-judged semantic match.", "duration": 12, "cost": "0.005-0.02", "tools": ["filesystem", "sqlite", "llm:claude-haiku-4-5"], "inputs": ["action", "pattern_type", "source_draft_path", "outcome", "query", "top_k"]}, {"category": "monitoring", "name": "check_inbound_mentions", "version": "1.0.0", "description": "Search for inbound mentions of Sergei Solovev, his DOIs, and his repo names. Queue each unique mention as a 'potential reply' event for the Engagement layer.\nNO-LLM detection (search queries + dedup).", "duration": 75, "cost": 0.0, "tools": ["http", "browser-use", "sqlite"], "inputs": ["query_seeds", "lookback_hours"]}, {"category": "monitoring", "name": "check_research_visibility", "version": "1.0.0", "description": "Browser-tour through Sergei's research-visibility surface. Reads OpenAlex author page, GitHub repos, figshare author profile. Emits structured events to state.sqlite for the Strategist.\nNO-LLM — pure HTTP/browser navigation + diff against last snapshot.", "duration": 60, "cost": 0.0, "tools": ["http (read-only)", "sqlite (read snapshot + write events)"], "inputs": ["openalex_author_id", "github_username", "figshare_author_id", "lookback_hours"]}, {"category": "reporting", "name": "weekly_digest", "version": "1.0.0", "description": "Compose and deliver Sergei's weekly brand pulse: what happened across all monitoring sources + discoveries + publishes + remaining tasks.\nOutput: Markdown digest to Telegram private chat + commit to data/digests/YYYY-WW.md.", "duration": 60, "cost": "0.04-0.08", "tools": ["sqlite", "filesystem", "http", "llm:claude-haiku-4-5", "secret:TELEGRAM_BOT_TOKEN"], "inputs": ["lookback_days", "include_charts"]}, {"category": "strategy", "name": "office_hours", "version": "1.0.0", "description": "Pre-content YC-style forcing-questions session. Run BEFORE Composer drafts. Reframes 'what should I post?' to 'what pain am I solving for whom — and is this the narrowest wedge?'\nOutput: a strategy brief for Composer, OR a 'this idea is weak, kill it' verdict.\nModes: challenge_mode (adversarial) · generative_mode (expand validated direction into 3-5 posts).", "duration": 60, "cost": "0.06-0.12", "tools": ["filesystem", "sqlite", "llm:claude-sonnet-4-5"], "inputs": ["raw_request", "mode", "target_audience_hint"]}];
+
+const CATS = {
+  strategy:{icon:"🎯",label:"strategy — стратег/планировщик"},
+  discovery:{icon:"🔭",label:"discovery — поиск возможностей"},
+  composition:{icon:"✍️",label:"composition — черновики контента"},
+  escalation:{icon:"🚨",label:"escalation — эскалация и HITL-гейт"},
+  action:{icon:"📤",label:"action — публикация (под approval)"},
+  engagement:{icon:"💬",label:"engagement — ответы на упоминания"},
+  monitoring:{icon:"📡",label:"monitoring — наблюдение за откликом"},
+  memory:{icon:"🧠",label:"memory — обучение на опыте"},
+  reporting:{icon:"📊",label:"reporting — отчётность"},
+};
+const ORDER = ["strategy","discovery","composition","escalation","action","engagement","monitoring","memory","reporting"];
+
+function tierBadge(s){
+  const m = (s.description||"").match(/Tier\s*([123])/i);
+  const isLLM = (s.tools||[]).some(t=>/llm/i.test(t));
+  if(m) return `<span class="b t${m[1]}">TIER ${m[1]}</span>`;
+  if(!isLLM) return `<span class="b noll">NO-LLM</span>`;
+  return "";
+}
+function esc(x){return (x||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+const app = document.getElementById("app");
+ORDER.forEach(cat=>{
+  const items = SKILLS.filter(s=>s.category===cat);
+  if(!items.length) return;
+  const c = CATS[cat]||{icon:"•",label:cat};
+  const sec = document.createElement("div");
+  sec.innerHTML = `<div class="cat">${c.icon} ${esc(c.label)} <small>${items.length}</small></div>`;
+  const grid = document.createElement("div"); grid.className="grid";
+  items.forEach(s=>{
+    const tools = (s.tools||[]).map(t=>`<code>${esc(String(t))}</code>`).join(" ");
+    const cost = (s.cost===0||s.cost==="0"||s.cost===0.0)?"free":("$"+s.cost);
+    const dur = (typeof s.duration==="number")?(s.duration+"s"):esc(String(s.duration));
+    const card = document.createElement("div"); card.className="card";
+    card.innerHTML = `
+      <h3>${esc(s.name)}</h3>
+      <div class="badges">${tierBadge(s)}<span class="b ver">v${esc(s.version||"")}</span></div>
+      <div class="desc">${esc(s.description)}</div>
+      <div class="meta tools"><b>tools:</b> ${tools}</div>
+      <div class="meta"><b>inputs:</b> ${esc((s.inputs||[]).join(", ")||"—")}</div>
+      <div class="meta"><b>~time:</b> ${dur} &nbsp;·&nbsp; <b>~cost:</b> ${esc(String(cost))}</div>`;
+    grid.appendChild(card);
+  });
+  sec.appendChild(grid);
+  app.appendChild(sec);
+});
+</script>
+</body>
+</html>
