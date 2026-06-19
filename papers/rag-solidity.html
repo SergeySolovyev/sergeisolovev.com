@@ -166,6 +166,37 @@
                 <p>Empirical study showing a sample-size sign reversal in naive RAG for Solidity vulnerability detection: +2.0% Macro-F1 at n=100 flips to -2.7% at n=250 on SolidiFI. Argues for bootstrap confidence intervals in any RAG evaluation.</p>
             </section>
 
+            <section class="abstract">
+                <h2>Key questions</h2>
+                <p><strong>Q. Does RAG improve LLM detection of Solidity smart-contract vulnerabilities?</strong><br>Not reliably. On the SolidiFI benchmark, naive RAG improved Macro-F1 by +2.0% at n=100, but the gain reversed to −2.7% at n=250 — a sample-size sign reversal within noise. The paper argues any RAG evaluation must report bootstrap confidence intervals before claiming an improvement.</p>
+                <p><strong>Q. Why can a measured RAG improvement disappear with more test data?</strong><br>A small test set can show an apparent gain that shrinks or reverses as the sample grows; without confidence intervals it is indistinguishable from noise. This study demonstrates the effect directly on Solidity vulnerability detection.</p>
+            </section>
+
+            <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does RAG improve LLM detection of Solidity smart-contract vulnerabilities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not reliably. On the SolidiFI benchmark, naive RAG improved Macro-F1 by +2.0% at n=100, but the gain reversed to −2.7% at n=250 — a sample-size sign reversal within noise. The paper argues any RAG evaluation must report bootstrap confidence intervals before claiming an improvement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can a measured RAG improvement disappear with more test data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A small test set can show an apparent gain that shrinks or reverses as the sample grows; without confidence intervals it is indistinguishable from noise. This study demonstrates the effect directly on Solidity vulnerability detection."
+      }
+    }
+  ]
+}
+            </script>
+
             <p class="keywords"><strong>Keywords:</strong> smart contract security; retrieval-augmented generation; Solidity; vulnerability detection; bootstrap confidence intervals</p>
 
             <nav>

@@ -166,6 +166,37 @@
                 <p>XGBoost + Optuna on 117,091 Slither-labelled Ethereum contracts achieves F1=0.948 using 65 hand-crafted bytecode features in 15 SWC-mapped semantic categories. Binary classification: recall 0.950, MCC 0.832, PR-AUC 0.990.</p>
             </section>
 
+            <section class="abstract">
+                <h2>Key questions</h2>
+                <p><strong>Q. Can machine learning detect Ethereum smart-contract vulnerabilities from bytecode alone?</strong><br>Yes. An XGBoost model tuned with Optuna on 117,091 Slither-labelled contracts reached F1 = 0.948 using 65 hand-crafted EVM-bytecode features across 15 SWC-mapped categories (recall 0.950, MCC 0.832, PR-AUC 0.990).</p>
+                <p><strong>Q. Do you need verified source code to screen a contract for vulnerabilities?</strong><br>No. These results rely on EVM-bytecode features only, so deployed contracts can be triaged without access to verified source code.</p>
+            </section>
+
+            <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can machine learning detect Ethereum smart-contract vulnerabilities from bytecode alone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. An XGBoost model tuned with Optuna on 117,091 Slither-labelled contracts reached F1 = 0.948 using 65 hand-crafted EVM-bytecode features across 15 SWC-mapped categories (recall 0.950, MCC 0.832, PR-AUC 0.990)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need verified source code to screen a contract for vulnerabilities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. These results rely on EVM-bytecode features only, so deployed contracts can be triaged without access to verified source code."
+      }
+    }
+  ]
+}
+            </script>
+
             <p class="keywords"><strong>Keywords:</strong> smart contract security; EVM bytecode; XGBoost; Optuna; Slither labels; binary classification; SWC categories</p>
 
             <nav>

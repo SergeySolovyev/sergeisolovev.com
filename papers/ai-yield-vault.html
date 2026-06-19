@@ -166,6 +166,37 @@
                 <p>Autonomous AI agent managing an ERC-4626 yield vault via MCDM scoring (APY/Risk/Cost/Stability). EIP-712 signed decisions, UUPS-upgradeable, 67 unit tests, 76,800+ invariant calls with zero violations. Sepolia deployment included.</p>
             </section>
 
+            <section class="abstract">
+                <h2>Key questions</h2>
+                <p><strong>Q. Can an autonomous AI agent safely manage an ERC-4626 DeFi yield vault?</strong><br>The paper implements one that selects strategies via multi-criteria decision-making (APY, Risk, Cost, Stability), commits each decision with an EIP-712 signature, and is UUPS-upgradeable. It passed 67 unit tests and 76,800+ invariant/fuzz calls with zero violations, with a Sepolia testnet deployment.</p>
+                <p><strong>Q. How are an on-chain AI agent&#x27;s decisions made auditable and trustworthy?</strong><br>Each decision is EIP-712 signed (verifiable on-chain), and the vault is hardened by invariant testing — 76,800+ calls with zero violations in this work.</p>
+            </section>
+
+            <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can an autonomous AI agent safely manage an ERC-4626 DeFi yield vault?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The paper implements one that selects strategies via multi-criteria decision-making (APY, Risk, Cost, Stability), commits each decision with an EIP-712 signature, and is UUPS-upgradeable. It passed 67 unit tests and 76,800+ invariant/fuzz calls with zero violations, with a Sepolia testnet deployment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are an on-chain AI agent's decisions made auditable and trustworthy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each decision is EIP-712 signed (verifiable on-chain), and the vault is hardened by invariant testing — 76,800+ calls with zero violations in this work."
+      }
+    }
+  ]
+}
+            </script>
+
             <p class="keywords"><strong>Keywords:</strong> decentralized finance; ERC-4626; ERC-712; multi-criteria decision making; formal verification; invariant testing; autonomous agent</p>
 
             <nav>
