@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "purpose": "Source of truth for the homepage News section (newest 6, rolling) + /news.html (all). Add newest items to the TOP of items[], then run news_publisher.py. English only; use the canonical name 'Sergei Solovev'.",
+    "author": "Sergei Solovev"
+  },
+  "items": [
+    {
+      "date": "2026-06-19",
+      "display": "Jun 19, 2026",
+      "title": "Panelist — Pro Markets (ACI Russia): Bank of Russia key rate",
+      "desc": "Live panel on the Bank of Russia key-rate decision. Panelists: Igor Safonov, Daria Tarasenko, Sergei Solovev, Dmitry Polevoy. Moderator: Pavel Pikulev.",
+      "source": "ACI Russia",
+      "url": ""
+    }
+  ]
+}
