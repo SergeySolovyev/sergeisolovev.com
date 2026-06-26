@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sergei Solovev — research blog</title>
+  <link href="https://sergeisolovev.com/blog/feed.xml" rel="self"/>
+  <link href="https://sergeisolovev.com/blog/"/>
+  <id>https://sergeisolovev.com/blog/</id>
+  <updated>2026-06-26T00:00:00Z</updated>
+  <entry>
+    <title>2026-06-26-when-less-is-more-domain-aware</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html</id>
+    <updated>2026-06-26T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>2026-06-22-machine-learning-based-vulnerability-detection-in</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-22-machine-learning-based-vulnerability-detection-in.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-22-machine-learning-based-vulnerability-detection-in.html</id>
+    <updated>2026-06-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>2026-06-15-ai-yield-vault</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html</id>
+    <updated>2026-06-15T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html</id>
+    <updated>2026-06-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html</id>
+    <updated>2026-06-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-09-grounded-machine-learning-based-vulnerability-det.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-09-grounded-machine-learning-based-vulnerability-det.html</id>
+    <updated>2026-06-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html</id>
+    <updated>2026-06-09T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>When Retrieval Hurts: where RAG actively degrades Solidity vulnerability detection</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-06-when-retrieval-hurts-where-rag-actively.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-06-when-retrieval-hurts-where-rag-actively.html</id>
+    <updated>2026-06-06T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>I built RAG for Solidity vuln detection — then proved it often makes things worse</title>
+    <link href="https://sergeisolovev.com/blog/2026-06-03-i-built-rag-for-solidity-vuln-detection.html"/>
+    <id>https://sergeisolovev.com/blog/2026-06-03-i-built-rag-for-solidity-vuln-detection.html</id>
+    <updated>2026-06-03T00:00:00Z</updated>
+  </entry>
+</feed>
