@@ -1,0 +1,53 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Sergei Solovev - research blog",
+  "home_page_url": "https://sergeisolovev.com/blog/",
+  "feed_url": "https://sergeisolovev.com/feed.json",
+  "items": [
+    {
+      "title": "2026-06-26-when-less-is-more-domain-aware",
+      "url": "https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html",
+      "date_published": "2026-06-26T00:00:00Z"
+    },
+    {
+      "title": "2026-06-22-machine-learning-based-vulnerability-detection-in",
+      "url": "https://sergeisolovev.com/blog/2026-06-22-machine-learning-based-vulnerability-detection-in.html",
+      "date_published": "2026-06-22T00:00:00Z"
+    },
+    {
+      "title": "2026-06-15-ai-yield-vault",
+      "url": "https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html",
+      "date_published": "2026-06-15T00:00:00Z"
+    },
+    {
+      "title": "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction",
+      "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html",
+      "date_published": "2026-06-09T00:00:00Z"
+    },
+    {
+      "title": "OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)",
+      "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html",
+      "date_published": "2026-06-09T00:00:00Z"
+    },
+    {
+      "title": "Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering",
+      "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-machine-learning-based-vulnerability-det.html",
+      "date_published": "2026-06-09T00:00:00Z"
+    },
+    {
+      "title": "AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making",
+      "url": "https://sergeisolovev.com/blog/2026-06-09-grounded-ai-managed-erc-4626-yield-vault-with-mul.html",
+      "date_published": "2026-06-09T00:00:00Z"
+    },
+    {
+      "title": "When Retrieval Hurts: where RAG actively degrades Solidity vulnerability detection",
+      "url": "https://sergeisolovev.com/blog/2026-06-06-when-retrieval-hurts-where-rag-actively.html",
+      "date_published": "2026-06-06T00:00:00Z"
+    },
+    {
+      "title": "I built RAG for Solidity vuln detection — then proved it often makes things worse",
+      "url": "https://sergeisolovev.com/blog/2026-06-03-i-built-rag-for-solidity-vuln-detection.html",
+      "date_published": "2026-06-03T00:00:00Z"
+    }
+  ]
+}
