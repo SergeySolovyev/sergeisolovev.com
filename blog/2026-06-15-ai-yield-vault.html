@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-15-ai-yield-vault | Sergei Solovev</title>
+<meta name="description" content="```markdown --- title: &quot;ML-Driven Strategy Selection for ERC-4626 Vaults: A Classifier Approach to Yield Routing&quot; date: 2026-06-15 slug: ai-yield-vault meta_description: &quot;How ML cl">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="2026-06-15-ai-yield-vault">
+<meta property="og:description" content="```markdown --- title: &quot;ML-Driven Strategy Selection for ERC-4626 Vaults: A Classifier Approach to Yield Routing&quot; date: 2026-06-15 slug: ai-yield-vault meta_description: &quot;How ML cl">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-06-15-ai-yield-vault.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-06-15">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-06-15-ai-yield-vault">
+<meta name="twitter:description" content="```markdown --- title: &quot;ML-Driven Strategy Selection for ERC-4626 Vaults: A Classifier Approach to Yield Routing&quot; date: 2026-06-15 slug: ai-yield-vault meta_description: &quot;How ML cl">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-06-15-ai-yield-vault.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "2026-06-15-ai-yield-vault", "image": "https://sergeisolovev.com/blog/assets/2026-06-15-ai-yield-vault.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-06-15", "url": "https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html"}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>2026-06-15-ai-yield-vault</h1>
+<div class="meta">2026-06-15 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-06-15-ai-yield-vault.svg" alt="Title card for ML-Driven Strategy Selection for ERC-4626 Vaults post"></figure>
+<p>```markdown<br>---<br>title: &quot;ML-Driven Strategy Selection for ERC-4626 Vaults: A Classifier Approach to Yield Routing&quot;<br>date: 2026-06-15<br>slug: ai-yield-vault<br>meta_description: &quot;How ML classifiers trained on yield curves, gas prices, and protocol risk metrics can automate capital routing in ERC-4626 yield vaults.&quot;<br>tags: [DeFi, ERC-4626, ML, yield-optimization, MCDM]<br>canonical_doi: 10.6084/m9.figshare.32141167<br>---</p>
+<h2>The Problem Nobody Wants to Admit</h2>
+<p>Most yield vaults in production today are governed by manually tuned heuristics or governance votes that update weekly at best. The people writing those heuristics are smart, but the market is faster. Gas prices spike in the middle of a rebalance window, a lending protocol&#x27;s utilization hits 95% and APY collapses, a new incentive program launches on a competing pool — and the vault just sits there, locked into whatever allocation passed the last snapshot vote. The opportunity cost is systematic and largely invisible, buried in APY underperformance that users attribute to &quot;market conditions.&quot; The real cause is that strategy selection in multi-source yield vaults is a latency and dimensionality problem that discretionary governance cannot solve at runtime. This paper is my attempt to formalize what a machine learning layer on top of ERC-4626 actually looks like, and where it breaks.</p>
+<h2>What We Built and Why ERC-4626</h2>
+<p>ERC-4626 is the tokenized vault standard. It standardizes the interface for depositing assets, minting shares, and redeeming underlying — which means any compliant vault can slot into the same aggregation infrastructure. That composability is exactly what makes multi-strategy routing tractable: you have a well-defined set of yield sources, each exposing the same function signatures, and the vault&#x27;s job is to decide how much capital to allocate to each of them at any given moment.</p>
+<p>The core contribution of this work is training a set of classifiers to make that allocation decision. The input feature space covers three domains: historical yield curves for each candidate strategy (rolling windows of realized APY, volatility, and drawdown), gas price time series (since rebalancing costs destroy alpha on small positions or during high-congestion periods), and protocol risk metrics (TVL concentration, audit recency, oracle dependency, governance token distribution). None of these inputs are exotic — they are available on-chain or through standard data providers. What the classifier adds is a learned mapping from this feature vector to a discrete allocation decision: route to strategy A, strategy B, or a mixed allocation across a predefined set.</p>
+<p>The training procedure treats this as a supervised classification problem. We construct labels from historical data by asking, in hindsight, which strategy would have produced the best risk-adjusted return over the next epoch given the conditions at decision time. That label generation is the most brittle part of the pipeline, and I will come back to it in the limitations section. We tested gradient boosted trees, random forests, and a lightweight feedforward network. GBT won on the validation set across most configurations — not surprising given the tabular structure of the feature space and the relatively small dataset sizes available for any single protocol.</p>
+<h2>Where MCDM Comes In</h2>
+<p>Pure return maximization is wrong for a vault. Sophisticated depositors care about drawdown risk, smart contract exposure, and liquidity — they are not just buying APY. We encode these preferences as a multi-criteria decision-making objective: the classifier does not simply maximize expected yield, it selects the strategy that dominates across the weighted objective space defined by the vault&#x27;s risk parameters. In practice this means the model&#x27;s output is constrained by hard limits on single-strategy concentration, minimum liquidity thresholds, and maximum acceptable protocol risk scores. The classifier proposes an allocation; the MCDM filter either passes it or falls back to the current allocation if the proposal violates any constraint.</p>
+<p>This two-stage design — learned classifier followed by rule-based constraint enforcement — is deliberate. The constraint layer is auditable and predictable, which matters for any protocol that wants to pass a security review or publish a risk disclosure. Putting risk constraints inside the model weights would make them opaque and hard to update without full retraining. Keeping them outside means a governance vote can tighten concentration limits without touching the model at all.</p>
+<h2>Why This Matters for DeFi and ML Practitioners</h2>
+<p>For the DeFi side: the model outperforms static allocation and simple APY-chasing heuristics in backtests across the protocols we evaluated. More importantly, it avoids several failure modes that pure yield-maximizers hit regularly — chief among them the gas-trap, where frequent rebalancing into marginally higher-yield strategies nets negative alpha after transaction costs. The gas price feature is load-bearing here; removing it from the feature set meaningfully degrades performance during high-congestion periods. If you are building or auditing a yield aggregator, the takeaway is that gas costs need to be first-class inputs to your routing logic, not afterthoughts.</p>
+<p>For the ML side: DeFi yield routing is an underexplored application domain with some genuinely interesting properties. The data is public and immutable. The ground truth labels are derivable from on-chain history. The production environment is adversarial in predictable ways (MEV, liquidation cascades, governance attacks). And the feedback loop between model behavior and market state is real — if enough capital uses the same routing model, the yield differentials that trained it will compress. That last property is not unique to finance, but it is particularly acute here because the capital flows are visible in real time. Any serious deployment of this architecture needs to treat model-induced market impact as a design constraint, not a side effect.</p>
+<p>The MCDM framing also has broader applicability. Multi-objective optimization under hard constraints is a common problem in portfolio construction, resource allocation, and infrastructure scheduling. The pattern of learned ranker plus rule-based constraint filter is clean and generalizable. The main contribution is not the specific model — GBT on tabular features is not novel — it is the feature engineering choices and the demonstration that this architecture produces coherent, auditable decisions in a live financial environment.</p>
+<h2>Limitations and What Comes Next</h2>
+<p>The label generation procedure assumes that the historically optimal strategy (in hindsight) is the correct training target. This is survivorship-contaminated: we only have yield history for protocols that survived. Strategies that were optimal on the training distribution and then failed due to exploits or bank runs are underrepresented in the label space, which means the model is implicitly optimistic about tail risk in ways that are hard to quantify from the outside. The protocol risk feature attempts to partially correct for this, but it is a lagging indicator by construction.</p>
+<p>The other major limitation is regime sensitivity. The classifier was trained on a specific market environment. Yield compression across DeFi, a sustained bear market, or a structural change in gas economics (EIP-7691 blob expansion, for example) could shift the feature distributions enough that the model&#x27;s learned boundaries are no longer valid. Continuous retraining mitigates this but introduces its own risks — specifically, the risk that a model trained on a recent crash learns to park everything in stablecoins and stays there. The next iteration of this work will focus on online learning approaches that can update the allocation policy incrementally without full retraining, and on out-of-distribution detection so the system knows when to fall back to a conservative default rather than extrapolate.</p>
+<p>Regulatory signal is also absent from the current feature set. Enforcement actions, OFAC designations, and jurisdictional liquidity fragmentation are increasingly material to protocol viability but are not on-chain and do not lend themselves to clean numerical encoding. That is an open problem I do not have a good answer to yet.</p>
+<p>The preprint is available at the DOI below. Code and dataset will follow in a subsequent release.</p>
+<p>---</p>
+<p>```bibtex<br>@misc{solovev2026aiyieldvault,<br>  author       = {Solovev, Sergei},<br>  title        = {{AI-Yield-Vault: ML-Driven Strategy Selection for ERC-4626 Vaults}},<br>  year         = {2026},<br>  publisher    = {figshare},<br>  doi          = {10.6084/m9.figshare.32141167},<br>  url          = {<a href="https://doi.org/10.6084/m9.figshare.32141167},">https://doi.org/10.6084/m9.figshare.32141167},</a><br>  note         = {Preprint}<br>}<br>```<br>```</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
