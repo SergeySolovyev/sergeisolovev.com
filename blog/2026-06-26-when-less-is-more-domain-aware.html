@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-26-when-less-is-more-domain-aware | Sergei Solovev</title>
+<meta name="description" content="```markdown --- title: &quot;When Less Is More: Domain-Aware Dual-Branch Networks for LOB Mid-Price Prediction&quot; date: 2026-06-26 slug: when-less-is-more-domain-aware meta_description: D">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="2026-06-26-when-less-is-more-domain-aware">
+<meta property="og:description" content="```markdown --- title: &quot;When Less Is More: Domain-Aware Dual-Branch Networks for LOB Mid-Price Prediction&quot; date: 2026-06-26 slug: when-less-is-more-domain-aware meta_description: D">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-06-26-when-less-is-more-domain-aware.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-06-26">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-06-26-when-less-is-more-domain-aware">
+<meta name="twitter:description" content="```markdown --- title: &quot;When Less Is More: Domain-Aware Dual-Branch Networks for LOB Mid-Price Prediction&quot; date: 2026-06-26 slug: when-less-is-more-domain-aware meta_description: D">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-06-26-when-less-is-more-domain-aware.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "2026-06-26-when-less-is-more-domain-aware", "image": "https://sergeisolovev.com/blog/assets/2026-06-26-when-less-is-more-domain-aware.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-06-26", "url": "https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html"}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>2026-06-26-when-less-is-more-domain-aware</h1>
+<div class="meta">2026-06-26 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-06-26-when-less-is-more-domain-aware.svg" alt="Diagram of DA-BiGRU-CNN dual-branch architecture separating price and volume streams through parallel BiGRU and CNN encoders before fusion for LOB mid-price prediction"></figure>
+<p>```markdown<br>---<br>title: &quot;When Less Is More: Domain-Aware Dual-Branch Networks for LOB Mid-Price Prediction&quot;<br>date: 2026-06-26<br>slug: when-less-is-more-domain-aware<br>meta_description: DA-BiGRU-CNN for limit order book mid-price prediction: feature sufficiency, negative ensemble effects, and domain-aware architecture. 12.1M timesteps.<br>tags: [quant]<br>canonical_doi: 10.6084/m9.figshare.31859557<br>---</p>
+<h2>When Less Is More: Domain-Aware Dual-Branch Networks for LOB Mid-Price Prediction</h2>
+<h2>The Problem</h2>
+<p>Limit order book mid-price prediction sounds like a solved problem. Throw enough features at a deep network, add a gradient boosting model to the ensemble, collect the improvement, move on. That&#x27;s the received wisdom in both the academic literature and practitioner pipelines. After running a large-scale study on 12,165 LOB sequences spanning 12.1 million timesteps, I found that received wisdom is wrong on both counts—and that the right architectural prior matters more than feature engineering volume or ensemble size.</p>
+<h2>Method</h2>
+<h2>The Architecture: DA-BiGRU-CNN</h2>
+<p>The central contribution is DA-BiGRU-CNN, a domain-aware dual-branch architecture designed around a simple observation about LOB data: price and volume carry structurally different information. Price levels encode where liquidity is anchored; volume at each level encodes how much is committed there. Feeding them through a single encoder conflates dynamics that operate on different timescales and have different statistical properties.</p>
+<p>DA-BiGRU-CNN decomposes LOB features into two dedicated branches—one for price information, one for volume information—and routes each through its own bidirectional GRU encoder. Bidirectional processing matters here because the GRU sees the full sequence in both directions before producing a representation, which helps capture asymmetries in order flow that a unidirectional scan would miss. Both branches also share a set of microstructure features, acknowledging that certain signals—spread, imbalance at the top of book—are jointly informative for both price dynamics and liquidity dynamics.</p>
+<p>After the two branches encode their respective signals, the architecture fuses temporal representations through a multi-scale convolutional bottleneck: Conv1d layers with kernels of size 3, 5, and 7. The three kernel sizes capture patterns operating at different temporal granularities simultaneously, which is important when the predictive horizon can be driven by either high-frequency microstructure noise or lower-frequency order flow trends. The bottleneck nature of this fusion layer forces the network to compress the dual-branch representations into a compact joint representation before the final prediction head—acting as a form of implicit regularization.</p>
+<p>The name &quot;domain-aware&quot; is deliberate. The architecture encodes domain knowledge about LOB structure—that price and volume are distinct feature families—directly into the model&#x27;s topology, rather than hoping a generic encoder will discover that separation on its own.</p>
+<h2>Feature Sufficiency: 53 vs. 219</h2>
+<p>The second finding is the one I expect to be most useful to practitioners, and also the most counterintuitive. I tested a unidirectional GRU trained on 53 basic LOB features against one trained on 219 extensively engineered features—a superset that includes rolling statistics, exponential moving averages, and lag/difference features. The performance difference is statistically equivalent.</p>
+<p>This is the &quot;feature sufficiency&quot; hypothesis: recurrent hidden states implicitly learn temporal patterns that feature engineering makes explicit. When you compute a rolling average, you are encoding a temporal pattern into a scalar. When a GRU processes the raw sequence long enough, its hidden state encodes the same pattern—and others you did not think to engineer. The 219-feature pipeline is doing redundant work. The 53-feature pipeline is cheaper to compute, simpler to maintain, and, critically, less exposed to look-ahead bias from the feature engineering process itself.</p>
+<p>The implication is practical. Feature engineering for LOB prediction is expensive: you need to be careful about sequence alignment, avoid future leakage in lagged features, and maintain the pipeline in production. If the recurrent architecture already captures what you are engineering by hand, the cost-benefit does not favor the larger feature set.</p>
+<h2>Negative Ensemble Effect</h2>
+<p>The third finding runs directly against standard ML practice. Combining the sequential GRU model with a tabular gradient boosting model—LightGBM—consistently degrades prediction quality across experiments. Not once, not on a specific subset: consistently.</p>
+<p>The standard justification for ensembling is model diversity: if two models make independent errors, their average is better than either. The problem here is that the errors are not independent. Sequential models and gradient boosting models trained on LOB data are both responding to the same underlying microstructure signals, just through different inductive biases. When those biases conflict on an ambiguous sequence, the ensemble averages in the direction of the weaker model rather than deferring to the stronger one.</p>
+<p>This is not a universal result—ensembles do help in many settings—but it documents a concrete failure mode that the community has not paid much attention to: when the models in an ensemble share a latent signal structure, diversity assumptions break down and combining them can hurt. The GRU baseline alone achieves a weighted Pearson correlation of 0.266 on this dataset, outperforming LightGBM by 58%. Adding LightGBM to that baseline does not improve on 0.266; it pulls below it.</p>
+<h2>Why It Matters for DeFi and ML Practitioners</h2>
+<p>On-chain LOB protocols in DeFi are an emerging area where these results become directly actionable. Centralized exchange LOB prediction has a long research history, but the same fundamental problem—predicting short-term mid-price movements from order book state—applies to on-chain venues with LOB mechanics. The dataset in this study covers a large-scale traditional LOB setting, but the architectural and modeling lessons transfer: the separation of price and volume dynamics is a property of LOBs, not a property of specific exchanges.</p>
+<p>For practitioners building prediction systems on top of LOB data—whether for execution optimization, market making, or signal research—the feature sufficiency finding has an immediate operational implication. Maintaining a 219-feature pipeline at low latency is harder than maintaining a 53-feature pipeline. If the performance difference is negligible, the simpler system is strictly better: lower latency, smaller attack surface for bugs in feature computation, and reduced risk of introducing look-ahead bias through complex temporal feature engineering. The negative ensemble finding is a direct caution against a common engineering instinct: when performance is stuck, add another model. In this setting, that instinct is wrong.</p>
+<p>For ML researchers working on sequence modeling for financial data, DA-BiGRU-CNN&#x27;s dual-branch design offers a replicable template for encoding domain knowledge into architecture. The principle generalizes: when the input feature space has a natural decomposition grounded in the domain (price vs. volume in LOBs, macro vs. micro signals in other settings), encoding that decomposition structurally in the network tends to produce cleaner learned representations than relying on a shared encoder to discover the separation.</p>
+<h2>Limitations and What&#x27;s Next</h2>
+<p>The dataset is a single large-scale LOB study; the feature sufficiency and negative ensemble findings need validation across different asset classes, market regimes, and prediction horizons before they can be treated as general laws rather than empirical regularities. The negative ensemble result in particular warrants a theoretical treatment: under what conditions does the independence assumption underlying ensemble averaging break down for sequential financial data, and can that breakdown be predicted without running experiments? The DA-BiGRU-CNN architecture also has not yet been benchmarked against the current state-of-the-art transformer-based LOB models. That comparison is on the roadmap. Finally, extending this work to on-chain LOB data—where the microstructure differs from traditional exchanges in ways that may favor different architectural choices—is the most direct path toward actionable DeFi applications.</p>
+<p>---</p>
+<h2>Citation</h2>
+<p>```bibtex<br>@misc{solovev2026whenless,<br>  author    = {Solovev, Sergei},<br>  title     = {When Less Is More: Domain-Aware Dual-Branch Recurrent Networks<br>               for Limit Order Book Mid-Price Prediction},<br>  year      = {2026},<br>  doi       = {10.6084/m9.figshare.31859557},<br>  url       = {<a href="https://doi.org/10.6084/m9.figshare.31859557},">https://doi.org/10.6084/m9.figshare.31859557},</a><br>  note      = {Preprint}<br>}<br>```<br>```</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
