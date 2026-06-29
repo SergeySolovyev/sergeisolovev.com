@@ -5,6 +5,11 @@
   "feed_url": "https://sergeisolovev.com/feed.json",
   "items": [
     {
+      "title": "2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result",
+      "url": "https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html",
+      "date_published": "2026-06-29T00:00:00Z"
+    },
+    {
       "title": "2026-06-26-when-less-is-more-domain-aware",
       "url": "https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html",
       "date_published": "2026-06-26T00:00:00Z"
