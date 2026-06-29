@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result | Sergei Solovev</title>
+<meta name="description" content="# When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection Our recent preprint, &quot;When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulner">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result">
+<meta property="og:description" content="# When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection Our recent preprint, &quot;When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulner">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-06-29">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result">
+<meta name="twitter:description" content="# When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection Our recent preprint, &quot;When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulner">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result", "image": "https://sergeisolovev.com/blog/assets/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-06-29", "url": "https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html", "isBasedOn": {"@type": "ScholarlyArticle", "@id": "https://doi.org/10.6084/m9.figshare.32141182", "sameAs": "https://doi.org/10.6084/m9.figshare.32141182", "author": {"@id": "https://sergeisolovev.com/#person"}}}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result</h1>
+<div class="meta">2026-06-29 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.svg" alt="2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result"></figure>
+<h2>When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection</h2>
+<p>Our recent preprint, &quot;When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection,&quot; available at <a href="https://doi.org/10.6084/m9.figshare.32141182,">https://doi.org/10.6084/m9.figshare.32141182,</a> presents a systematic evaluation of Retrieval-Augmented Generation (RAG) within the specific context of multi-label vulnerability detection in Ethereum Solidity smart contracts. The core finding is clear: naive RAG, as implemented with generic embeddings and whole-contract chunking, does not provide a measurable benefit for this task and, in fact, can degrade performance.</p>
+<p>Our work investigates a hybrid pipeline designed for Solidity vulnerability detection. This pipeline comprises three primary stages: a regex-based heuristic pre-screening, dense retrieval over a labeled knowledge base, and a two-stage LLM classifier (a judge followed by a verifier). We benchmarked three distinct configurations: a heuristic-only baseline, an LLM-only approach, and an LLM+RAG configuration. The evaluation was performed on the SolidiFI benchmark across six vulnerability classes.</p>
+<p>A critical aspect of our methodology was the demonstration of sample size&#x27;s impact on observed performance. We initially conducted experiments on a small evaluation set of n=100 samples. In this limited scenario, the LLM+RAG configuration appeared to improve Macro-F1 by +2.0% over the plain LLM-only approach. This result is consistent with many widely reported gains for RAG in other domains, suggesting a positive impact.</p>
+<p>However, when we expanded the evaluation to a more robust sample size of n=250, the observed effect of RAG inverted. With this larger, more representative dataset, the same LLM+RAG configuration degraded Macro-F1 by -2.7% compared to the LLM-only baseline. This shift highlights a significant issue: initial positive results on small, potentially unrepresentative datasets can be misleading. The apparent &quot;gain&quot; from RAG on n=100 was not stable and did not generalize to a larger evaluation set.</p>
+<p>It is important to note that while RAG, in its current naive form, proved detrimental or ineffective for this specific task, other components of our pipeline did yield stable improvements. Through careful heuristic tuning and prompt engineering for the LLM, we achieved a +15% F1 improvement over the heuristic-only baseline. This improvement was statistically stable across our evaluations. This indicates that LLM-based approaches, when carefully engineered and fine-tuned for the domain, can offer substantial benefits for Solidity vulnerability detection, independent of retrieval augmentation.</p>
+<p>The observed degradation with RAG on the larger dataset leads us to the conclusion that when the retrieval signal is noisy, RAG can actively hurt performance. Our implementation utilized generic embeddings and whole-contract chunking. We hypothesize that this combination leads to the retrieval of irrelevant or weakly relevant information from the knowledge base, which then misleads or confuses the subsequent LLM stages. The lack of domain-specificity in the embeddings and the coarse-grained chunking likely contribute to this noisy signal. Retrieving an entire, potentially large, smart contract based on a generic embedding without understanding its specific vulnerable patterns can introduce more noise than signal.</p>
+<p>This work does not suggest that RAG is inherently flawed, but rather that its naive application can be unproductive, or even counterproductive, in specific, complex domains like smart contract vulnerability detection. The promise of retrieval augmentation relies on the quality and relevance of the retrieved information. When this information is polluted or tangential, the LLM’s ability to correctly classify or identify vulnerabilities is compromised.</p>
+<p>Our findings underscore the need for domain-adapted RAG strategies. We outline several directions for future research aimed at unlocking the potential of RAG in this area. These include: fine-tuning embeddings specifically for Solidity vulnerability detection, which would allow for more precise semantic alignment between queries and knowledge base entries; employing cross-encoder re-ranking to filter out less relevant retrieved documents before presenting them to the LLM; and adopting Abstract Syntax Tree (AST)-aware chunking, which would enable the retrieval of semantically meaningful code segments rather than arbitrary whole-contract chunks. These refinements could significantly improve the quality of the retrieved signal, thereby making RAG a beneficial component of vulnerability detection systems.</p>
+<p>The takeaway is that robust evaluation, particularly concerning sample size, is critical when assessing new techniques like RAG. Initial positive indicators can be artifacts of evaluation limitations. For Solidity vulnerability detection, generic RAG, as implemented, does not currently deliver on its promise and can impede performance. Focused efforts on domain-specific adaptation are necessary to realize its potential.</p>
+<p>Full preprint: <a href="https://doi.org/10.6084/m9.figshare.32141182">https://doi.org/10.6084/m9.figshare.32141182</a></p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
