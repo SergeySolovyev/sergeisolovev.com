@@ -5,6 +5,21 @@
   "feed_url": "https://sergeisolovev.com/feed.json",
   "items": [
     {
+      "title": "2026-07-06-ai-managed-erc-4626-yield-vault-with-mul-method",
+      "url": "https://sergeisolovev.com/blog/2026-07-06-ai-managed-erc-4626-yield-vault-with-mul-method.html",
+      "date_published": "2026-07-06T00:00:00Z"
+    },
+    {
+      "title": "When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection",
+      "url": "https://sergeisolovev.com/blog/2026-07-05-when-retrieval-hurts-an-honest-evaluatio.html",
+      "date_published": "2026-07-05T00:00:00Z"
+    },
+    {
+      "title": "CFP Opportunity: Why My Research on AI's Limitations in Security Matters to XX (e.g., lightsec, ANUBIS)",
+      "url": "https://sergeisolovev.com/blog/2026-07-04-cfp-opportunity-why-my-research-on-ai-s.html",
+      "date_published": "2026-07-04T00:00:00Z"
+    },
+    {
       "title": "2026-07-02-when-retrieval-hurts-an-honest-evaluatio-takeaway",
       "url": "https://sergeisolovev.com/blog/2026-07-02-when-retrieval-hurts-an-honest-evaluatio-takeaway.html",
       "date_published": "2026-07-02T00:00:00Z"
