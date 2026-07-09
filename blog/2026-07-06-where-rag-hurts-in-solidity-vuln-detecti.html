@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where RAG HURTS in Solidity vuln detection — and why I published the negative result | Sergei Solovev</title>
+<meta name="description" content="A pattern I keep seeing in AI-assisted smart contract auditing: retrieval-augmented generation gets treated as a default upgrade, as if adding a retrieval step is always net positi">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="Where RAG HURTS in Solidity vuln detection — and why I published the negative result">
+<meta property="og:description" content="A pattern I keep seeing in AI-assisted smart contract auditing: retrieval-augmented generation gets treated as a default upgrade, as if adding a retrieval step is always net positi">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-07-06">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Where RAG HURTS in Solidity vuln detection — and why I published the negative result">
+<meta name="twitter:description" content="A pattern I keep seeing in AI-assisted smart contract auditing: retrieval-augmented generation gets treated as a default upgrade, as if adding a retrieval step is always net positi">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Where RAG HURTS in Solidity vuln detection — and why I published the negative result", "image": "https://sergeisolovev.com/blog/assets/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-07-06", "url": "https://sergeisolovev.com/blog/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.html", "isBasedOn": {"@type": "ScholarlyArticle", "@id": "https://doi.org/preprint: When Retrieval Hurts (10.6084/m9.figshare.32141182)", "sameAs": "https://doi.org/preprint: When Retrieval Hurts (10.6084/m9.figshare.32141182)", "author": {"@id": "https://sergeisolovev.com/#person"}}}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>Where RAG HURTS in Solidity vuln detection — and why I published the negative result</h1>
+<div class="meta">2026-07-06 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-07-06-where-rag-hurts-in-solidity-vuln-detecti.svg" alt="Title card: &#x27;When Retrieval Hurts&#x27; — negative result on RAG for Solidity vulnerability detection"></figure>
+<p>A pattern I keep seeing in AI-assisted smart contract auditing: retrieval-augmented generation gets treated as a default upgrade, as if adding a retrieval step is always net positive. The assumption is rarely tested against the failure regime.</p>
+<p>This paper does exactly that — it identifies the conditions under which retrieval hurts rather than helps Solidity vulnerability detection. The finding is not that RAG is bad in general; it is that there are specific retrieval regimes where the mechanism actively degrades detection quality compared to a non-retrieval baseline. That distinction matters because most published benchmarks in this space report only the configurations where retrieval wins.</p>
+<p>In practice, this has a direct consequence for anyone building or procuring AI security tooling: a system that performs well on average may quietly underperform on the subset of vulnerabilities where retrieval misfires. If you are not testing the degradation regime, you do not know your actual floor.</p>
+<p>Publishing a negative result here is not modesty — it is the only way to give practitioners an honest calibration point. A tool that tells you only where it succeeds is a marketing document.</p>
+<p>Paper: <a href="https://doi.org/preprint:">https://doi.org/preprint:</a> When Retrieval Hurts (10.6084/m9.figshare.32141182)</p>
+<p>#RAG #SmartContracts #AIagents</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
