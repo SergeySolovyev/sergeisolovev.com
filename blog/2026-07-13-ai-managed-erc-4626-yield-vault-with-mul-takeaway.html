@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway | Sergei Solovev</title>
+<meta name="description" content="```markdown # AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification **Sergei Solovev | honest-arbiter | 13 July 2026*">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway">
+<meta property="og:description" content="```markdown # AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification **Sergei Solovev | honest-arbiter | 13 July 2026*">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-07-13">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway">
+<meta name="twitter:description" content="```markdown # AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification **Sergei Solovev | honest-arbiter | 13 July 2026*">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway", "image": "https://sergeisolovev.com/blog/assets/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-07-13", "url": "https://sergeisolovev.com/blog/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.html", "isBasedOn": {"@type": "ScholarlyArticle", "@id": "https://doi.org/10.6084/m9.figshare.32141167", "sameAs": "https://doi.org/10.6084/m9.figshare.32141167", "author": {"@id": "https://sergeisolovev.com/#person"}}}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway</h1>
+<div class="meta">2026-07-13 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.svg" alt="Pipeline diagram showing six stages: Off-chain AI Agent feeds into MCDM Weighted Score across four factors, then EIP-712 Signing, then On-chain Verification, then Rebalance between Aave V3 and Compound V3, with Chainlink Fallback branching off the verification stage"></figure>
+<p>```markdown<br># AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification</p>
+<p>**Sergei Solovev | honest-arbiter | 13 July 2026**</p>
+<p>---</p>
+<h2>What was actually built</h2>
+<p>This preprint describes a prototype DeFi yield vault where an off-chain AI agent decides when and how to move user deposits between two lending protocols — Aave V3 and Compound V3 — on the Ethereum Sepolia testnet, using USDC as the underlying asset. The vault conforms to the ERC-4626 tokenised vault standard, which is a sensible and interoperable choice.</p>
+<p>The agent uses Multi-Criteria Decision Making (MCDM) with weighted scoring across four factors: yield, risk, cost-efficiency, and stability. Crucially, the agent does not push decisions on-chain blindly. Instead it signs them using EIP-712 typed data, producing a cryptographic fingerprint that the smart contract can verify before executing any rebalance. This means every rebalance is traceable and the chain can reject decisions that were not produced by the authorised agent.</p>
+<p>As a fallback, Chainlink Automation is wired in to keep the protocol alive if the off-chain agent goes dark.</p>
+<p>Formal invariant testing ran over 76,800 randomised function calls and recorded zero violations. That is the primary quantitative claim in the paper.</p>
+<p>---</p>
+<h2>What the result actually means</h2>
+<p>The zero-violation invariant result is real and meaningful — but in a specific and limited sense. Invariant testing with randomised inputs is good engineering practice. It tells you that the contract&#x27;s core accounting properties (deposits, withdrawals, share calculations) held across a large sample of random states. It is not a proof of correctness in the mathematical sense; it is an absence of counterexamples within the tested input space.</p>
+<p>The EIP-712 signed decision architecture is a thoughtful design choice. It cleanly separates computational logic (off-chain, flexible) from trust enforcement (on-chain, verifiable). This pattern is not new, but applying it to agent-driven vault rebalancing is a reasonable combination. It solves a real problem: how do you let an autonomous agent act on-chain without giving it unchecked privileges?</p>
+<p>The Chainlink Automation fallback is operationally important. Any system that depends on an off-chain process needs a liveness guarantee. Including this from the start, rather than bolting it on later, reflects sound system design.</p>
+<p>---</p>
+<h2>What this does not prove</h2>
+<p>This is a Sepolia testnet deployment. Sepolia has no real liquidity dynamics, no MEV, no gas price volatility, and no actual financial risk for participants. Protocol behaviour on testnet and mainnet can diverge substantially. Nothing in this paper establishes that the vault would perform comparably — or even correctly — under mainnet conditions.</p>
+<p>The paper does not report any comparison of yield outcomes. There is no benchmark: not against a static deposit in a single protocol, not against a naive highest-APY strategy, not against an existing yield aggregator. The MCDM approach is argued to be superior to &quot;simple APY comparison,&quot; but no empirical evidence of better outcomes is presented. The weights assigned to the four scoring factors (yield, risk, cost-efficiency, stability) are described but their derivation and sensitivity are not evaluated.</p>
+<p>The invariant tests tell us the vault&#x27;s accounting is robust, but they say nothing about economic security. Flash loan attacks, oracle manipulation, and governance attacks on the underlying protocols (Aave V3 or Compound V3) are entirely outside the scope of what was tested. A vault that routes funds between third-party protocols inherits the attack surface of those protocols.</p>
+<p>The &quot;AI agent&quot; framing deserves scrutiny. The system is a Python script applying a weighted scoring function. That is a legitimate and maintainable engineering choice, but it is deterministic rule-following rather than learned or adaptive behaviour. Calling it an &quot;AI agent&quot; is accurate by a broad definition, but readers expecting machine learning or adaptive strategy should note that this is not what is described.</p>
+<p>Finally, the preprint does not address the economics of rebalancing in practice. Every rebalance costs gas. Whether the yield differential between Aave V3 and Compound V3 at any given moment exceeds the transaction cost of moving funds is a central question for any real yield optimiser — and it is not answered here.</p>
+<p>---</p>
+<h2>Why the result still matters</h2>
+<p>Despite the above, this is a genuinely useful piece of engineering documentation. The EIP-712 signed decision pattern for agent-authorised on-chain actions is well-explained and the code is public. Developers building similar systems have a working reference implementation to examine, adapt, or reject.</p>
+<p>The formal invariant testing methodology is documented with a concrete scale (76,800+ calls, zero violations). That is a reproducible standard other projects can compare against or exceed.</p>
+<p>The system also demonstrates how to combine off-chain computational logic with on-chain verification in a way that does not require trusting the agent unconditionally. That architectural question — how much autonomy to delegate to an off-chain process, and how to bound it — is an open problem in DeFi system design. This paper contributes one worked example.</p>
+<p>---</p>
+<h2>The honest-arbiter takeaway</h2>
+<p>This is a testnet prototype with solid defensive engineering and no yield performance data. The absence of a benchmark comparison is the most significant gap. The claim that MCDM outperforms simple APY comparison is unsubstantiated by the evidence presented. The architecture is sensible and the formal testing is real. What this paper contributes is a design pattern and a reference implementation, not a demonstration that the strategy works economically. Mainnet deployment with real funds would require substantially more validation, including economic modelling, gas cost analysis, and protocol-level risk assessment.</p>
+<p>The negative space here is not embarrassing — it reflects an honest scope. A testnet prototype that establishes safety invariants and documents its architecture is a legitimate first step. It should be read as such, not as a deployed system with proven returns.</p>
+<p>---</p>
+<p>Full preprint: <a href="https://doi.org/10.6084/m9.figshare.32141167">https://doi.org/10.6084/m9.figshare.32141167</a><br>```</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
