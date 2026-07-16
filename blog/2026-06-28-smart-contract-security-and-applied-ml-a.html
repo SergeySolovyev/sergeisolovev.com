@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart-contract security and applied ML are becoming one discipline | Sergei Solovev</title>
+<meta name="description" content="Smart-contract auditors and ML engineers have been solving adjacent problems in separate rooms for years. The auditor asks: is this bytecode exploitable? The ML engineer asks: what">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="Smart-contract security and applied ML are becoming one discipline">
+<meta property="og:description" content="Smart-contract auditors and ML engineers have been solving adjacent problems in separate rooms for years. The auditor asks: is this bytecode exploitable? The ML engineer asks: what">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-06-28-smart-contract-security-and-applied-ml-a.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-06-28">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart-contract security and applied ML are becoming one discipline">
+<meta name="twitter:description" content="Smart-contract auditors and ML engineers have been solving adjacent problems in separate rooms for years. The auditor asks: is this bytecode exploitable? The ML engineer asks: what">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-06-28-smart-contract-security-and-applied-ml-a.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Smart-contract security and applied ML are becoming one discipline", "image": "https://sergeisolovev.com/blog/assets/2026-06-28-smart-contract-security-and-applied-ml-a.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-06-28", "url": "https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html", "isBasedOn": {"@type": "ScholarlyArticle", "@id": "https://doi.org/preprints: RAG smart-contract security + EVM-bytecode ML", "sameAs": "https://doi.org/preprints: RAG smart-contract security + EVM-bytecode ML", "author": {"@id": "https://sergeisolovev.com/#person"}}}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>Smart-contract security and applied ML are becoming one discipline</h1>
+<div class="meta">2026-06-28 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-06-28-smart-contract-security-and-applied-ml-a.svg" alt="Two-track pipeline showing RAG-based vulnerability detection and learned EVM bytecode representations converging into a unified auditor-facing output with both verifiability and adaptivity"></figure>
+<p>Smart-contract auditors and ML engineers have been solving adjacent problems in separate rooms for years. The auditor asks: is this bytecode exploitable? The ML engineer asks: what latent structure lives in this bytecode? The two questions share the same input but almost no shared literature.</p>
+<p>The preprints I am releasing address this gap from two directions — retrieval-augmented generation applied to vulnerability detection, and learned representations of EVM bytecode — without treating them as separate research tracks. The underlying argument is that verifiability and adaptivity are not competing properties in on-chain economic systems; they are jointly necessary. A system that can detect novel attack patterns but cannot explain its reasoning to an auditor is commercially useless. A system that produces interpretable rules but cannot generalize beyond its training distribution fails in practice just as quickly.</p>
+<p>What I find worth stating plainly: the convergence is not a research trend to watch. It is already the operational reality for any team building production-grade security tooling on EVM-compatible chains. The tooling that survives the next two years will be the tooling that handles both constraints simultaneously.</p>
+<p>Full write-up and preprints: <a href="https://doi.org/preprints:">https://doi.org/preprints:</a> RAG smart-contract security + EVM-bytecode ML</p>
+<p>#SmartContracts #RAG #ML</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
