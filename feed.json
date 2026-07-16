@@ -5,6 +5,21 @@
   "feed_url": "https://sergeisolovev.com/feed.json",
   "items": [
     {
+      "title": "2026-07-16-when-less-is-more-domain-aware-dual-bran-method",
+      "url": "https://sergeisolovev.com/blog/2026-07-16-when-less-is-more-domain-aware-dual-bran-method.html",
+      "date_published": "2026-07-16T00:00:00Z"
+    },
+    {
+      "title": "When retrieval HURTS: what 'honest eval' means for AI in high-stakes finance",
+      "url": "https://sergeisolovev.com/blog/2026-07-13-when-retrieval-hurts-what-honest-eval-me.html",
+      "date_published": "2026-07-13T00:00:00Z"
+    },
+    {
+      "title": "2026-07-13-ocr-based-vs-end-to-end",
+      "url": "https://sergeisolovev.com/blog/2026-07-13-ocr-based-vs-end-to-end.html",
+      "date_published": "2026-07-13T00:00:00Z"
+    },
+    {
       "title": "2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway",
       "url": "https://sergeisolovev.com/blog/2026-07-13-ai-managed-erc-4626-yield-vault-with-mul-takeaway.html",
       "date_published": "2026-07-13T00:00:00Z"
@@ -48,6 +63,11 @@
       "title": "2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result",
       "url": "https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html",
       "date_published": "2026-06-29T00:00:00Z"
+    },
+    {
+      "title": "Smart-contract security and applied ML are becoming one discipline",
+      "url": "https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html",
+      "date_published": "2026-06-28T00:00:00Z"
     },
     {
       "title": "2026-06-26-when-less-is-more-domain-aware",
