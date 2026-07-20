@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-07-20-when-less-is-more-domain-aware-dual-bran-result | Sergei Solovev</title>
+<meta name="description" content="# When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction Two findings in this preprint contradict common practice in applied machi">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="2026-07-20-when-less-is-more-domain-aware-dual-bran-result">
+<meta property="og:description" content="# When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction Two findings in this preprint contradict common practice in applied machi">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-07-20">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-07-20-when-less-is-more-domain-aware-dual-bran-result">
+<meta name="twitter:description" content="# When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction Two findings in this preprint contradict common practice in applied machi">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "2026-07-20-when-less-is-more-domain-aware-dual-bran-result", "image": "https://sergeisolovev.com/blog/assets/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-07-20", "url": "https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html", "isBasedOn": {"@type": "ScholarlyArticle", "@id": "https://doi.org/10.6084/m9.figshare.31859557", "sameAs": "https://doi.org/10.6084/m9.figshare.31859557", "author": {"@id": "https://sergeisolovev.com/#person"}}}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>2026-07-20-when-less-is-more-domain-aware-dual-bran-result</h1>
+<div class="meta">2026-07-20 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.svg" alt="Bar chart comparing GRU baseline weighted Pearson correlation of 0.266 against LightGBM at approximately 0.168, a 58% gap, on limit order book mid-price prediction"></figure>
+<h2>When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction</h2>
+<p>Two findings in this preprint contradict common practice in applied machine learning for finance. First, engineering 219 features from limit order book data produces no measurable gain over using 53 basic features when the model is a recurrent network. Second, combining a GRU with gradient boosting makes predictions worse, not better. Neither result is what you would expect if you followed standard advice about feature richness and ensemble diversity.</p>
+<h2>The Task</h2>
+<p>Predicting whether mid-price will move up or down in the short term, using limit order book (LOB) data. The dataset covers 12,165 LOB sequences totaling 12.1 million timesteps. The evaluation metric is weighted Pearson correlation between predicted and actual movements.</p>
+<h2>The Numbers</h2>
+<p>The GRU baseline achieves a weighted Pearson correlation of **0.266**. LightGBM, a strong gradient boosting baseline, comes in 58% lower. That gap is substantial, and it confirms the now fairly standard finding that sequential models handle time-ordered LOB data better than tree-based methods.</p>
+<p>The proposed architecture, DA-BiGRU-CNN, is described as offering an &quot;architecturally principled alternative&quot; — the abstract does not claim it numerically dominates the GRU baseline. The value proposition is structural: separating price dynamics from liquidity dynamics in dedicated processing branches, rather than letting the model sort it out from a flat feature vector.</p>
+<h2>The Two Results Worth Noting</h2>
+<p>**Feature sufficiency.** A unidirectional GRU trained on 53 basic features achieves performance statistically equivalent to one trained on 219 features that include rolling statistics, exponential moving averages, and lag/difference transforms. The interpretation the authors offer is that recurrent hidden states implicitly learn these temporal patterns anyway, making the engineered features redundant. If this holds up across other datasets and settings, it has a practical implication: the substantial engineering work required to produce 219 features may be wasted effort when the backbone is recurrent.</p>
+<p>The caveat the authors do not spell out here, but which any practitioner will note: &quot;statistically equivalent&quot; on one dataset with one model family is not a general result. Rolling statistics and EMAs might matter more under different market regimes, different assets, or with different architectures. The finding is worth taking seriously as a hypothesis; it is not settled evidence.</p>
+<p>**Negative ensemble effect.** Combining the GRU with LightGBM consistently degraded prediction quality. This contradicts the standard intuition that model diversity — a sequential model and a tabular model should have low correlation in their errors — improves ensemble performance. The authors describe this as a documented empirical finding, not an explained mechanism. Why does the combination hurt? The abstract does not say. This is the more interesting open question, and also the more honest framing: here is something that did not work, and we do not fully know why.</p>
+<h2>The Architecture</h2>
+<p>DA-BiGRU-CNN decomposes LOB features into two channels: one for price information, one for volume information. Each channel gets its own bidirectional GRU encoder. A set of shared microstructure features feeds both branches. The outputs are then fused through a multi-scale convolutional bottleneck using Conv1d layers with kernels of size 3, 5, and 7. The design rationale is that price dynamics and liquidity dynamics behave differently and benefit from separate representational paths before fusion.</p>
+<p>This is a reasonable architectural prior. Whether it translates into a consistent numerical improvement over a simpler GRU is not definitively answered in the abstract. The architecture is described as &quot;principled,&quot; which is a structural argument rather than an empirical one.</p>
+<h2>What This Applies To</h2>
+<p>The authors frame the problem as relevant to traditional exchanges, cryptocurrency centralized exchanges, and on-chain LOB protocols in DeFi. That framing is accurate in the sense that mid-price prediction from order book data is structurally similar across venues. The degree to which the specific findings transfer — particularly the feature sufficiency result — depends heavily on market microstructure differences between venues: tick size, queue priority rules, latency, and participant composition all vary considerably.</p>
+<h2>What Is Not Addressed</h2>
+<p>The preprint does not report results across multiple assets or market conditions, so generalizability is unknown. It does not discuss how prediction quality translates to actual trading performance after costs, slippage, and latency — a 0.266 Pearson correlation is a model evaluation metric, not a profitability estimate. The negative ensemble result lacks a mechanistic explanation, which limits how actionable the finding is.</p>
+<h2>Honest Assessment</h2>
+<p>The most valuable contributions here are the two negative or null results: feature engineering on top of a recurrent model does not help, and naive model combination hurts. Both findings push back against common defaults in quantitative finance pipelines. The domain-aware architecture is a reasonable design choice with a clear structural motivation, but its performance advantage over a simpler baseline is not the headline claim.</p>
+<p>A Pearson correlation of 0.266 on a large dataset is a real signal, not noise. Whether it is sufficient for practical use depends entirely on what you intend to do with the predictions — a question this work, appropriately, does not try to answer.</p>
+<p>---</p>
+<p>Full preprint: <a href="https://doi.org/10.6084/m9.figshare.31859557">https://doi.org/10.6084/m9.figshare.31859557</a></p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
