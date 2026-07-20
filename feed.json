@@ -5,9 +5,19 @@
   "feed_url": "https://sergeisolovev.com/feed.json",
   "items": [
     {
+      "title": "2026-07-20-when-less-is-more-domain-aware-dual-bran-result",
+      "url": "https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html",
+      "date_published": "2026-07-20T00:00:00Z"
+    },
+    {
       "title": "2026-07-16-when-less-is-more-domain-aware-dual-bran-method",
       "url": "https://sergeisolovev.com/blog/2026-07-16-when-less-is-more-domain-aware-dual-bran-method.html",
       "date_published": "2026-07-16T00:00:00Z"
+    },
+    {
+      "title": "Agent-run smart-contract security is a labor-budget play, not an 'AI-powered audit' tool",
+      "url": "https://sergeisolovev.com/blog/2026-07-15-agent-run-smart-contract-security-is-a-l.html",
+      "date_published": "2026-07-15T00:00:00Z"
     },
     {
       "title": "When retrieval HURTS: what 'honest eval' means for AI in high-stakes finance",
