@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-07-20-ai-managed-erc-4626-yield-vault | Sergei Solovev</title>
+<meta name="description" content="```markdown --- title: AI-Managed ERC-4626 Yield Vault: Autonomous Rebalancing with MCDM and Formal Verification date: 2026-07-20 slug: ai-managed-erc-4626-yield-vault meta_descrip">
+<link rel="canonical" href="https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sergei Solovev">
+<meta property="og:title" content="2026-07-20-ai-managed-erc-4626-yield-vault">
+<meta property="og:description" content="```markdown --- title: AI-Managed ERC-4626 Yield Vault: Autonomous Rebalancing with MCDM and Formal Verification date: 2026-07-20 slug: ai-managed-erc-4626-yield-vault meta_descrip">
+<meta property="og:url" content="https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html">
+<meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-07-20-ai-managed-erc-4626-yield-vault.png">
+<meta property="article:author" content="Sergei Solovev">
+<meta property="article:published_time" content="2026-07-20">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026-07-20-ai-managed-erc-4626-yield-vault">
+<meta name="twitter:description" content="```markdown --- title: AI-Managed ERC-4626 Yield Vault: Autonomous Rebalancing with MCDM and Formal Verification date: 2026-07-20 slug: ai-managed-erc-4626-yield-vault meta_descrip">
+<meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-07-20-ai-managed-erc-4626-yield-vault.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "2026-07-20-ai-managed-erc-4626-yield-vault", "image": "https://sergeisolovev.com/blog/assets/2026-07-20-ai-managed-erc-4626-yield-vault.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-07-20", "url": "https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html"}</script>
+<style>
+:root{--tradfi:#334155;--ai:#b38a5a;--defi:#1f2937}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;line-height:1.7;
+ color:#1f2937;max-width:720px;margin:0 auto;padding:28px 20px;background:#fff}
+header{font-size:.95em;margin-bottom:6px}
+header a{color:var(--tradfi);text-decoration:none;font-weight:600}
+.spine{color:var(--ai);font-weight:600}
+h1{font-size:1.85em;line-height:1.25;color:var(--defi);margin:16px 0 4px}
+.meta{color:#6b7280;font-size:.9em;margin-bottom:22px}
+figure.hero{margin:18px 0 24px}
+figure.hero img{width:100%;border-radius:8px;border:1px solid #e5e7eb;background:#0e1117;display:block}
+p{margin:14px 0} a{color:var(--tradfi)}
+.cta{margin-top:26px;padding:14px 16px;background:#f6f7f9;
+ border-left:3px solid var(--ai);border-radius:4px;font-size:.95em}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;
+ color:#6b7280;font-size:.85em}
+footer a{color:var(--tradfi)}
+</style></head><body>
+<header><a href="https://sergeisolovev.com">&larr; Sergei Solovev</a>
+ &middot; <span class="spine">TradFi &rarr; AI &rarr; DeFi</span></header>
+<h1>2026-07-20-ai-managed-erc-4626-yield-vault</h1>
+<div class="meta">2026-07-20 &middot; Sergei Solovev, HSE University</div>
+<figure class="hero"><img src="assets/2026-07-20-ai-managed-erc-4626-yield-vault.svg" alt="Architecture diagram showing USDC flowing into an ERC-4626 vault, an off-chain MCDM agent deciding allocation, funds split between Aave V3 and Compound V3, with formal verification layer"></figure>
+<p>```markdown<br>---<br>title: AI-Managed ERC-4626 Yield Vault: Autonomous Rebalancing with MCDM and Formal Verification<br>date: 2026-07-20<br>slug: ai-managed-erc-4626-yield-vault<br>meta_description: AI agent uses MCDM to autonomously rebalance an ERC-4626 vault across Aave V3 and Compound V3. 76,800+ invariant tests, zero violations.<br>tags: [DeFi]<br>canonical_doi: 10.6084/m9.figshare.32141167<br>---</p>
+<p>Yield aggregators have a design flaw that&#x27;s easy to overlook until it costs you: they compare APYs. A system that ranks protocols by a single number has no mechanism to account for what that number hides — risk profile changes, gas overhead from frequent rebalances, protocol stability under stress. The implicit assumption is that the highest APY is always the right answer. It isn&#x27;t, and the gap between &quot;highest APY&quot; and &quot;best allocation&quot; is where most naive yield optimizers quietly underperform or fail. This paper describes a system that treats allocation as what it actually is — a multidimensional decision — and builds the infrastructure to make that decision autonomously, verifiably, and safely.</p>
+<h2>Architecture</h2>
+<p>The system is structured as a hybrid off-chain/on-chain architecture built around an ERC-4626 tokenized vault. Users deposit USDC and receive vault shares representing their proportional claim on the underlying. Accounting, deposit, and withdrawal follow the ERC-4626 standard. What departs from standard vault design is the rebalancing layer: rather than a fixed strategy encoded in a contract, an off-chain Python-based AI agent analyzes current conditions and submits signed rebalance decisions.</p>
+<p>The split between off-chain and on-chain is deliberate. Off-chain computation has no gas constraints and can run arbitrary analysis in Python — querying protocol state, computing weighted scores, deciding when a rebalance clears the cost threshold. On-chain execution enforces the binding effect: the vault contract verifies a cryptographic signature before moving funds. Nothing executes without a valid signature from the agent key. This architecture is not novel in concept, but most yield optimizers do not implement it. They either encode strategy logic entirely on-chain — limiting computational expressiveness — or run off-chain without a verification trail, which means decisions are opaque and unauditable.</p>
+<h2>Decision Logic</h2>
+<p>The agent evaluates each candidate protocol — Aave V3 and Compound V3 — using Multi-Criteria Decision Making with weighted scoring across four factors: yield, risk, cost-efficiency, and stability. Each factor receives an explicit weight; the protocol score is a weighted sum. The agent does not simply route to the highest APY. High gas costs reduce the cost-efficiency score; a deteriorating risk profile pulls down the risk component regardless of yield; instability in a protocol&#x27;s utilization rate reduces its stability score. The final ranking reflects all four dimensions simultaneously.</p>
+<p>Agent decisions are signed using EIP-712 typed data. EIP-712 is the Ethereum standard for structured off-chain message signing: it produces signatures that are verifiable on-chain, carry explicit schema information, and are bound to a specific chain ID and contract address, preventing cross-chain or cross-contract replay. The result is a cryptographic receipt for every rebalance: which protocol was selected, under what signed payload, from which agent key. This is accountability infrastructure. If an agent makes a bad call, you can reconstruct exactly what it decided and verify the signature against the on-chain record. That is not possible with a strategy contract that just executes logic — there is no signed artifact, only a transaction.</p>
+<h2>Safety</h2>
+<p>The system&#x27;s safety properties are established through invariant testing. A test harness generates randomized sequences of function calls — deposits, withdrawals, rebalances in arbitrary order and magnitude — and checks that a set of invariants holds after every call. The reported result is 76,800+ randomized function calls with zero invariant violations. The invariants cover the core correctness properties of the vault: that share accounting is consistent, that user balances are recoverable, and that the contract behaves correctly across arbitrary interaction sequences including edge cases no manually written test would cover.</p>
+<p>This is distinct from simulation-based validation. Invariant testing over randomized call sequences explores the contract&#x27;s state space rather than a curated set of scenarios. Zero violations across 76,800+ calls is a structural guarantee, not a performance claim.</p>
+<p>Protocol liveness is handled separately via a Chainlink Automation fallback. If the AI agent fails to submit a rebalance — downtime, network partition, key unavailability — Chainlink Automation triggers a predefined fallback path. The vault does not freeze. This is a critical operational property: autonomous agents fail, and the system should not inherit that failure.</p>
+<p>The full system was deployed and validated on Ethereum Sepolia testnet with USDC as the underlying asset.</p>
+<h2>Why It Matters</h2>
+<p>For DeFi builders, the EIP-712 signed decision model is a meaningful step toward deploying autonomous agents with accountability. The dominant pattern in DeFi automation today is a privileged strategy contract: grant it access, trust the logic, hope the conditions under which you audited it still hold. When they don&#x27;t, failures are silent and often post-hoc inexplicable. A signed decision log changes that. Every rebalance is attributable to a specific agent output, verifiable on-chain, and auditable after the fact. This is a prerequisite for operating AI agents in higher-stakes environments — anywhere you need to explain to users, governance forums, or regulators why capital moved where it moved.</p>
+<p>For AI and ML practitioners entering the DeFi space, the MCDM formulation is worth attention precisely because it is interpretable. Weighted scoring over explicit criteria is a linear model with readable parameters. You can inspect the weight vector, understand why one protocol ranked above another on a given day, and adjust weights when market conditions shift. A neural policy that outperforms weighted MCDM on backtests is not necessarily better for production deployment if you cannot explain its decisions to a protocol governance forum or a risk committee. Interpretability is often harder to maintain under optimization pressure than raw performance — this system treats it as a first-class design requirement. The formal verification result similarly deserves attention from systems practitioners: invariant testing with randomized call sequences is standard in smart contract development but underused in AI-adjacent systems where the temptation is to rely on simulation benchmarks instead of structural proofs.</p>
+<h2>Limitations and What&#x27;s Next</h2>
+<p>The current system operates on Sepolia testnet with two protocols and a single asset. The testnet environment removes real economic risk, which changes calibration substantially — weight vectors derived from testnet conditions may not generalize to mainnet liquidity dynamics, where protocol utilization, gas prices, and risk parameters behave differently. Expanding beyond two protocols increases the combinatorial scope of the MCDM ranking and raises questions about weight overfitting: with more protocols, a manually specified weight vector becomes harder to justify and easier to overfit to historical data. The signed-decision architecture is sound for a single trusted operator key, but production deployment requires key rotation, agent key management, and potentially threshold signing schemes. Future work should address mainnet validation with real assets, multi-protocol generalization, and more principled weight derivation — ideally learned from on-chain data rather than specified a priori.</p>
+<p>Code and materials are available at [github.com/SergeySolovyev/ai-yield-vault](<a href="https://github.com/SergeySolovyev/ai-yield-vault).">https://github.com/SergeySolovyev/ai-yield-vault).</a></p>
+<p>---</p>
+<h2>Citation</h2>
+<p>```bibtex<br>@misc{solovev2026aiyield,<br>  title        = {AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision<br>                  Making: Design, Implementation, and Formal Verification},<br>  author       = {Solovev, Sergei},<br>  year         = {2026},<br>  month        = {4},<br>  note         = {Preprint, v1. Code: <a href="https://github.com/SergeySolovyev/ai-yield-vault},">https://github.com/SergeySolovyev/ai-yield-vault},</a><br>  doi          = {10.6084/m9.figshare.32141167},<br>  url          = {<a href="https://doi.org/10.6084/m9.figshare.32141167},">https://doi.org/10.6084/m9.figshare.32141167},</a><br>  howpublished = {figshare}<br>}<br>```<br>```</p>
+<footer>&copy; Sergei Solovev &middot;
+ <a href="https://sergeisolovev.com">sergeisolovev.com</a> &middot;
+ <a href="https://sergeisolovev.com/publications.html">Publications</a> &middot;
+ <a href="https://sergeisolovev.com/blog/">More posts</a></footer>
+</body></html>
