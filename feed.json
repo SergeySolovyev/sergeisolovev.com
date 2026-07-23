@@ -5,8 +5,28 @@
   "feed_url": "https://sergeisolovev.com/feed.json",
   "items": [
     {
+      "title": "2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway",
+      "url": "https://sergeisolovev.com/blog/2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway.html",
+      "date_published": "2026-07-23T00:00:00Z"
+    },
+    {
+      "title": "Formal verification is the outcome you actually pay for in an ERC-4626 vault",
+      "url": "https://sergeisolovev.com/blog/2026-07-22-formal-verification-is-the-outcome-you-a.html",
+      "date_published": "2026-07-22T00:00:00Z"
+    },
+    {
+      "title": "Where RAG HURTS Solidity vulnerability detection — and why I published the negative result",
+      "url": "https://sergeisolovev.com/blog/2026-07-20-where-rag-hurts-solidity-vulnerability-d.html",
+      "date_published": "2026-07-20T00:00:00Z"
+    },
+    {
       "title": "2026-07-20-when-less-is-more-domain-aware-dual-bran-result",
       "url": "https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html",
+      "date_published": "2026-07-20T00:00:00Z"
+    },
+    {
+      "title": "2026-07-20-ai-managed-erc-4626-yield-vault",
+      "url": "https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html",
       "date_published": "2026-07-20T00:00:00Z"
     },
     {

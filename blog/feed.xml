@@ -4,11 +4,35 @@
   <link href="https://sergeisolovev.com/blog/feed.xml" rel="self"/>
   <link href="https://sergeisolovev.com/blog/"/>
   <id>https://sergeisolovev.com/blog/</id>
-  <updated>2026-07-20T00:00:00Z</updated>
+  <updated>2026-07-23T00:00:00Z</updated>
+  <entry>
+    <title>2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway</title>
+    <link href="https://sergeisolovev.com/blog/2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway.html"/>
+    <id>https://sergeisolovev.com/blog/2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway.html</id>
+    <updated>2026-07-23T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Formal verification is the outcome you actually pay for in an ERC-4626 vault</title>
+    <link href="https://sergeisolovev.com/blog/2026-07-22-formal-verification-is-the-outcome-you-a.html"/>
+    <id>https://sergeisolovev.com/blog/2026-07-22-formal-verification-is-the-outcome-you-a.html</id>
+    <updated>2026-07-22T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Where RAG HURTS Solidity vulnerability detection — and why I published the negative result</title>
+    <link href="https://sergeisolovev.com/blog/2026-07-20-where-rag-hurts-solidity-vulnerability-d.html"/>
+    <id>https://sergeisolovev.com/blog/2026-07-20-where-rag-hurts-solidity-vulnerability-d.html</id>
+    <updated>2026-07-20T00:00:00Z</updated>
+  </entry>
   <entry>
     <title>2026-07-20-when-less-is-more-domain-aware-dual-bran-result</title>
     <link href="https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html"/>
     <id>https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html</id>
+    <updated>2026-07-20T00:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>2026-07-20-ai-managed-erc-4626-yield-vault</title>
+    <link href="https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html"/>
+    <id>https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html</id>
     <updated>2026-07-20T00:00:00Z</updated>
   </entry>
   <entry>

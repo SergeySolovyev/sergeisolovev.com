@@ -5,7 +5,11 @@
 Site: https://sergeisolovev.com  |  Blog: https://sergeisolovev.com/blog/  |  Changelog: https://sergeisolovev.com/changelog.html
 
 ## Recent posts
+- [2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway](https://sergeisolovev.com/blog/2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway.html) (2026-07-23)
+- [Formal verification is the outcome you actually pay for in an ERC-4626 vault](https://sergeisolovev.com/blog/2026-07-22-formal-verification-is-the-outcome-you-a.html) (2026-07-22)
+- [Where RAG HURTS Solidity vulnerability detection — and why I published the negative result](https://sergeisolovev.com/blog/2026-07-20-where-rag-hurts-solidity-vulnerability-d.html) (2026-07-20)
 - [2026-07-20-when-less-is-more-domain-aware-dual-bran-result](https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html) (2026-07-20)
+- [2026-07-20-ai-managed-erc-4626-yield-vault](https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html) (2026-07-20)
 - [2026-07-16-when-less-is-more-domain-aware-dual-bran-method](https://sergeisolovev.com/blog/2026-07-16-when-less-is-more-domain-aware-dual-bran-method.html) (2026-07-16)
 - [Agent-run smart-contract security is a labor-budget play, not an 'AI-powered audit' tool](https://sergeisolovev.com/blog/2026-07-15-agent-run-smart-contract-security-is-a-l.html) (2026-07-15)
 - [When retrieval HURTS: what 'honest eval' means for AI in high-stakes finance](https://sergeisolovev.com/blog/2026-07-13-when-retrieval-hurts-what-honest-eval-me.html) (2026-07-13)
@@ -21,7 +25,3 @@ Site: https://sergeisolovev.com  |  Blog: https://sergeisolovev.com/blog/  |  Ch
 - [2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result](https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html) (2026-06-29)
 - [Smart-contract security and applied ML are becoming one discipline](https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html) (2026-06-28)
 - [2026-06-26-when-less-is-more-domain-aware](https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html) (2026-06-26)
-- [2026-06-22-machine-learning-based-vulnerability-detection-in](https://sergeisolovev.com/blog/2026-06-22-machine-learning-based-vulnerability-detection-in.html) (2026-06-22)
-- [2026-06-15-ai-yield-vault](https://sergeisolovev.com/blog/2026-06-15-ai-yield-vault.html) (2026-06-15)
-- [When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for LOB Mid-Price Prediction](https://sergeisolovev.com/blog/2026-06-09-grounded-when-less-is-more-domain-aware-dual-bra.html) (2026-06-09)
-- [OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction (SROIE 2019)](https://sergeisolovev.com/blog/2026-06-09-grounded-ocr-based-vs-end-to-end-transformer-pip.html) (2026-06-09)
