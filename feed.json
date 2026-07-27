@@ -5,8 +5,18 @@
   "feed_url": "https://sergeisolovev.com/feed.json",
   "items": [
     {
+      "title": "Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering",
+      "url": "https://sergeisolovev.com/blog/2026-07-26-machine-learning-based-vulnerability-det.html",
+      "date_published": "2026-07-26T00:00:00Z"
+    },
+    {
       "title": "2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway",
       "url": "https://sergeisolovev.com/blog/2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway.html",
+      "date_published": "2026-07-23T00:00:00Z"
+    },
+    {
+      "title": "How I'd let a quant team scale AI research without scaling BS",
+      "url": "https://sergeisolovev.com/blog/2026-07-23-how-i-d-let-a-quant-team-scale-ai-resear.html",
       "date_published": "2026-07-23T00:00:00Z"
     },
     {
@@ -143,11 +153,6 @@
       "title": "I built RAG for Solidity vuln detection — then proved it often makes things worse",
       "url": "https://sergeisolovev.com/blog/2026-06-03-i-built-rag-for-solidity-vuln-detection.html",
       "date_published": "2026-06-03T00:00:00Z"
-    },
-    {
-      "title": "2026-05-28-honest-rag-solidity",
-      "url": "https://sergeisolovev.com/blog/2026-05-28-honest-rag-solidity.html",
-      "date_published": "2026-05-28T00:00:00Z"
     }
   ]
 }

@@ -5,7 +5,9 @@
 Site: https://sergeisolovev.com  |  Blog: https://sergeisolovev.com/blog/  |  Changelog: https://sergeisolovev.com/changelog.html
 
 ## Recent posts
+- [Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering](https://sergeisolovev.com/blog/2026-07-26-machine-learning-based-vulnerability-det.html) (2026-07-26)
 - [2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway](https://sergeisolovev.com/blog/2026-07-23-when-less-is-more-domain-aware-dual-bran-takeaway.html) (2026-07-23)
+- [How I'd let a quant team scale AI research without scaling BS](https://sergeisolovev.com/blog/2026-07-23-how-i-d-let-a-quant-team-scale-ai-resear.html) (2026-07-23)
 - [Formal verification is the outcome you actually pay for in an ERC-4626 vault](https://sergeisolovev.com/blog/2026-07-22-formal-verification-is-the-outcome-you-a.html) (2026-07-22)
 - [Where RAG HURTS Solidity vulnerability detection — and why I published the negative result](https://sergeisolovev.com/blog/2026-07-20-where-rag-hurts-solidity-vulnerability-d.html) (2026-07-20)
 - [2026-07-20-when-less-is-more-domain-aware-dual-bran-result](https://sergeisolovev.com/blog/2026-07-20-when-less-is-more-domain-aware-dual-bran-result.html) (2026-07-20)
@@ -23,5 +25,3 @@ Site: https://sergeisolovev.com  |  Blog: https://sergeisolovev.com/blog/  |  Ch
 - [CFP Opportunity: Why My Research on AI's Limitations in Security Matters to XX (e.g., lightsec, ANUBIS)](https://sergeisolovev.com/blog/2026-07-04-cfp-opportunity-why-my-research-on-ai-s.html) (2026-07-04)
 - [2026-07-02-when-retrieval-hurts-an-honest-evaluatio-takeaway](https://sergeisolovev.com/blog/2026-07-02-when-retrieval-hurts-an-honest-evaluatio-takeaway.html) (2026-07-02)
 - [2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result](https://sergeisolovev.com/blog/2026-06-29-when-retrieval-hurts-an-honest-evaluatio-result.html) (2026-06-29)
-- [Smart-contract security and applied ML are becoming one discipline](https://sergeisolovev.com/blog/2026-06-28-smart-contract-security-and-applied-ml-a.html) (2026-06-28)
-- [2026-06-26-when-less-is-more-domain-aware](https://sergeisolovev.com/blog/2026-06-26-when-less-is-more-domain-aware.html) (2026-06-26)
