@@ -470,9 +470,9 @@
         </div>
       </section>
 
-      <!-- ambient: gradient descent on a loss surface -->
+      <!-- ambient: the original Three.js descent scene -->
       <div class="visual-sep" aria-hidden="true">
-        <div class="wrap"><div class="scene-shell"><canvas data-scene="descent"></canvas></div></div>
+        <div class="wrap"><div class="scene-shell" data-three="descent"></div></div>
       </div>
 
       <!-- ================= EXPERIENCE ================= -->
@@ -833,49 +833,8 @@
             for (i = 0; i < 12; i++) blocks.push({ ph: i / 12 * TAU, trail: [] });
             for (i = 0; i < 16; i++) sats.push({ a: i / 16 * TAU, r: 150 + (i % 4) * 24, y: (i % 5 - 2) * 15, sp: 0.26 + (i % 6) * 0.05 });
           }
-          // The original Three.js descent scene, faithfully: a full-width waving
-          // wireframe sheet seen at a shallow angle, with an amber orb gliding
-          // above it. No focal bowl — the sheet bleeds past the card edges.
-          function sheetY(x, z) {
-            return 24 * Math.sin(x * 0.004 + t * 0.85)
-                 + 16 * Math.cos(z * 0.009 + t * 0.65)
-                 + 9 * Math.sin((x + z) * 0.003 - t * 0.5);
-          }
-          function drawDescent() {
-            var cols = 44, rows = 19, tilt = 0.95, g = [], r2, c2, p;
-            var ex = Math.max(700, w * 0.95), z0 = -250, z1 = 165;
-            for (r2 = 0; r2 < rows; r2++) {
-              g[r2] = [];
-              var z = z0 + (z1 - z0) * r2 / (rows - 1);
-              for (c2 = 0; c2 < cols; c2++) {
-                var x = -ex + 2 * ex * c2 / (cols - 1);
-                g[r2][c2] = proj(rotX([x, sheetY(x, z) + 26, z], tilt));
-              }
-            }
-            ctx.lineWidth = 1;
-            for (r2 = 0; r2 < rows; r2++) {
-              ctx.strokeStyle = "rgba(100,116,139," + (0.14 + 0.3 * r2 / rows).toFixed(3) + ")";
-              ctx.beginPath();
-              for (c2 = 0; c2 < cols; c2++) { p = g[r2][c2]; if (c2 === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]); }
-              ctx.stroke();
-            }
-            ctx.strokeStyle = "rgba(100,116,139,0.16)";
-            for (c2 = 0; c2 < cols; c2++) {
-              ctx.beginPath();
-              for (r2 = 0; r2 < rows; r2++) { p = g[r2][c2]; if (r2 === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]); }
-              ctx.stroke();
-            }
-
-            // amber orb drifting above the sheet, as in the original
-            var ox = Math.sin(t * 0.29) * ex * 0.55;
-            var oz = Math.cos(t * 0.26) * 120 - 40;
-            var oy = sheetY(ox, oz) - 34 + Math.sin(t * 0.6) * 6;
-            var op = proj(rotX([ox, oy, oz], tilt));
-            ctx.fillStyle = "rgba(179,138,90,0.14)";
-            ctx.beginPath(); ctx.arc(op[0], op[1], 15, 0, TAU); ctx.fill();
-            ctx.fillStyle = "rgba(179,138,90,0.92)";
-            ctx.beginPath(); ctx.arc(op[0], op[1], 5.5, 0, TAU); ctx.fill();
-          }
+          // The descent separator is the original Three.js scene (module script
+          // below); this engine only drives the network and orbit canvases.
 
           function drawNetwork() {
             var ay = t * 0.14, ax = 0.16 + Math.sin(t * 0.25) * 0.06;
@@ -953,7 +912,7 @@
           function frame() {
             t += 0.011 * (1 + energy);
             ctx.clearRect(0, 0, w, h);
-            if (mode === "descent") drawDescent(); else if (mode === "network") drawNetwork(); else drawOrbit();
+            if (mode === "network") drawNetwork(); else drawOrbit();
             if (running) raf = requestAnimationFrame(frame);
           }
 
@@ -973,6 +932,141 @@
           }, { threshold: 0.05 });
           vis.observe(canvas);
         });
+      })();
+    </script>
+
+    <script type="module">
+      // The original descent scene, ported verbatim from the pre-redesign site:
+      // same geometry, materials, lights, motion and pointer response. Three.js
+      // is the one external dependency this page keeps — for exactly this scene.
+      // In sandboxed previews the import fails and the shell simply stays quiet.
+      (async function () {
+        var host = document.querySelector('[data-three="descent"]');
+        if (!host) return;
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var THREE;
+        try {
+          THREE = await import("https://esm.sh/three@0.171.0");
+        } catch (e) {
+          return;
+        }
+
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color("#ece9e2");
+
+        var camera = new THREE.PerspectiveCamera(54, 1, 0.1, 60);
+        camera.position.set(0, 1.55, 4.6);
+        camera.lookAt(0, 0.25, 0);
+
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        renderer.setClearAlpha(0);
+        host.appendChild(renderer.domElement);
+
+        var ambient = new THREE.AmbientLight(0xffffff, 0.78);
+        var lightA = new THREE.DirectionalLight(0x64748b, 1.15);
+        lightA.position.set(2, 3, 2);
+        var lightB = new THREE.DirectionalLight(0xb38a5a, 0.7);
+        lightB.position.set(-2, 2, -1);
+        scene.add(ambient, lightA, lightB);
+
+        var group = new THREE.Group();
+        group.position.y = 0.52;
+        scene.add(group);
+
+        var mouse = new THREE.Vector2(0, 0);
+        var raycaster = new THREE.Raycaster();
+        var plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+        var target = new THREE.Vector3();
+        var soft = new THREE.Vector3();
+        var active = false;
+        var isVisible = true;
+
+        var geom = new THREE.PlaneGeometry(6.2, 4.9, 92, 72);
+        var pos = geom.attributes.position;
+        var base = new Float32Array(pos.count);
+        for (var i = 0; i < pos.count; i++) {
+          var x = pos.getX(i);
+          var y = pos.getY(i);
+          var z = 0.25 * Math.sin(x * 1.6) + 0.18 * Math.cos(y * 2.2);
+          pos.setZ(i, z);
+          base[i] = z;
+        }
+        geom.computeVertexNormals();
+
+        var mat = new THREE.MeshStandardMaterial({
+          color: 0x64748b,
+          wireframe: true,
+          roughness: 0.38,
+          metalness: 0.1,
+          transparent: true,
+          opacity: 0.92,
+        });
+        var mesh = new THREE.Mesh(geom, mat);
+        mesh.rotation.x = -Math.PI / 2.2;
+        group.add(mesh);
+
+        var orbGeom = new THREE.SphereGeometry(0.11, 26, 26);
+        var orbMat = new THREE.MeshStandardMaterial({ color: 0xb38a5a, emissive: 0x78350f, emissiveIntensity: 0.2 });
+        var orb = new THREE.Mesh(orbGeom, orbMat);
+        orb.position.set(-1.7, 0.35, 0.2);
+        group.add(orb);
+
+        function resize() {
+          var w = host.clientWidth;
+          var h = host.clientHeight;
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w, h, false);
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        host.addEventListener("pointermove", function (e) {
+          var rect = host.getBoundingClientRect();
+          mouse.set(((e.clientX - rect.left) / rect.width) * 2 - 1, -(((e.clientY - rect.top) / rect.height) * 2 - 1));
+          active = true;
+        }, { passive: true });
+        host.addEventListener("pointerleave", function () { active = false; }, { passive: true });
+
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { isVisible = entry.isIntersecting; });
+        }, { threshold: 0.1 }).observe(host);
+
+        var t = 0;
+        function animate() {
+          t += 0.013;
+          if (isVisible) {
+            raycaster.setFromCamera(mouse, camera);
+            raycaster.ray.intersectPlane(plane, target);
+            if (active) soft.lerp(target, 0.08);
+            else soft.lerp(new THREE.Vector3(0, 0, 0), 0.045);
+
+            group.rotation.y += 0.0018;
+            group.rotation.x = Math.sin(t * 0.37) * 0.07;
+
+            for (var i = 0; i < pos.count; i++) {
+              var vx = pos.getX(i);
+              var vy = pos.getY(i);
+              var dist = Math.hypot(vx - soft.x, vy - soft.z);
+              var influence = Math.max(0, 1 - dist / 2.1);
+              var wobble = Math.sin(t * 2.7 + vx * 1.5 + vy * 1.2) * 0.012;
+              var targetZ = base[i] + influence * 0.24 + wobble;
+              pos.setZ(i, pos.getZ(i) + (targetZ - pos.getZ(i)) * 0.1);
+            }
+            pos.needsUpdate = true;
+            geom.computeVertexNormals();
+
+            orb.position.x = Math.sin(t * 1.15) * 1.7 + soft.x * 0.22;
+            orb.position.z = Math.cos(t * 1.05) * 1.38 + soft.z * 0.2;
+            orb.position.y = 0.24 + Math.sin(t * 2.4) * 0.08;
+
+            renderer.render(scene, camera);
+          }
+          requestAnimationFrame(animate);
+        }
+        animate();
       })();
     </script>
 
