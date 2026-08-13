@@ -8,7 +8,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       name="description"
-      content="Practitioner with 20+ years in financial markets transitioning into applied AI research at the intersection of TradFi, AI/ML, and DeFi."
+      content="Practitioner with 20+ years in financial markets, moving from TradFi into AI and DeFi. Execution and treasury for institutional capital, smart-contract security from EVM bytecode, on-chain risk and trust models, digital-asset compliance."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,15 +21,15 @@
     <meta property="og:type" content="profile" />
     <meta property="og:site_name" content="Sergei Solovev" />
     <meta property="og:title" content="Sergei Solovev — TradFi → AI → DeFi" />
-    <meta property="og:description" content="Practitioner with 20+ years in financial markets transitioning into applied AI research at the intersection of TradFi, AI/ML, and DeFi. Five preprints (2026) on smart contract security, RAG, DeFi MCDM, LOB prediction, document AI." />
+    <meta property="og:description" content="Practitioner with 20+ years in financial markets, moving from TradFi into AI and DeFi. Execution and treasury for institutional capital — currently supervising a banking group's treasury. Smart-contract security from EVM bytecode, on-chain risk and trust models, digital-asset compliance; live on-chain agents." />
     <meta property="og:url" content="https://sergeisolovev.com/" />
-    <meta property="og:image" content="https://sergeisolovev.com/sergey%20solovyev.png" />
+    <meta property="og:image" content="https://sergeisolovev.com/portrait.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sergei Solovev — TradFi → AI → DeFi" />
-    <meta name="twitter:description" content="HSE FCS researcher · 5 figshare preprints (2026): smart contract security, RAG, DeFi, LOB, document AI." />
-    <meta name="twitter:image" content="https://sergeisolovev.com/sergey%20solovyev.png" />
+    <meta name="twitter:description" content="Practitioner, 20+ years in financial markets — TradFi → AI → DeFi. Execution &amp; treasury, smart-contract security from EVM bytecode, on-chain risk, digital-asset compliance." />
+    <meta name="twitter:image" content="https://sergeisolovev.com/portrait.jpg" />
 
     <!-- JSON-LD Person schema -->
     <script type="application/ld+json">
@@ -39,13 +39,13 @@
       "@id": "https://sergeisolovev.com/#person",
       "name": "Sergei Solovev",
       "url": "https://sergeisolovev.com/",
-      "image": "https://sergeisolovev.com/sergey%20solovyev.png",
+      "image": "https://sergeisolovev.com/portrait.jpg",
       "affiliation": {
         "@type": "Organization",
         "name": "HSE University, Faculty of Computer Science"
       },
-      "jobTitle": "Researcher",
-      "knowsAbout": ["smart contract security","machine learning","decentralized finance","vulnerability detection","retrieval-augmented generation","blockchain","EVM bytecode analysis","limit order book prediction"],
+      "jobTitle": "Advisor to the President, Mosoblbank (PSB Group)",
+      "knowsAbout": ["smart contract security","machine learning","decentralized finance","vulnerability detection","retrieval-augmented generation","blockchain","EVM bytecode analysis","limit order book prediction","digital asset compliance","counterparty risk","market risk management","treasury operations","trade execution","OTC markets","market liquidity","money market operations"],
       "sameAs": [
         "https://github.com/SergeySolovyev",
         "https://figshare.com/authors/Sergei_Solovev/23264342",
@@ -55,43 +55,18 @@
       ]
     }
     </script>
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap"
       rel="stylesheet"
     />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            boxShadow: {
-              glass: "0 14px 42px rgba(37, 99, 235, 0.12)",
-            },
-          },
-        },
-      };
-    </script>
-
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@18.3.1",
-          "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
-          "three": "https://esm.sh/three@0.171.0",
-          "gsap": "https://esm.sh/gsap@3.12.5",
-          "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
-          "@studio-freight/lenis": "https://esm.sh/@studio-freight/lenis@1.0.42"
-        }
-      }
-    </script>
 
     <style>
       :root {
         --bg: #f4f3ef;
         --bg-2: #ece9e2;
         --card: rgba(255, 255, 255, 0.66);
-        --card-strong: rgba(255, 255, 255, 0.8);
+        --card-strong: rgba(255, 255, 255, 0.82);
         --stroke: rgba(15, 23, 42, 0.12);
         --stroke-soft: rgba(51, 65, 85, 0.12);
         --text: #111827;
@@ -100,28 +75,14 @@
         --tradfi: #334155;
         --ai: #b38a5a;
         --defi: #1f2937;
-        --radius: 18px;
       }
 
-      a:focus-visible, button:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; border-radius: 4px; }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body,
-      #root {
-        min-height: 100%;
-        margin: 0;
-      }
-
-      html {
-        scroll-behavior: auto;
-      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
+      html { scroll-behavior: smooth; }
 
       body {
-        font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         color: var(--text);
         line-height: 1.65;
         background:
@@ -129,86 +90,95 @@
           radial-gradient(circle at 88% 12%, rgba(148, 163, 184, 0.14), transparent 32%),
           radial-gradient(circle at 60% 92%, rgba(179, 138, 90, 0.1), transparent 38%),
           linear-gradient(150deg, var(--bg), var(--bg-2));
+        background-attachment: fixed;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
       }
 
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.24;
-        z-index: 1;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 280 280' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
-      }
+      a { color: inherit; }
+      a:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; border-radius: 4px; }
+      img { max-width: 100%; }
 
-      .font-serif {
-        font-family: "Instrument Serif", serif;
-      }
+      /* ---------- shared atoms ---------- */
 
-      .font-mono {
-        font-family: "JetBrains Mono", monospace;
-      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
       .glass {
         background: var(--card);
         border: 1px solid var(--stroke);
+        border-radius: 22px;
         backdrop-filter: blur(14px);
       }
 
-      .glass-strong {
-        background: var(--card-strong);
-        border: 1px solid var(--stroke-soft);
-        backdrop-filter: blur(14px);
+      .eyebrow {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 8px;
       }
 
-      .reveal {
-        opacity: 0;
-        transform: translateY(26px);
+      .label {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10.5px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--text-muted);
       }
 
-      .gradient-line {
-        position: fixed;
-        left: 34px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        z-index: 2;
-        pointer-events: none;
-        background: linear-gradient(180deg, rgba(51, 65, 85, 0.38), rgba(100, 116, 139, 0.3), rgba(179, 138, 90, 0.34));
+      h1, h2, h3.serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+
+      section { padding: 64px 0 8px; }
+      section > .wrap > h2 {
+        font-size: clamp(30px, 4.4vw, 46px);
+        line-height: 1.08;
+        margin: 0 0 26px;
+      }
+      section > .wrap > h2.tight { margin-bottom: 10px; }
+
+      .lede { color: var(--text-dim); max-width: 62ch; margin: 0 0 26px; }
+
+      .grid { display: grid; gap: 16px; }
+      @media (min-width: 760px) {
+        .grid.two { grid-template-columns: 1fr 1fr; }
+        .grid.three { grid-template-columns: repeat(3, 1fr); }
+      }
+      @media (min-width: 1000px) {
+        .grid.four { grid-template-columns: repeat(4, 1fr); }
       }
 
-      .gradient-line::after {
-        content: "";
-        position: absolute;
-        left: -4px;
-        top: 0;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--ai);
-        box-shadow: 0 0 18px rgba(179, 138, 90, 0.42);
-        animation: tracker 9s ease-in-out infinite;
+      .card { padding: 22px 24px; }
+      .card h3 { font-size: 21px; font-weight: 600; line-height: 1.28; margin: 6px 0 0; }
+      .card p { color: var(--text-dim); font-size: 15px; margin: 10px 0 0; }
+
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .tag {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 999px;
+        padding: 4px 11px;
       }
 
-      @keyframes tracker {
-        0% { top: 0%; background: var(--tradfi); }
-        50% { top: 50%; background: var(--ai); }
-        100% { top: 100%; background: var(--defi); }
+      .more {
+        display: inline-block;
+        margin-top: 16px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: var(--tradfi);
+        text-decoration: none;
       }
+      .more:hover { color: var(--defi); text-decoration: underline; }
 
-      .section-wrap {
-        padding: 84px 24px 10px 70px;
-      }
+      /* ---------- ambient separators & motion ---------- */
 
-      .visual-sep {
-        padding: 34px 24px 34px 70px;
-      }
-
+      .visual-sep { padding: 44px 0 8px; }
       .scene-shell {
-        width: min(1160px, 100%);
-        margin: 0 auto;
         height: 300px;
         border-radius: 22px;
         overflow: hidden;
@@ -216,1001 +186,805 @@
         background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(241, 239, 234, 0.66));
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74), 0 20px 38px rgba(17, 24, 39, 0.08);
       }
+      .scene-shell canvas { width: 100%; height: 100%; display: block; }
+      @media (max-width: 768px) { .scene-shell { height: 220px; border-radius: 16px; } }
 
-      .scene-shell canvas {
-        width: 100%;
-        height: 100%;
-        display: block;
+      /* reveal classes are added from JS, so nothing is hidden when JS is off */
+      .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); }
+      .reveal.in { opacity: 1; transform: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
       }
 
-      @media (max-width: 768px) {
-        .gradient-line {
-          left: 12px;
-        }
-
-        .section-wrap,
-        .visual-sep {
-          padding-left: 24px;
-          padding-right: 16px;
-        }
-
-        .scene-shell {
-          height: 220px;
-          border-radius: 16px;
-        }
+      /* REVERT wordmark — reproduced from revert.pro brand tokens
+         (--revert-red #D9342B on --terminal-black #0A0A0A, Space Grotesk 700) */
+      .revert-mark {
+        display: inline-block;
+        font-family: "Space Grotesk", "Manrope", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        font-size: 20px;
+        line-height: 1;
+        background: #0a0a0a;
+        border-radius: 8px;
+        padding: 11px 16px 10px;
+        margin: 6px 0 0;
+        transition: background 0.15s ease;
       }
+      .revert-mark a { color: #d9342b; text-decoration: none; }
+      .revert-mark:hover { background: #1f1f1f; }
+
+      /* ---------- nav ---------- */
+
+      .nav {
+        position: sticky; top: 0; z-index: 20;
+        border-bottom: 1px solid var(--stroke-soft);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(12px);
+      }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 20px; }
+      .brand { font-family: "Instrument Serif", Georgia, serif; font-size: 25px; text-decoration: none; color: var(--defi); }
+      .nav-links { display: none; gap: 22px; }
+      @media (min-width: 860px) { .nav-links { display: flex; } }
+      .nav-links a {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--text-muted); text-decoration: none;
+      }
+      .nav-links a:hover { color: var(--defi); }
+
+      /* ---------- hero ---------- */
+
+      .hero { padding-top: 44px; }
+      .hero-card { padding: 30px; }
+      @media (min-width: 860px) { .hero-card { padding: 40px; } }
+      .hero-grid { display: grid; gap: 30px; align-items: center; }
+      @media (min-width: 860px) { .hero-grid { grid-template-columns: 1.3fr 0.7fr; } }
+
+      .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+      .pill {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid var(--stroke); background: rgba(255,255,255,.72);
+        border-radius: 999px; padding: 5px 12px;
+      }
+      .pill.accent { border-color: rgba(179, 138, 90, 0.5); color: #8a6a3d; }
+
+      .hero h1 { font-size: clamp(44px, 8vw, 74px); line-height: 0.98; letter-spacing: -0.01em; margin: 0; }
+      .hero .role { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(24px, 3.6vw, 36px); color: var(--tradfi); margin: 2px 0 0; }
+      .hero .bio { color: var(--text-dim); font-size: 17px; max-width: 56ch; margin: 18px 0 0; }
+
+      .stats { display: grid; gap: 14px; margin-top: 28px; }
+      @media (min-width: 560px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+      .stat { background: var(--card-strong); border: 1px solid var(--stroke-soft); border-radius: 16px; padding: 15px 17px; }
+      .stat b { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 23px; font-weight: 600; display: block; color: var(--defi); }
+      .stat span { display: block; margin-top: 3px; }
+
+      .portrait { justify-self: center; }
+      @media (min-width: 860px) { .portrait { justify-self: end; } }
+      .portrait-frame { background: var(--card-strong); border: 1px solid var(--stroke-soft); border-radius: 24px; padding: 12px; width: 286px; }
+      .portrait-frame img { width: 100%; height: 356px; object-fit: cover; border-radius: 16px; display: block; }
+      .portrait-frame .label { display: block; text-align: center; margin-top: 11px; }
+
+      /* ---------- news ---------- */
+
+      .news-item { padding: 22px 24px; }
+      .news-item + .news-item { margin-top: 16px; }
+      .news-item h3 { font-size: 19px; font-weight: 600; line-height: 1.3; margin: 7px 0 0; }
+      .news-item p { color: var(--text-dim); font-size: 14.5px; margin: 9px 0 0; }
+
+      .shots {
+        display: flex; gap: 12px; overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin: 16px -4px 0; padding: 0 4px 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .shots figure { flex: 0 0 82%; scroll-snap-align: center; margin: 0; }
+      @media (min-width: 760px) { .shots figure { flex: 0 0 46%; } }
+      .shots img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--stroke); }
+      .shots figcaption { font-size: 12.5px; color: var(--text-muted); margin-top: 7px; line-height: 1.45; }
+
+      /* ---------- timeline ---------- */
+
+      .job { padding: 22px 24px; }
+      .job + .job { margin-top: 16px; }
+      .job h3 { font-size: 22px; font-weight: 600; margin: 7px 0 0; }
+      .job .org { color: var(--tradfi); font-weight: 500; font-size: 14.5px; margin-top: 3px; }
+      .job p { color: var(--text-dim); font-size: 14.5px; margin: 11px 0 0; }
+
+      /* ---------- research ---------- */
+
+      .research { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; padding: 24px; }
+      .research .num { font-family: "Instrument Serif", Georgia, serif; font-size: 38px; color: #9ca3af; line-height: 1; }
+      .research h3 { font-size: 21px; font-weight: 600; line-height: 1.25; margin: 0; }
+      .research p { color: var(--text-dim); font-size: 14.5px; margin: 9px 0 0; }
+
+      /* ---------- publications ---------- */
+
+      .pub { padding: 22px 24px; }
+      .pub + .pub { margin-top: 16px; }
+      .pub .t { font-size: 18.5px; font-style: italic; line-height: 1.35; }
+      .pub .m { margin-top: 9px; }
+      .pub .links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 12px; }
+      .pub .links a { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; color: var(--tradfi); text-decoration: none; }
+      .pub .links a:hover { color: var(--defi); text-decoration: underline; }
+      .badge {
+        display: inline-block; font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+        color: #6b5327; background: rgba(179, 138, 90, 0.16);
+        border: 1px solid rgba(179, 138, 90, 0.34);
+        border-radius: 999px; padding: 3px 9px; margin-right: 8px; vertical-align: 2px;
+      }
+
+      /* ---------- skills ---------- */
+
+      .skillset { padding: 20px 22px; }
+      .skillset h3 { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tradfi); font-weight: 600; margin: 0 0 12px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chip { font-size: 13.5px; color: var(--text-dim); border: 1px solid var(--stroke); background: rgba(255,255,255,.74); border-radius: 9px; padding: 5px 11px; }
+
+      /* ---------- contact ---------- */
+
+      .contact-card { padding: 34px 26px; text-align: center; }
+      @media (min-width: 760px) { .contact-card { padding: 44px 40px; } }
+      .contact-card h2 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.06; margin: 12px 0 0; }
+      .contact-card p { color: var(--text-dim); max-width: 60ch; margin: 16px auto 0; }
+      .btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+      .btn {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+        text-decoration: none; border-radius: 999px; padding: 13px 22px;
+        border: 1px solid var(--stroke); background: rgba(255,255,255,.74); color: var(--tradfi);
+      }
+      .btn.solid { background: var(--defi); border-color: var(--defi); color: #fff; }
+      .btn:hover { border-color: var(--ai); }
+
+      /* ---------- footer ---------- */
+
+      footer { margin-top: 70px; border-top: 1px solid var(--stroke-soft); background: rgba(255,255,255,.5); }
+      .foot { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 26px 0; }
+      .foot .name { font-family: "Instrument Serif", Georgia, serif; font-size: 27px; line-height: 1; }
+      .foot-links { display: flex; flex-wrap: wrap; gap: 20px; }
+      .foot-links a { text-decoration: none; }
+
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
   </head>
+
   <body>
-    <div class="gradient-line"></div>
-    <div id="root">
-      <!-- Static fallback for crawlers / no-JS / answer engines. React replaces this on load. -->
-      <main style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:Manrope,system-ui,-apple-system,Segoe UI,sans-serif;color:#111827;line-height:1.6">
-        <h1 style="font-family:'Instrument Serif',serif;font-size:2.6rem;margin:0 0 .2rem">Sergei Solovev</h1>
-        <p style="font-size:1.2rem;color:#334155;margin:0 0 1rem">TradFi &rarr; AI &rarr; DeFi</p>
-        <p>Researcher at HSE University (Faculty of Computer Science, Moscow), working at the intersection of traditional finance, AI/ML, and decentralized finance: machine learning for smart-contract security, retrieval-augmented evaluation, and AI for financial risk. A practitioner with 20+ years in financial markets, focused on honest, reproducible evaluation of AI in high-stakes finance and security &mdash; including publishing results when a method does <em>not</em> work.</p>
-        <p>Topics: smart contract security, EVM bytecode vulnerability detection, retrieval-augmented generation evaluation, DeFi security, limit order book prediction, document AI.</p>
-        <nav aria-label="Site sections">
-          <p><strong>Explore:</strong>
-            <a href="/publications.html">Publications</a> &middot;
-            <a href="/blog/">Blog</a> &middot;
-            <a href="/news.html">News &amp; Appearances</a> &middot;
-            <a href="/Solovev_Sergei_CV_EN.pdf">CV (PDF)</a></p>
-          <p><strong>Preprints (2026):</strong>
-            <a href="/papers/rag-solidity.html">When Retrieval Hurts: RAG for Solidity vulnerability detection</a> &middot;
-            <a href="/papers/ml-vuln-detection.html">ML vulnerability detection via EVM bytecode</a> &middot;
-            <a href="/papers/ai-yield-vault.html">AI-managed ERC-4626 yield vault (MCDM + formal verification)</a> &middot;
-            <a href="/papers/lob-mid-price.html">Domain-aware dual-branch RNN for LOB mid-price prediction</a> &middot;
-            <a href="/papers/ocr-vs-donut.html">OCR vs end-to-end transformers for receipt extraction</a></p>
-          <p><strong>Profiles:</strong>
-            <a href="https://orcid.org/0009-0008-4494-0447" rel="noopener">ORCID</a> &middot;
-            <a href="https://scholar.google.com/citations?user=HGalnA0AAAAJ" rel="noopener">Google Scholar</a> &middot;
-            <a href="https://openalex.org/A5127404993" rel="noopener">OpenAlex</a> &middot;
-            <a href="https://github.com/SergeySolovyev" rel="noopener">GitHub</a> &middot;
-            <a href="https://figshare.com/authors/Sergei_Solovev/23264342" rel="noopener">figshare</a></p>
-        </nav>
-      </main>
-    </div>
+
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">S. Solovev</a>
+        <div class="nav-links">
+          <a href="#news">News</a>
+          <a href="#experience">Experience</a>
+          <a href="#advisory">Advisory</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="/blog/">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="top">
+        <div class="wrap">
+          <div class="glass hero-card">
+            <div class="hero-grid">
+              <div>
+                <div class="pills">
+                  <span class="pill">Moscow, Russia</span>
+                  <span class="pill accent">Open to advisory roles</span>
+                </div>
+                <h1>Sergei Solovev</h1>
+                <p class="role">TradFi &rarr; AI &rarr; DeFi</p>
+                <p class="bio">Practitioner with 20+ years in financial markets. Operating at the rare intersection of classical finance, AI/ML/DL, and decentralized finance (DeFi).</p>
+                <div class="stats">
+                  <div class="stat"><b>$4B+</b><span class="label">Portfolio managed</span></div>
+                  <div class="stat"><b>20+</b><span class="label">Years in finance</span></div>
+                  <div class="stat"><b>Live</b><span class="label">On-chain agents</span></div>
+                </div>
+              </div>
+              <div class="portrait">
+                <div class="portrait-frame">
+                  <img src="portrait.jpg" alt="Sergei Solovev" width="768" height="1344" />
+                  <span class="label">Advisor to the President &middot; Mosoblbank (PSB Group)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NEWS ================= -->
+      <section id="news">
+        <div class="wrap">
+          <div class="eyebrow">Latest</div>
+          <h2>News &amp; Appearances</h2>
+          <!--NEWS:START-->
+          <article class="glass news-item">
+            <div class="label">Jun 30, 2026 &middot; Informatics. Economics. Management</div>
+            <h3>Peer-reviewed article on Bitcoin in decentralized finance — Informatics. Economics. Management</h3>
+            <p>A classification of Bitcoin integration methods in decentralized financial infrastructure. Published in Russian, vol. 5 no. 2 (2026), pp. 3026-3037, CC BY 4.0, under the HSE University Faculty of Computer Science affiliation printed on the article.</p>
+            <a class="more" href="https://doi.org/10.47813/2782-5280-2026-5-2-3026-3037" rel="noopener">Details &rarr;</a>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Jun 19, 2026 &middot; ACI Russia</div>
+            <h3>Panelist — Pro Markets (ACI Russia): Bank of Russia key rate</h3>
+            <p>Live panel on the Bank of Russia key-rate decision. Panelists: Igor Safonov, Daria Tarasenko, Sergei Solovev, Dmitry Polevoy. Moderator: Pavel Pikulev.</p>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Jun 19, 2026 &middot; Google and Kaggle</div>
+            <h3>Completed the 5-Day AI Agents Intensive — Google and Kaggle</h3>
+            <p>Capstone shipped: the DeFi Lending Allocator Agent, non-custodial gas-aware USDC routing across six Ethereum lending venues, deployed on Google Cloud Run. Reproducible replay reports 5.36% net APY against 4.85% for the best-in-hindsight passive hold, over 313 allocation switches with gas costs accounted for. The ML tier lost out-of-sample and is published as a negative result.</p>
+            <a class="more" href="https://github.com/SergeySolovyev/defi-allocator-agent" rel="noopener">Details &rarr;</a>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Jun 9, 2026 &middot; University of Nicosia</div>
+            <h3>Admitted to the MSc in Blockchain and Digital Currency — Ripple Scholarship</h3>
+            <p>Admitted to the University of Nicosia&#x27;s MSc in Blockchain and Digital Currency with a Ripple Scholarship.</p>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Dec 2, 2025 &middot; ACI Russia</div>
+            <h3>Moderated the AI for Trading panel — ACI Russia eFX &amp; Digital Summit</h3>
+            <p>Moderated the Artificial Intelligence for Trading panel at the ACI Russia eFX &amp; Digital Summit in Moscow, with Ekaterina Lozgacheva (Bank of Russia, Strategic Development of the Financial Market), Alexey Savin (VTB, electronic trading), Alexey Unzhin (Alfa-Bank, algorithmic trading), Sergey Markov (Sberbank, AI technology development) and Dmitry Lesnov (Finam, management board). The discussion started from the Bank of Russia consultation papers on AI in financial markets.</p>
+            <div class="shots">
+              <figure><img src="/news/assets/efx-summit-2025-discussion.jpg" alt="Sergei Solovev and Ekaterina Lozgacheva seated on stage, both holding microphones, mid-discussion." loading="lazy" /><figcaption>In discussion with Ekaterina Lozgacheva, Bank of Russia — Strategic Development of the Financial Market.</figcaption></figure>
+              <figure><img src="/news/assets/efx-summit-2025-hall.jpg" alt="Wide view of a full conference hall, the six-person panel on stage in front of a screen showing Bank of Russia reports on artificial intelligence." loading="lazy" /><figcaption>The panel opened against the Bank of Russia consultation papers on AI in financial markets.</figcaption></figure>
+              <figure><img src="/news/assets/efx-summit-2025-moderating.jpg" alt="Sergei Solovev standing with a microphone and a presenter clicker, wearing an eFX and Digital Summit 2025 badge." loading="lazy" /><figcaption>Moderating the session, ACI Russia eFX &amp; Digital Summit, Moscow.</figcaption></figure>
+            </div>
+            <a class="more" href="https://acirussia.org/efxsummit" rel="noopener">Details &rarr;</a>
+          </article>
+          <!--NEWS:END-->
+          <a class="more" href="/news.html">All news &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ================= JOURNEY ================= -->
+      <section id="journey">
+        <div class="wrap">
+          <div class="eyebrow">The Journey</div>
+          <h2>Three Domains, One Vision</h2>
+          <div class="grid three">
+            <article class="glass card">
+              <div class="label">2006 — Present</div>
+              <h3 class="serif" style="font-size:28px;color:#1f2937">TradFi</h3>
+              <p>Portfolio management &gt;$4B, multi-asset trading, risk models (VaR, GARCH), treasury operations. Bloomberg BQNT quantitative tools.</p>
+            </article>
+            <article class="glass card">
+              <div class="label">2024 — Research</div>
+              <h3 class="serif" style="font-size:28px;color:#334155">AI / ML</h3>
+              <p>MSc programmes in AI and Financial Engineering. Time-series forecasting, smart-contract vulnerability detection from EVM bytecode, honest evaluation of ML in high-stakes settings.</p>
+            </article>
+            <article class="glass card">
+              <div class="label">Frontier</div>
+              <h3 class="serif" style="font-size:28px;color:#b38a5a">DeFi</h3>
+              <p>Full DeFi lifecycle: mining &rarr; wrapping &rarr; liquidity (Uniswap, Aave, Curve). Smart-contract architecture, tokenomics, Solidity. ML-based security.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ambient: gradient descent on a loss surface -->
+      <div class="visual-sep" aria-hidden="true">
+        <div class="wrap"><div class="scene-shell"><canvas data-scene="descent"></canvas></div></div>
+      </div>
+
+      <!-- ================= EXPERIENCE ================= -->
+      <section id="experience">
+        <div class="wrap">
+          <div class="eyebrow">Career</div>
+          <h2>Professional Experience</h2>
+
+          <article class="glass job">
+            <div class="label">Feb 2026 — Present</div>
+            <h3>Advisor to the President</h3>
+            <div class="org">Mosoblbank (PSB Group)</div>
+            <p>Leading AI transformation: roadmap, use-case prioritization, pilot launches. Supervising Treasury and Financial Markets Operations, including cross-border payments and settlements.</p>
+            <div class="tags"><span class="tag">AI Strategy</span><span class="tag">Treasury</span><span class="tag">Cross-Border Payments</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">Mar 2022 — Feb 2026</div>
+            <h3>Director, Financial Markets Operations</h3>
+            <div class="org">SMP Bank / Mosoblbank (PSB Group)</div>
+            <p>Ran four desks — money markets (repo, interbank, deposits), securities, FX (spot, swaps, forwards, futures) and brokerage. Securities portfolio &gt;$4B, daily money-market operations up to RUB 100B. Member of the bank's collegiate bodies, reporting directly to the President.</p>
+            <div class="tags"><span class="tag">$4B Portfolio</span><span class="tag">Desk Leadership</span><span class="tag">Money Markets</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">May 2012 — Mar 2022</div>
+            <h3>Chief Trader</h3>
+            <div class="org">SMP Bank / Mosoblbank (PSB Group)</div>
+            <p>Multi-asset trading and portfolio management: bonds, Eurobonds, FX, derivatives. Rebuilt execution and settlement infrastructure from scratch after counterparty and vendor access was lost. Built quantitative screeners in Bloomberg BQNT: Eurobonds (1000+ issuers) and US equities with DCF models (2000+ companies).</p>
+            <div class="tags"><span class="tag">Multi-asset</span><span class="tag">Derivatives</span><span class="tag">Bloomberg BQNT</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">Aug 2009 — May 2012</div>
+            <h3>Head of Market Risk</h3>
+            <div class="org">Globex Bank (VEB Group)</div>
+            <p>Led risk team. VaR models (SMA, EWMA, GARCH, historical simulation), stress testing, limit framework. CBR regulatory interaction.</p>
+            <div class="tags"><span class="tag">VaR Models</span><span class="tag">Risk Management</span><span class="tag">GARCH</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">2006 — 2009</div>
+            <h3>Earlier Roles</h3>
+            <div class="org">IFD Kapital (Lukoil Group) &middot; South Telecom (Rostelecom)</div>
+            <p>OTC derivatives risk, collateral management, Basel II. Investor relations and rating agency communications.</p>
+            <div class="tags"><span class="tag">OTC Derivatives</span><span class="tag">Basel II</span><span class="tag">Investor Relations</span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= ADVISORY / RUNNING ================= -->
+      <section id="advisory">
+        <div class="wrap">
+          <div class="eyebrow">Shipped</div>
+          <h2>What I Advise On — and What's Running</h2>
+          <div class="grid three">
+            <article class="glass card">
+              <h3 class="revert-mark"><a href="https://revert.pro" rel="noopener">REVERT</a></h3>
+              <p>Bytecode-only risk triage for the ~95% of Ethereum mainnet that ships unverified — which contracts to review first, not a bug verdict.</p>
+              <div class="label" style="margin-top:14px">Live &middot; revert.pro</div>
+              <a class="more" href="https://revert.pro" rel="noopener">Open &rarr;</a>
+            </article>
+            <article class="glass card">
+              <h3>AI Yield Vault (ERC-4626)</h3>
+              <p>Tokenized vault rebalanced by an off-chain agent: Aave V3 and Compound V3 adapters, decisions signed with EIP-712, 67 tests and 76,800 invariant calls with no violations.</p>
+              <div class="label" style="margin-top:14px">Sepolia testnet &middot; open source</div>
+              <a class="more" href="https://doi.org/10.6084/m9.figshare.32141167" rel="noopener">Open &rarr;</a>
+            </article>
+            <article class="glass card">
+              <h3>DeFi allocator</h3>
+              <p>Non-custodial, gas-aware USDC routing across six Ethereum lending venues. Custody never leaves the depositor; the replay and the losing ML tier are both published.</p>
+              <div class="label" style="margin-top:14px">Live agent &middot; open source</div>
+              <a class="more" href="https://github.com/SergeySolovyev/defi-allocator-agent" rel="noopener">Open &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ambient: network pulses -->
+      <div class="visual-sep" aria-hidden="true">
+        <div class="wrap"><div class="scene-shell"><canvas data-scene="network"></canvas></div></div>
+      </div>
+
+      <!-- ================= RESEARCH ================= -->
+      <section id="research">
+        <div class="wrap">
+          <div class="eyebrow">Academic</div>
+          <h2>Research Interests</h2>
+          <div class="grid">
+            <article class="glass research">
+              <div class="num">01</div>
+              <div>
+                <h3>Risk and Compliance for On-Chain Capital</h3>
+                <p>Counterparty risk and trust models in digital-asset infrastructure: where custody actually sits, how many participants must stay honest, and what that means for allocation. FATF/Travel Rule and KYT applied to real flows.</p>
+              </div>
+            </article>
+            <article class="glass research">
+              <div class="num">02</div>
+              <div>
+                <h3>ML for Security of Digital Financial Systems</h3>
+                <p>Vulnerability detection in smart contracts from EVM bytecode with noisy labels. Bridging TradFi risk management with DeFi security.</p>
+              </div>
+            </article>
+            <article class="glass research">
+              <div class="num">03</div>
+              <div>
+                <h3>AI &times; DeFi: Intelligent Decentralized Systems</h3>
+                <p>On-chain anomaly detection, protocol risk scoring, AMM optimization, intelligent liquidity management. DeFi as testbed for autonomous ML agents.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PUBLICATIONS ================= -->
+      <section id="publications">
+        <div class="wrap">
+          <div class="eyebrow">Publications</div>
+          <h2>Publications &amp; Awards</h2>
+
+          <article class="glass pub">
+            <div class="t">A Classification of Bitcoin Integration Methods in Decentralized Financial Infrastructure</div>
+            <div class="m label"><span class="badge">Peer-reviewed</span>Solovev, S. (Jun 2026) &middot; Informatics. Economics. Management, 5(2), 3026&ndash;3037 &middot; in Russian</div>
+            <div class="links"><a href="https://doi.org/10.47813/2782-5280-2026-5-2-3026-3037" rel="noopener">Open DOI &rarr;</a></div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection</div>
+            <div class="m label">Solovev, S. (Apr 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.32141182" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/rag-solidity.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification</div>
+            <div class="m label">Solovev, S. (Apr 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.32141167" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/ai-yield-vault.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction</div>
+            <div class="m label">Solovev, S. (Mar 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.31859557" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/lob-mid-price.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">Machine Learning&ndash;Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering</div>
+            <div class="m label">Solovev, S. (Feb 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.31429971" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/ml-vuln-detection.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">Prize-winner — Sales Rhythms Hackathon (VK AllCups / VK Education)</div>
+            <div class="m label"><span class="badge">Award</span>Feb 2026 &middot; Sales forecasting &amp; dynamic pricing</div>
+          </article>
+
+          <a class="more" href="/publications.html">View all publications &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ================= EDUCATION ================= -->
+      <section id="education">
+        <div class="wrap">
+          <div class="eyebrow">Education</div>
+          <h2>Academic Foundation</h2>
+          <div class="grid four">
+            <article class="glass card">
+              <h3 style="font-size:19px">MSc in Artificial Intelligence</h3>
+              <p>HSE University, Faculty of Computer Science — Moscow</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Thesis: Multi-Agent AI for Smart-Contract Security</p>
+            </article>
+            <article class="glass card">
+              <h3 style="font-size:19px">MSc in Blockchain and Digital Currency</h3>
+              <p>University of Nicosia — Cyprus</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Ripple Scholarship</p>
+            </article>
+            <article class="glass card">
+              <h3 style="font-size:19px">Masters in Finance (MiF)</h3>
+              <p>New Economic School — Moscow</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Merit-based tuition grant</p>
+            </article>
+            <article class="glass card">
+              <h3 style="font-size:19px">MSc in Financial Engineering</h3>
+              <p>WorldQuant University</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Certificate in Foundations of Financial Engineering, 2026</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section id="skills">
+        <div class="wrap">
+          <div class="eyebrow">Technical</div>
+          <h2>Skills &amp; Tools</h2>
+          <div class="grid three">
+            <article class="glass skillset">
+              <h3>Programming</h3>
+              <div class="chips"><span class="chip">Python</span><span class="chip">Jupyter</span><span class="chip">C++</span><span class="chip">Git</span><span class="chip">SQL</span><span class="chip">Bloomberg BQNT</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>ML / Data Science</h3>
+              <div class="chips"><span class="chip">Feature Engineering</span><span class="chip">LightGBM / XGBoost</span><span class="chip">Time-Series</span><span class="chip">Classification</span><span class="chip">Validation</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>Compliance &amp; Risk</h3>
+              <div class="chips"><span class="chip">FATF / Travel Rule</span><span class="chip">KYC / KYT</span><span class="chip">VASP operations</span><span class="chip">Counterparty risk</span><span class="chip">Trust models</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>Finance</h3>
+              <div class="chips"><span class="chip">OTC Execution</span><span class="chip">Treasury Operations</span><span class="chip">Bloomberg Terminal</span><span class="chip">VaR Models</span><span class="chip">Stress Testing</span><span class="chip">Derivatives Pricing</span><span class="chip">Credit Analysis</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>DeFi &amp; Blockchain</h3>
+              <div class="chips"><span class="chip">Uniswap</span><span class="chip">Aave</span><span class="chip">Curve</span><span class="chip">Solidity</span><span class="chip">EVM Bytecode</span><span class="chip">Tokenomics</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>Languages</h3>
+              <div class="chips"><span class="chip">English — Fluent</span><span class="chip">Russian — Native</span><span class="chip">German — Basic</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ambient: agent orbits -->
+      <div class="visual-sep" aria-hidden="true">
+        <div class="wrap"><div class="scene-shell"><canvas data-scene="orbit"></canvas></div></div>
+      </div>
+
+      <!-- ================= COMMUNITY ================= -->
+      <section id="community">
+        <div class="wrap">
+          <div class="eyebrow">Community</div>
+          <h2>Service &amp; Affiliations</h2>
+          <div class="grid three">
+            <article class="glass card">
+              <h3>Associated Board Member, ACI Russia</h3>
+              <p>The Financial Markets Association of Russia — currency and money-market professionals.</p>
+            </article>
+            <article class="glass card">
+              <h3>Speaker and Panel Moderator</h3>
+              <p>Solo talk on multi-level smart-contract defence, Cybersecurity track, Nauchny Telegraf (2026). Panelist on the Bank of Russia key rate, ACI Russia Pro Markets (2026). Moderator of the AI for Trading panel, ACI Russia eFX &amp; Digital Summit (2025).</p>
+            </article>
+            <article class="glass card">
+              <h3>Securities-Market Qualifications</h3>
+              <p>Russian regulator-issued professional qualifications: FSFR series 1.0 and 5.0 (2007–2011) and National Qualification Assessment certificates in broker-dealer activity and securities portfolio management (2022).</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section id="contact" style="padding-bottom:20px">
+        <div class="wrap">
+          <div class="glass contact-card">
+            <div class="eyebrow" style="margin-bottom:0">Get in touch</div>
+            <h2>Risk, Execution, Security and Compliance for On-Chain Capital</h2>
+            <p>Open to advisory roles with protocols, funds, trading desks and treasuries — and to research collaboration. Twenty years of institutional execution and treasury on one side, someone who reads the bytecode on the other. Currently supervising Treasury and Financial Markets Operations at a banking group.</p>
+            <div class="btns">
+              <a class="btn solid" href="mailto:sssolovjov@gmail.com">Email me</a>
+              <a class="btn" href="https://github.com/SergeySolovyev" rel="noopener">GitHub</a>
+              <a class="btn" href="https://orcid.org/0009-0008-4494-0447" rel="noopener">ORCID</a>
+              <a class="btn" href="https://scholar.google.com/citations?user=HGalnA0AAAAJ" rel="noopener">Google Scholar</a>
+              <a class="btn" href="/Solovev_Sergei_CV_EN.pdf">CV (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <div class="name">Sergei Solovev</div>
+          <div class="label" style="margin-top:4px">&copy; 2026 &middot; TradFi &rarr; AI &rarr; DeFi</div>
+        </div>
+        <div class="foot-links label">
+          <a href="/publications.html">Publications</a>
+          <a href="/news.html">News</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://github.com/SergeySolovyev" rel="noopener">GitHub</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </footer>
 
     <script>
       (function () {
-        var path = location.pathname;
-        var hasExtension = /\.[a-zA-Z0-9]+$/.test(path);
-        if (!hasExtension && path !== "/" && !location.search.includes("redirected=1")) {
-          var newUrl = location.origin + path + "/?redirected=1" + (location.hash || "");
-          history.replaceState(null, "", newUrl);
+        "use strict";
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Scroll reveal — classes are added from JS, so nothing is hidden when JS is off
+        if ("IntersectionObserver" in window && !reduced) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+            });
+          }, { rootMargin: "0px 0px -8% 0px" });
+          document.querySelectorAll("main section > .wrap").forEach(function (el) {
+            el.classList.add("reveal");
+            io.observe(el);
+          });
         }
-      })();
-    </script>
 
-    <script type="module">
-      import React, { useEffect, useMemo, useRef } from "react";
-      import { createRoot } from "react-dom/client";
-      import * as THREE from "three";
-      import gsap from "gsap";
-      import ScrollTrigger from "gsap/ScrollTrigger";
-      import Lenis from "@studio-freight/lenis";
+        // Scrolling feeds energy into the scenes; they speed up briefly, then settle.
+        // On a phone this replaces hover: the page answers the only gesture it gets.
+        var lastScroll = window.scrollY || 0, energy = 0;
+        window.addEventListener("scroll", function () {
+          var y = window.scrollY || 0;
+          energy = Math.min(2.5, energy + Math.abs(y - lastScroll) * 0.004);
+          lastScroll = y;
+        }, { passive: true });
+        (function cool() { energy *= 0.95; requestAnimationFrame(cool); })();
 
-      gsap.registerPlugin(ScrollTrigger);
+        var TAU = Math.PI * 2;
+        function lerp(a, b, k) { return a + (b - a) * k; }
 
-      function useLenis() {
-        useEffect(() => {
-          const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          if (reduced) return;
+        document.querySelectorAll("canvas[data-scene]").forEach(function (canvas) {
+          var mode = canvas.getAttribute("data-scene");
+          var ctx = canvas.getContext("2d");
+          if (!ctx) return;
+          var w = 0, h = 0, S = 1, t = Math.random() * 20, raf = 0, running = false;
 
-          const lenis = new Lenis({
-            duration: 1.05,
-            smoothWheel: true,
-            smoothTouch: false,
-          });
-
-          let raf = 0;
-          const loop = (time) => {
-            lenis.raf(time);
-            raf = requestAnimationFrame(loop);
-          };
-
-          raf = requestAnimationFrame(loop);
-          lenis.on("scroll", ScrollTrigger.update);
-          gsap.ticker.lagSmoothing(0);
-
-          return () => {
-            cancelAnimationFrame(raf);
-            lenis.destroy();
-          };
-        }, []);
-      }
-
-      function useReveal() {
-        useEffect(() => {
-          const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          if (reduced) {
-            document.querySelectorAll(".reveal").forEach((el) => {
-              el.style.opacity = 1;
-              el.style.transform = "none";
-            });
-            return;
+          function resize() {
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = canvas.clientWidth; h = canvas.clientHeight;
+            S = Math.min(1, w / 720);
+            canvas.width = Math.max(1, Math.round(w * dpr));
+            canvas.height = Math.max(1, Math.round(h * dpr));
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
           }
 
-          const ctx = gsap.context(() => {
-            gsap.utils.toArray(".reveal").forEach((el, i) => {
-              gsap.to(el, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                delay: i * 0.02,
-                ease: "power3.out",
-                scrollTrigger: {
-                  trigger: el,
-                  start: "top 88%",
-                },
-              });
-            });
-          });
+          function proj(p) { var s = 430 / (670 + p[2]); return [w / 2 + p[0] * s * S, h / 2 + p[1] * s, s]; }
+          function rotY(p, a) { var c = Math.cos(a), s = Math.sin(a); return [p[0] * c - p[2] * s, p[1], p[0] * s + p[2] * c]; }
+          function rotX(p, a) { var c = Math.cos(a), s = Math.sin(a); return [p[0], p[1] * c - p[2] * s, p[1] * s + p[2] * c]; }
 
-          return () => {
-            ctx.revert();
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-          };
-        }, []);
-      }
+          var nodes = [], edges = [], pulses = [], blocks = [], sats = [], ball = null, burst = 0, i;
 
-      function ThreeSeparator({ type }) {
-        const mountRef = useRef(null);
-
-        useEffect(() => {
-          const host = mountRef.current;
-          if (!host) return;
-
-          const scene = new THREE.Scene();
-          scene.background = new THREE.Color("#ece9e2");
-
-          const camera = new THREE.PerspectiveCamera(54, 1, 0.1, 60);
-          camera.position.set(0, 1.55, 4.6);
-          camera.lookAt(0, 0.25, 0);
-
-          const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
-          renderer.outputColorSpace = THREE.SRGBColorSpace;
-          renderer.setClearAlpha(0);
-          host.appendChild(renderer.domElement);
-
-          const ambient = new THREE.AmbientLight(0xffffff, 0.78);
-          const lightA = new THREE.DirectionalLight(0x64748b, 1.15);
-          lightA.position.set(2, 3, 2);
-          const lightB = new THREE.DirectionalLight(0xb38a5a, 0.7);
-          lightB.position.set(-2, 2, -1);
-          scene.add(ambient, lightA, lightB);
-
-          const group = new THREE.Group();
-          group.position.y = type === "descent" ? 0.52 : type === "chain" ? 0.46 : 0.4;
-          scene.add(group);
-
-          const mouse = new THREE.Vector2(0, 0);
-          const pointer = new THREE.Vector3(0, 0, 0);
-          const raycaster = new THREE.Raycaster();
-          const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-          const target = new THREE.Vector3();
-          const soft = new THREE.Vector3();
-          let active = false;
-          let isVisible = true;
-
-          const disposables = [];
-          let morphState = null;
-          let nodes = [];
-          let aiOrbit = null;
-
-          if (type === "descent") {
-            const geom = new THREE.PlaneGeometry(6.2, 4.9, 92, 72);
-            const pos = geom.attributes.position;
-            const base = new Float32Array(pos.count);
-
-            for (let i = 0; i < pos.count; i++) {
-              const x = pos.getX(i);
-              const y = pos.getY(i);
-              const z = 0.25 * Math.sin(x * 1.6) + 0.18 * Math.cos(y * 2.2);
-              pos.setZ(i, z);
-              base[i] = z;
+          if (mode === "network") {
+            var N = 26;
+            for (i = 0; i < N; i++) nodes.push([(Math.random() - 0.5) * 470, (Math.random() - 0.5) * 175, (Math.random() - 0.5) * 330]);
+            for (i = 0; i < N; i++) { edges.push([i, (i + 7) % N]); edges.push([i, (i + 13) % N]); }
+            for (i = 0; i < 9; i++) pulses.push({ e: (Math.random() * edges.length) | 0, k: Math.random(), v: 0.0025 + Math.random() * 0.0035, amber: i < 3 });
+          }
+          if (mode === "orbit") {
+            for (i = 0; i < 12; i++) blocks.push({ ph: i / 12 * TAU, trail: [] });
+            for (i = 0; i < 16; i++) sats.push({ a: i / 16 * TAU, r: 150 + (i % 4) * 24, y: (i % 5 - 2) * 15, sp: 0.26 + (i % 6) * 0.05 });
+          }
+          // The original Three.js descent scene, faithfully: a full-width waving
+          // wireframe sheet seen at a shallow angle, with an amber orb gliding
+          // above it. No focal bowl — the sheet bleeds past the card edges.
+          function sheetY(x, z) {
+            return 24 * Math.sin(x * 0.004 + t * 0.85)
+                 + 16 * Math.cos(z * 0.009 + t * 0.65)
+                 + 9 * Math.sin((x + z) * 0.003 - t * 0.5);
+          }
+          function drawDescent() {
+            var cols = 44, rows = 19, tilt = 0.95, g = [], r2, c2, p;
+            var ex = Math.max(700, w * 0.95), z0 = -250, z1 = 165;
+            for (r2 = 0; r2 < rows; r2++) {
+              g[r2] = [];
+              var z = z0 + (z1 - z0) * r2 / (rows - 1);
+              for (c2 = 0; c2 < cols; c2++) {
+                var x = -ex + 2 * ex * c2 / (cols - 1);
+                g[r2][c2] = proj(rotX([x, sheetY(x, z) + 26, z], tilt));
+              }
+            }
+            ctx.lineWidth = 1;
+            for (r2 = 0; r2 < rows; r2++) {
+              ctx.strokeStyle = "rgba(100,116,139," + (0.14 + 0.3 * r2 / rows).toFixed(3) + ")";
+              ctx.beginPath();
+              for (c2 = 0; c2 < cols; c2++) { p = g[r2][c2]; if (c2 === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]); }
+              ctx.stroke();
+            }
+            ctx.strokeStyle = "rgba(100,116,139,0.16)";
+            for (c2 = 0; c2 < cols; c2++) {
+              ctx.beginPath();
+              for (r2 = 0; r2 < rows; r2++) { p = g[r2][c2]; if (r2 === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]); }
+              ctx.stroke();
             }
 
-            geom.computeVertexNormals();
-            morphState = { geom, pos, base };
-
-            const mat = new THREE.MeshStandardMaterial({
-              color: 0x64748b,
-              wireframe: true,
-              roughness: 0.38,
-              metalness: 0.1,
-              transparent: true,
-              opacity: 0.92,
-            });
-            const mesh = new THREE.Mesh(geom, mat);
-            mesh.rotation.x = -Math.PI / 2.2;
-            group.add(mesh);
-            disposables.push(geom, mat);
-
-            const orbGeom = new THREE.SphereGeometry(0.11, 26, 26);
-            const orbMat = new THREE.MeshStandardMaterial({ color: 0xb38a5a, emissive: 0x78350f, emissiveIntensity: 0.2 });
-            const orb = new THREE.Mesh(orbGeom, orbMat);
-            orb.position.set(-1.7, 0.35, 0.2);
-            group.add(orb);
-            nodes = [orb];
-            disposables.push(orbGeom, orbMat);
+            // amber orb drifting above the sheet, as in the original
+            var ox = Math.sin(t * 0.29) * ex * 0.55;
+            var oz = Math.cos(t * 0.26) * 120 - 40;
+            var oy = sheetY(ox, oz) - 34 + Math.sin(t * 0.6) * 6;
+            var op = proj(rotX([ox, oy, oz], tilt));
+            ctx.fillStyle = "rgba(179,138,90,0.14)";
+            ctx.beginPath(); ctx.arc(op[0], op[1], 15, 0, TAU); ctx.fill();
+            ctx.fillStyle = "rgba(179,138,90,0.92)";
+            ctx.beginPath(); ctx.arc(op[0], op[1], 5.5, 0, TAU); ctx.fill();
           }
 
-          if (type === "chain") {
-            const nodeGeom = new THREE.SphereGeometry(0.08, 16, 16);
-            const nodeMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.33, metalness: 0.08 });
-            disposables.push(nodeGeom, nodeMat);
-
-            const pts = [];
-            for (let i = 0; i < 34; i++) {
-              const p = new THREE.Vector3((Math.random() - 0.5) * 3.2, (Math.random() - 0.5) * 1.8, (Math.random() - 0.5) * 2.6);
-              pts.push(p);
-              const n = new THREE.Mesh(nodeGeom, nodeMat);
-              n.position.copy(p);
-              n.userData.base = p.clone();
-              group.add(n);
-              nodes.push(n);
+          function drawNetwork() {
+            var ay = t * 0.14, ax = 0.16 + Math.sin(t * 0.25) * 0.06;
+            var p3 = [], pp = [], n;
+            for (n = 0; n < nodes.length; n++) {
+              var q = rotX(rotY(nodes[n], ay), ax);
+              p3.push(q); pp.push(proj(q));
             }
-
-            const lineMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.42 });
-            disposables.push(lineMat);
-            for (let i = 0; i < pts.length; i++) {
-              const links = [7, 13].map((offset) => pts[(i + offset) % pts.length]);
-              links.forEach((p2) => {
-                const g = new THREE.BufferGeometry().setFromPoints([pts[i], p2]);
-                const line = new THREE.Line(g, lineMat);
-                group.add(line);
-                disposables.push(g);
-              });
+            ctx.lineWidth = 1;
+            edges.forEach(function (ed) {
+              var a = pp[ed[0]], b = pp[ed[1]];
+              ctx.strokeStyle = "rgba(148,163,184," + (0.1 + 0.09 * (a[2] + b[2])) + ")";
+              ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+            });
+            pulses.forEach(function (pu) {
+              pu.k += pu.v * (1 + energy * 2);
+              if (pu.k >= 1) { pu.k = 0; pu.e = (Math.random() * edges.length) | 0; }
+              var ed = edges[pu.e], A = p3[ed[0]], B = p3[ed[1]];
+              for (var k = 2; k >= 0; k--) {
+                var kk = Math.max(0, pu.k - k * 0.045);
+                var p = proj([lerp(A[0], B[0], kk), lerp(A[1], B[1], kk), lerp(A[2], B[2], kk)]);
+                ctx.fillStyle = pu.amber ? "rgba(179,138,90," + (0.95 - k * 0.3) + ")" : "rgba(51,65,85," + (0.8 - k * 0.26) + ")";
+                ctx.beginPath(); ctx.arc(p[0], p[1], Math.max(0.4, (pu.amber ? 3.4 : 2.5) * p[2] - k * 0.5), 0, TAU); ctx.fill();
+              }
+            });
+            for (n = 0; n < pp.length; n++) {
+              var pt = pp[n];
+              ctx.fillStyle = "rgba(51,65,85," + (0.3 + 0.45 * pt[2]) + ")";
+              ctx.beginPath(); ctx.arc(pt[0], pt[1], (3.2 + 0.5 * Math.sin(t * 1.4 + n)) * pt[2] + 0.6, 0, TAU); ctx.fill();
             }
           }
 
-          if (type === "ai") {
-            const coreGeom = new THREE.IcosahedronGeometry(0.36, 1);
-            const coreMat = new THREE.MeshStandardMaterial({
-              color: 0x334155,
-              roughness: 0.22,
-              metalness: 0.35,
-              emissive: 0x0f172a,
-              emissiveIntensity: 0.08,
+          function drawOrbit() {
+            var tilt = 0.35;
+            burst += 0.0038 * (1 + energy);
+            if (burst > 1) burst = 0;
+            ctx.strokeStyle = "rgba(179,138,90," + (0.45 * (1 - burst)).toFixed(3) + ")";
+            ctx.lineWidth = 1.4;
+            ctx.beginPath();
+            ctx.ellipse(w / 2, h / 2, (60 + burst * 190) * S, (60 + burst * 190) * 0.4, 0, 0, TAU);
+            ctx.stroke();
+            ctx.lineWidth = 1;
+            for (var k2 = 0; k2 < 3; k2++) {
+              ctx.strokeStyle = "rgba(148,163,184,0.42)";
+              ctx.beginPath();
+              for (var a = 0; a <= 60; a++) {
+                var th = a / 60 * TAU;
+                var p = proj(rotX(rotY([46 * Math.cos(th), 46 * Math.sin(th), 0], t * 0.4 + k2 * 2.1), 0.7 + k2 * 1.05));
+                if (a === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
+              }
+              ctx.stroke();
+            }
+            ctx.fillStyle = "rgba(51,65,85,0.9)";
+            ctx.beginPath(); ctx.arc(w / 2, h / 2, 6.5, 0, TAU); ctx.fill();
+            blocks.forEach(function (b, i2) {
+              var an = b.ph + t * 0.26;
+              var p2 = proj(rotX([Math.cos(an) * 195, Math.sin(i2 * 0.7 + t * 1.1) * 20, Math.sin(an) * 135], tilt));
+              b.trail.push(p2);
+              if (b.trail.length > 10) b.trail.shift();
+              for (var k3 = 0; k3 < b.trail.length; k3++) {
+                var tp = b.trail[k3], f = k3 / b.trail.length;
+                var size = (7 * tp[2] + 2) * (0.35 + 0.65 * f);
+                ctx.fillStyle = "rgba(179,138,90," + (0.08 + 0.75 * f).toFixed(3) + ")";
+                ctx.fillRect(tp[0] - size / 2, tp[1] - size / 2, size, size);
+              }
             });
-            const core = new THREE.Mesh(coreGeom, coreMat);
-            group.add(core);
-
-            const shellGeom = new THREE.IcosahedronGeometry(0.78, 0);
-            const shellMat = new THREE.MeshBasicMaterial({ color: 0x94a3b8, wireframe: true, transparent: true, opacity: 0.42 });
-            const shell = new THREE.Mesh(shellGeom, shellMat);
-            group.add(shell);
-
-            const blockGeom = new THREE.BoxGeometry(0.2, 0.2, 0.2);
-            const blockMat = new THREE.MeshStandardMaterial({ color: 0xb38a5a, roughness: 0.28, metalness: 0.22 });
-            const blocks = [];
-
-            for (let i = 0; i < 14; i++) {
-              const angle = (i / 14) * Math.PI * 2;
-              const block = new THREE.Mesh(blockGeom, blockMat);
-              block.position.set(Math.cos(angle) * 1.65, Math.sin(i * 0.7) * 0.18, Math.sin(angle) * 1.18);
-              block.rotation.set(0.4 + i * 0.05, angle, 0.2);
-              block.userData.phase = i * 0.45;
-              block.userData.baseY = block.position.y;
-              group.add(block);
-              blocks.push(block);
-            }
-
-            const linkMat = new THREE.LineBasicMaterial({ color: 0x64748b, transparent: true, opacity: 0.54 });
-            const links = [];
-            for (let i = 0; i < blocks.length; i++) {
-              const from = i;
-              const to = (i + 1) % blocks.length;
-              const geom = new THREE.BufferGeometry();
-              geom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(6), 3));
-              const line = new THREE.Line(geom, linkMat);
-              group.add(line);
-              links.push({ line, from, to });
-              disposables.push(geom);
-            }
-
-            const nodeGeom = new THREE.SphereGeometry(0.045, 12, 12);
-            const nodeMat = new THREE.MeshStandardMaterial({ color: 0x9ca3af, roughness: 0.3, metalness: 0.12 });
-            const satellites = [];
-            for (let i = 0; i < 18; i++) {
-              const sat = new THREE.Mesh(nodeGeom, nodeMat);
-              sat.userData.angle = (i / 18) * Math.PI * 2;
-              sat.userData.radius = 1.0 + (i % 4) * 0.14;
-              sat.userData.height = (i % 5 - 2) * 0.09;
-              sat.userData.speed = 0.45 + (i % 6) * 0.06;
-              group.add(sat);
-              satellites.push(sat);
-            }
-
-            aiOrbit = { core, shell, blocks, links, satellites };
-            disposables.push(coreGeom, coreMat, shellGeom, shellMat, blockGeom, blockMat, linkMat, nodeGeom, nodeMat);
+            sats.forEach(function (s3, i3) {
+              var a2 = s3.a + t * s3.sp;
+              var p4 = proj(rotX([Math.cos(a2) * s3.r, s3.y + Math.cos(t * 0.9 + i3 * 0.4) * 9, Math.sin(a2) * s3.r * 0.72], tilt));
+              ctx.fillStyle = "rgba(107,114,128," + (0.25 + 0.4 * p4[2]).toFixed(3) + ")";
+              ctx.beginPath(); ctx.arc(p4[0], p4[1], 2.1 * p4[2] + 0.5, 0, TAU); ctx.fill();
+            });
           }
 
-          const resize = () => {
-            const w = host.clientWidth;
-            const h = host.clientHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h, false);
-          };
+          function frame() {
+            t += 0.011 * (1 + energy);
+            ctx.clearRect(0, 0, w, h);
+            if (mode === "descent") drawDescent(); else if (mode === "network") drawNetwork(); else drawOrbit();
+            if (running) raf = requestAnimationFrame(frame);
+          }
 
           resize();
-          window.addEventListener("resize", resize);
+          window.addEventListener("resize", function () { resize(); if (!running) frame(); });
 
-          const onMove = (e) => {
-            const rect = host.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width;
-            const y = (e.clientY - rect.top) / rect.height;
-            mouse.set(x * 2 - 1, -(y * 2 - 1));
-            active = true;
-          };
-
-          const onLeave = () => {
-            active = false;
-          };
-
-          host.addEventListener("pointermove", onMove, { passive: true });
-          host.addEventListener("pointerleave", onLeave, { passive: true });
-
-          const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              isVisible = entry.isIntersecting;
-            });
-          }, { threshold: 0.1 });
-          io.observe(host);
-
-          let raf = 0;
-          let t = 0;
-
-          const animate = () => {
-            t += 0.013;
-
-            raycaster.setFromCamera(mouse, camera);
-            raycaster.ray.intersectPlane(plane, target);
-            if (active && isVisible) {
-              soft.lerp(target, 0.08);
-            } else {
-              soft.lerp(new THREE.Vector3(0, 0, 0), 0.045);
-            }
-
-            group.rotation.y += type === "chain" ? 0.003 : 0.0018;
-            group.rotation.x = Math.sin(t * 0.37) * 0.07;
-
-            if (morphState) {
-              const { pos, base } = morphState;
-              for (let i = 0; i < pos.count; i++) {
-                const vx = pos.getX(i);
-                const vy = pos.getY(i);
-                const dist = Math.hypot(vx - soft.x, vy - soft.z);
-                const influence = Math.max(0, 1 - dist / 2.1);
-                const wobble = Math.sin(t * 2.7 + vx * 1.5 + vy * 1.2) * 0.012;
-                const targetZ = base[i] + influence * 0.24 + wobble;
-                pos.setZ(i, pos.getZ(i) + (targetZ - pos.getZ(i)) * 0.1);
+          if (reduced || !("IntersectionObserver" in window)) { frame(); return; }
+          var vis = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                if (!running) { running = true; raf = requestAnimationFrame(frame); }
+              } else if (running) {
+                running = false;
+                cancelAnimationFrame(raf);
               }
-              pos.needsUpdate = true;
-              morphState.geom.computeVertexNormals();
-
-              if (nodes[0]) {
-                nodes[0].position.x = Math.sin(t * 1.15) * 1.7 + soft.x * 0.22;
-                nodes[0].position.z = Math.cos(t * 1.05) * 1.38 + soft.z * 0.2;
-                nodes[0].position.y = 0.24 + Math.sin(t * 2.4) * 0.08;
-              }
-            }
-
-            if (nodes.length > 1) {
-              nodes.forEach((node, i) => {
-                const base = node.userData.base;
-                const dir = base.clone().sub(soft);
-                const dist = Math.max(dir.length(), 0.001);
-                const power = Math.max(0, 1 - dist / 2.4);
-                const pull = dir.normalize().multiplyScalar(power * 0.07);
-
-                const toMouse = soft.clone().sub(node.position);
-                const mouseDist = Math.max(toMouse.length(), 0.001);
-                const mousePower = Math.max(0, 1 - mouseDist / 2.2);
-                const mouseLift = toMouse.normalize().multiplyScalar(mousePower * 0.2);
-
-                node.position.x += (base.x + pull.x + mouseLift.x + Math.sin(t + i * 0.25) * 0.01 - node.position.x) * 0.11;
-                node.position.y += (base.y + mouseLift.y * 0.4 + Math.cos(t * 1.1 + i * 0.31) * 0.02 - node.position.y) * 0.1;
-                node.position.z += (base.z + pull.z + mouseLift.z - node.position.z) * 0.11;
-              });
-            }
-
-            if (aiOrbit) {
-              aiOrbit.core.rotation.x += 0.008;
-              aiOrbit.core.rotation.y += 0.01;
-
-              aiOrbit.shell.rotation.y -= 0.006;
-              aiOrbit.shell.rotation.x += 0.002;
-
-              aiOrbit.blocks.forEach((block, i) => {
-                block.position.y = block.userData.baseY + Math.sin(t * 1.7 + block.userData.phase) * 0.07;
-                block.rotation.y += 0.006;
-                block.rotation.x += 0.002;
-              });
-
-              aiOrbit.links.forEach(({ line, from, to }) => {
-                const p1 = aiOrbit.blocks[from].position;
-                const p2 = aiOrbit.blocks[to].position;
-                const attr = line.geometry.attributes.position;
-                attr.setXYZ(0, p1.x, p1.y, p1.z);
-                attr.setXYZ(1, p2.x, p2.y, p2.z);
-                attr.needsUpdate = true;
-              });
-
-              aiOrbit.satellites.forEach((sat, i) => {
-                const a = sat.userData.angle + t * sat.userData.speed;
-                const wobble = Math.sin(t * 1.8 + i * 0.5) * 0.08;
-                sat.position.x = Math.cos(a) * (sat.userData.radius + wobble) + soft.x * 0.1;
-                sat.position.z = Math.sin(a) * (sat.userData.radius + wobble) + soft.z * 0.1;
-                sat.position.y = sat.userData.height + Math.cos(t * 1.4 + i * 0.35) * 0.07;
-              });
-            }
-
-            renderer.render(scene, camera);
-            raf = requestAnimationFrame(animate);
-          };
-
-          raf = requestAnimationFrame(animate);
-
-          return () => {
-            cancelAnimationFrame(raf);
-            io.disconnect();
-            host.removeEventListener("pointermove", onMove);
-            host.removeEventListener("pointerleave", onLeave);
-            window.removeEventListener("resize", resize);
-            disposables.forEach((d) => {
-              if (d && typeof d.dispose === "function") d.dispose();
             });
-            renderer.dispose();
-            if (renderer.domElement.parentNode === host) host.removeChild(renderer.domElement);
-          };
-        }, [type]);
-
-        return React.createElement("div", { className: "scene-shell", ref: mountRef, "aria-hidden": "true" });
-      }
-
-      /*NEWS:START*/
-      const NEWS = [{"date": "2026-06-19", "display": "Jun 19, 2026", "title": "Panelist — Pro Markets (ACI Russia): Bank of Russia key rate", "desc": "Live panel on the Bank of Russia key-rate decision. Panelists: Igor Safonov, Daria Tarasenko, Sergei Solovev, Dmitry Polevoy. Moderator: Pavel Pikulev.", "source": "ACI Russia", "url": ""}];
-      /*NEWS:END*/
-
-      function App() {
-        useLenis();
-        useReveal();
-
-        const transition = useMemo(
-          () => [
-            {
-              era: "2006 — Present",
-              title: "TradFi",
-              text: "Portfolio management >$4B, multi-asset trading, risk models (VaR, GARCH), treasury operations. Bloomberg BQNT quantitative tools.",
-            },
-            {
-              era: "2024 — Research",
-              title: "AI / ML",
-              text: "Three MSc programs in AI, CV, and Financial Engineering. Document AI, time-series forecasting, smart-contract vulnerability detection via ML.",
-            },
-            {
-              era: "Frontier",
-              title: "DeFi",
-              text: "Full DeFi lifecycle: mining → wrapping → liquidity (Uniswap, Aave, Curve). Smart-contract architecture, tokenomics, Solidity. ML-based security.",
-            },
-          ],
-          []
-        );
-
-        const timeline = useMemo(
-          () => [
-            {
-              date: "FEB 2026 — PRESENT",
-              role: "Advisor to the President",
-              org: "Mosoblbank (PSB Group)",
-              text: "Leading AI transformation: roadmap, use-case prioritization, pilot launches. Supervising Treasury and Financial Markets Operations.",
-              tags: ["AI Strategy", "Banking", "Transformation"],
-            },
-            {
-              date: "MAR 2022 — FEB 2026",
-              role: "Director, Financial Markets Operations",
-              org: "SMP Bank / Mosoblbank (PSB Group)",
-              text: "Securities portfolio >$4B, daily money-market ops up to RUB 100B. Built quantitative tools in Bloomberg BQNT: Eurobond screener (1000+ issuers), US equity DCF screener (2000+ companies).",
-              tags: ["$4B Portfolio", "Bloomberg BQNT", "Quant Tools"],
-            },
-            {
-              date: "MAY 2012 — MAR 2022",
-              role: "Chief Trader",
-              org: "SMP Bank / Mosoblbank",
-              text: "Multi-asset trading and portfolio management: bonds, Eurobonds, FX, derivatives. Built trading infrastructure from scratch under sanctions regime since 2014.",
-              tags: ["Multi-asset", "Derivatives", "Infrastructure"],
-            },
-            {
-              date: "AUG 2009 — MAY 2012",
-              role: "Head of Market Risk",
-              org: "Globex Bank (VEB Group)",
-              text: "Led risk team. VaR models (SMA, EWMA, GARCH, historical simulation), stress testing, limit framework. CBR regulatory interaction.",
-              tags: ["VaR Models", "Risk Management", "GARCH"],
-            },
-            {
-              date: "2006 — 2009",
-              role: "Earlier Roles",
-              org: "IFD Kapital (Lukoil Group) · South Telecom (Rostelecom)",
-              text: "OTC derivatives risk, collateral management, Basel II. Investor relations and rating agency communications.",
-              tags: ["OTC Derivatives", "Basel II", "Investor Relations"],
-            },
-          ],
-          []
-        );
-
-        const skills = useMemo(
-          () => [
-            ["Programming", ["Python", "Jupyter", "C++", "Git", "SQL", "Bloomberg BQNT"]],
-            ["ML / Data Science", ["Feature Engineering", "LightGBM / XGBoost", "Time-Series", "Classification", "Validation"]],
-            ["Document AI", ["EasyOCR", "DBNet+CRNN", "LayoutLMv3", "Donut"]],
-            ["Finance", ["Bloomberg Terminal", "VaR Models", "Stress Testing", "Derivatives Pricing", "Credit Analysis"]],
-            ["DeFi & Blockchain", ["Uniswap", "Aave", "Curve", "Solidity", "EVM Bytecode", "Tokenomics"]],
-            ["Languages", ["English — Fluent", "Russian — Native", "German — Basic"]],
-          ],
-          []
-        );
-
-        return React.createElement(
-          "main",
-          { className: "relative z-[3]" },
-          React.createElement(
-            "nav",
-            { className: "fixed top-0 left-0 right-0 z-20 border-b border-slate-200/70 bg-white/62 backdrop-blur-lg" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" },
-              React.createElement("div", { className: "font-serif text-2xl leading-none text-slate-900" }, "S. Solovev"),
-              React.createElement(
-                "div",
-                { className: "hidden md:flex gap-6 text-[11px] uppercase tracking-[0.16em] font-mono text-slate-500" },
-                [
-                  ["News", "#news"],
-                  ["Transition", "#transition"],
-                  ["Experience", "#experience"],
-                  ["Research", "#research"],
-                  ["Skills", "#skills"],
-                  ["Blog", "/blog/"],
-                  ["Contact", "#contact"],
-                ].map(([label, href]) => React.createElement("a", { key: label, href, className: "hover:text-slate-900" }, label))
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "hero", className: "section-wrap pt-32" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement(
-                "div",
-                { className: "glass rounded-[26px] p-6 md:p-10 shadow-glass" },
-                React.createElement(
-                  "div",
-                  { className: "grid md:grid-cols-[1.25fr_0.75fr] gap-8 items-center" },
-                  React.createElement(
-                    "div",
-                    null,
-                    React.createElement(
-                      "div",
-                      { className: "font-mono text-[10px] uppercase tracking-[0.18em] text-slate-500 flex flex-wrap gap-2 mb-4" },
-                      React.createElement("span", { className: "px-2.5 py-1 rounded-full border border-slate-300/80 bg-white/70" }, "Moscow, Russia"),
-                      React.createElement("span", { className: "px-2.5 py-1 rounded-full border border-amber-200/80 bg-white/70" }, "Available 2026")
-                    ),
-                    React.createElement("h1", { className: "font-serif text-5xl sm:text-7xl leading-[0.98] tracking-tight" }, "Sergei Solovev"),
-                    React.createElement(
-                      "h2",
-                      { className: "font-serif text-3xl sm:text-4xl mt-1 text-slate-800" },
-                      "TradFi → AI → DeFi"
-                    ),
-                    React.createElement(
-                      "p",
-                      { className: "text-slate-600 text-base sm:text-lg mt-5 max-w-2xl" },
-                      "Practitioner with 20+ years in financial markets transitioning into applied AI research. Operating at the rare intersection of classical finance, AI/ML/DL, and decentralized finance."
-                    ),
-                    React.createElement(
-                      "div",
-                      { className: "grid sm:grid-cols-3 gap-4 mt-8" },
-                      [
-                        ["$4B+", "Portfolio managed"],
-                        ["20+", "Years in finance"],
-                        ["3×", "MSc programs"],
-                      ].map(([val, label]) =>
-                        React.createElement(
-                          "div",
-                          { key: label, className: "glass-strong rounded-2xl p-4" },
-                          React.createElement("div", { className: "font-mono text-2xl font-semibold text-slate-900" }, val),
-                          React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500 mt-1" }, label)
-                        )
-                      )
-                    )
-                  ),
-                  React.createElement(
-                    "div",
-                    { className: "justify-self-center md:justify-self-end" },
-                    React.createElement(
-                      "div",
-                      { className: "glass-strong rounded-3xl p-3 w-[290px] shadow-glass" },
-                      React.createElement("img", {
-                        src: "sergey solovyev.png",
-                        alt: "Sergei Solovev",
-                        className: "w-full h-[360px] object-cover rounded-2xl",
-                      }),
-                      React.createElement("div", { className: "font-mono text-[10px] uppercase tracking-[0.14em] text-slate-500 text-center mt-3" }, "Advisor to the President · Mosoblbank")
-                    )
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "news", className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Latest"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "News & Appearances"),
-              NEWS.length
-                ? React.createElement(
-                    "div",
-                    { className: "space-y-4" },
-                    NEWS.slice(0, 6).map((n) =>
-                      React.createElement(
-                        "article",
-                        { key: n.date + n.title, className: "glass rounded-3xl p-6" },
-                        React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.13em] text-slate-500" }, n.display + " · " + n.source),
-                        React.createElement("h3", { className: "text-xl font-semibold mt-2 leading-snug" }, n.title),
-                        React.createElement("p", { className: "text-slate-600 text-sm mt-2" }, n.desc),
-                        n.url ? React.createElement("a", { href: n.url, target: "_blank", rel: "noreferrer", className: "inline-block mt-3 font-mono text-xs text-slate-700 hover:text-slate-900" }, "Details →") : null
-                      )
-                    )
-                  )
-                : React.createElement("p", { className: "text-slate-500 text-sm" }, "Talks, panels and appearances will appear here."),
-              React.createElement(
-                "div",
-                { className: "mt-6" },
-                React.createElement("a", { href: "/news.html", className: "font-mono text-xs text-slate-600 hover:text-slate-900 underline" }, "All news →")
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "transition", className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "The Journey"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Three Domains, One Vision"),
-              React.createElement(
-                "div",
-                { className: "grid md:grid-cols-3 gap-4" },
-                transition.map((item, i) =>
-                  React.createElement(
-                    "article",
-                    { key: item.title, className: "glass rounded-3xl p-6 hover:-translate-y-1 transition-transform" },
-                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.14em] text-slate-500 mb-2" }, item.era),
-                    React.createElement("h3", { className: "font-serif text-3xl mb-3", style: { color: ["#1f2937", "#334155", "#b38a5a"][i] } }, item.title),
-                    React.createElement("p", { className: "text-slate-600 text-sm leading-relaxed" }, item.text)
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement("section", { className: "visual-sep reveal" }, React.createElement("div", { className: "max-w-6xl mx-auto" }, React.createElement(ThreeSeparator, { type: "descent" }))),
-
-          React.createElement(
-            "section",
-            { id: "experience", className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Career"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Professional Experience"),
-              React.createElement(
-                "div",
-                { className: "space-y-4" },
-                timeline.map((it) =>
-                  React.createElement(
-                    "article",
-                    { key: it.date + it.role, className: "glass rounded-3xl p-6" },
-                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.13em] text-slate-500" }, it.date),
-                    React.createElement("h3", { className: "text-2xl font-semibold mt-2" }, it.role),
-                    React.createElement("div", { className: "text-slate-700 font-medium text-sm mt-1" }, it.org),
-                    React.createElement("p", { className: "text-slate-600 text-sm mt-3" }, it.text),
-                    React.createElement(
-                      "div",
-                      { className: "flex flex-wrap gap-2 mt-4" },
-                      it.tags.map((tag) => React.createElement("span", { key: tag, className: "font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1 rounded-full border border-slate-300 bg-white/74 text-slate-600" }, tag))
-                    )
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "research", className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Academic"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Research Interests"),
-              React.createElement(
-                "div",
-                { className: "space-y-4" },
-                [
-                  ["01", "AI-Driven Transformation of Classical Banking", "ML and deep learning for document understanding to modernize compliance-intensive banking workflows. Intelligent document processing, decision support for credit and risk."],
-                  ["02", "ML for Security of Digital Financial Systems", "Vulnerability detection in smart contracts from EVM bytecode with noisy labels. Bridging TradFi risk management with DeFi security."],
-                  ["03", "AI × DeFi: Intelligent Decentralized Systems", "On-chain anomaly detection, protocol risk scoring, AMM optimization, intelligent liquidity management. DeFi as testbed for autonomous ML agents."],
-                ].map(([num, title, text]) =>
-                  React.createElement(
-                    "article",
-                    { key: num, className: "glass rounded-3xl p-6 md:p-7 grid md:grid-cols-[56px_1fr] gap-4 items-start" },
-                    React.createElement("div", { className: "font-serif text-4xl text-slate-400" }, num),
-                    React.createElement(
-                      "div",
-                      null,
-                      React.createElement("h3", { className: "text-2xl font-semibold leading-tight" }, title),
-                      React.createElement("p", { className: "text-slate-600 text-sm mt-2" }, text)
-                    )
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement("section", { className: "visual-sep reveal" }, React.createElement("div", { className: "max-w-6xl mx-auto" }, React.createElement(ThreeSeparator, { type: "chain" }))),
-
-          React.createElement(
-            "section",
-            { className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Publications"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Preprints & Awards"),
-              React.createElement(
-                "div",
-                { className: "space-y-4" },
-                [
-                  [
-                    "When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection",
-                    "Solovev, S. (May 2026) · Preprint, Figshare",
-                    "https://doi.org/10.6084/m9.figshare.32141182",
-                    "/papers/rag-solidity.html",
-                  ],
-                  [
-                    "AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification",
-                    "Solovev, S. (May 2026) · Preprint, Figshare",
-                    "https://doi.org/10.6084/m9.figshare.32141167",
-                    "/papers/ai-yield-vault.html",
-                  ],
-                  [
-                    "When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction",
-                    "Solovev, S. (Mar 2026) · Preprint, Figshare",
-                    "https://doi.org/10.6084/m9.figshare.31859557",
-                    "/papers/lob-mid-price.html",
-                  ],
-                  [
-                    "Machine Learning–Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering",
-                    "Solovev, S. (Feb 2026) · Preprint, Figshare",
-                    "https://doi.org/10.6084/m9.figshare.31429971",
-                    "/papers/ml-vuln-detection.html",
-                  ],
-                  [
-                    "OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction",
-                    "Solovev, S. (Feb 2026) · Preprint, Figshare",
-                    "https://doi.org/10.6084/m9.figshare.31430086",
-                    "/papers/ocr-vs-donut.html",
-                  ],
-                  [
-                    "Prize-winner — Ritmy Prodazh Hackathon (VK AllCups / VK Education)",
-                    "Feb 2026 · Sales forecasting & dynamic pricing",
-                    null,
-                    null,
-                  ],
-                ].map(([title, meta, link, local]) =>
-                  React.createElement(
-                    "article",
-                    { key: title, className: "glass rounded-3xl p-6" },
-                    React.createElement("div", { className: "text-xl italic leading-snug" }, title),
-                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.11em] text-slate-500 mt-2" }, meta),
-                    React.createElement(
-                      "div",
-                      { className: "mt-3 flex gap-4 flex-wrap" },
-                      link
-                        ? React.createElement("a", { href: link, target: "_blank", rel: "noreferrer", className: "text-slate-700 hover:text-slate-900 font-mono text-xs" }, "Open DOI →")
-                        : null,
-                      local
-                        ? React.createElement("a", { href: local, className: "text-slate-700 hover:text-slate-900 font-mono text-xs" }, "Paper page →")
-                        : null
-                    )
-                  )
-                )
-              ),
-              React.createElement(
-                "div",
-                { className: "mt-6" },
-                React.createElement("a", { href: "/publications.html", className: "font-mono text-xs text-slate-600 hover:text-slate-900 underline" }, "View all publications →")
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "education", className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Education"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Academic Foundation"),
-              React.createElement(
-                "div",
-                { className: "grid md:grid-cols-2 xl:grid-cols-4 gap-4" },
-                [
-                  ["EXPECTED 2027", "MSc in Artificial Intelligence", "HSE University, Faculty of Computer Science — Moscow", "Thesis: Multi-Agent AI for Smart-Contract Security"],
-                  ["EXPECTED 2027", "MSc in AI & Computer Vision", "HSE University × Neymark Institute", "English-taught, grant-funded"],
-                  ["EXPECTED 2027", "MSc in Financial Engineering", "WorldQuant University — Washington, DC", ""],
-                  ["2006", "Specialist in Finance & Credit", "Kuban State University — Krasnodar", ""],
-                ].map(([year, title, place, note]) =>
-                  React.createElement(
-                    "article",
-                    { key: title, className: "glass rounded-3xl p-6" },
-                    React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.13em] text-amber-700" }, year),
-                    React.createElement("h3", { className: "text-xl font-semibold mt-2 leading-snug" }, title),
-                    React.createElement("p", { className: "text-sm text-slate-600 mt-2" }, place),
-                    note ? React.createElement("p", { className: "text-xs text-slate-500 mt-2 italic" }, note) : null
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "skills", className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Technical"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Skills & Tools"),
-              React.createElement(
-                "div",
-                { className: "grid md:grid-cols-2 xl:grid-cols-3 gap-4" },
-                skills.map(([title, list]) =>
-                  React.createElement(
-                    "article",
-                    { key: title, className: "glass rounded-3xl p-5" },
-                    React.createElement("h3", { className: "font-mono text-[11px] uppercase tracking-[0.16em] text-slate-700 mb-3" }, title),
-                    React.createElement(
-                      "div",
-                      { className: "flex flex-wrap gap-2" },
-                      list.map((item) => React.createElement("span", { key: item, className: "text-sm px-3 py-1.5 rounded-lg border border-slate-300 bg-white/74 text-slate-600" }, item))
-                    )
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement("section", { className: "visual-sep reveal" }, React.createElement("div", { className: "max-w-6xl mx-auto" }, React.createElement(ThreeSeparator, { type: "ai" }))),
-
-          React.createElement(
-            "section",
-            { className: "section-wrap" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-2" }, "Community"),
-              React.createElement("h2", { className: "font-serif text-4xl sm:text-5xl leading-tight mb-8" }, "Service & Affiliations"),
-              React.createElement(
-                "div",
-                { className: "grid md:grid-cols-3 gap-4" },
-                [
-                  ["Board Member, ACI Russia", "International Association of Currency and Money Market Traders."],
-                  ["Regular Conference Speaker", "ACI Russia, Atlanty Business Club, Private Money Forum, T-Zh."],
-                  ["Certifications", "Sber University DeFi 1.0 & 2.0 · Yale Financial Markets (R. Shiller) · NAUFOR FSFR 1.0 & 5.0"],
-                ].map(([title, text]) =>
-                  React.createElement(
-                    "article",
-                    { key: title, className: "glass rounded-3xl p-6" },
-                    React.createElement("h3", { className: "text-2xl font-semibold leading-tight" }, title),
-                    React.createElement("p", { className: "text-sm text-slate-600 mt-3" }, text)
-                  )
-                )
-              )
-            )
-          ),
-
-          React.createElement(
-            "section",
-            { id: "contact", className: "section-wrap pb-24" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto reveal" },
-              React.createElement(
-                "div",
-                { className: "glass rounded-[26px] p-7 sm:p-10 text-center" },
-                React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.2em] text-slate-500" }, "Get in Touch"),
-                React.createElement("h2", { className: "font-serif text-4xl sm:text-6xl leading-[1.05] mt-4" }, "Let’s Build the Future of Finance"),
-                React.createElement(
-                  "p",
-                  { className: "text-slate-600 max-w-2xl mx-auto mt-4" },
-                  "Open to research collaborations, advisory roles, and applied AI projects at the intersection of finance and technology."
-                ),
-                React.createElement(
-                  "div",
-                  { className: "flex flex-wrap justify-center gap-3 mt-7" },
-                  React.createElement("a", { href: "mailto:sssolovjov@gmail.com", className: "font-mono text-xs uppercase tracking-[0.12em] px-5 py-3 rounded-full bg-slate-900 text-white hover:bg-slate-800" }, "Email Me"),
-                  React.createElement("a", { href: "https://github.com/SergeySolovyev", target: "_blank", rel: "noreferrer", className: "font-mono text-xs uppercase tracking-[0.12em] px-5 py-3 rounded-full border border-slate-300 bg-white/72 text-slate-700 hover:text-slate-900" }, "GitHub"),
-                  React.createElement("a", { href: "mailto:sesesolovev@edu.hse.ru", className: "font-mono text-xs uppercase tracking-[0.12em] px-5 py-3 rounded-full border border-amber-200 bg-white/72 text-slate-700 hover:text-slate-900" }, "HSE Mail")
-                )
-              )
-            )
-          ),
-
-          React.createElement(
-            "footer",
-            { className: "border-t border-slate-200/70 bg-white/48 backdrop-blur-md" },
-            React.createElement(
-              "div",
-              { className: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between" },
-              React.createElement(
-                "div",
-                null,
-                React.createElement("div", { className: "font-serif text-3xl leading-none" }, "Sergei Solovev"),
-                React.createElement("div", { className: "font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500 mt-1" }, "© 2026 · TradFi → AI → DeFi")
-              ),
-              React.createElement(
-                "div",
-                { className: "flex gap-5 font-mono text-[11px] uppercase tracking-[0.12em] text-slate-500" },
-                React.createElement("a", { href: "https://github.com/SergeySolovyev", target: "_blank", rel: "noreferrer", className: "hover:text-slate-900" }, "GitHub"),
-                React.createElement("a", { href: "mailto:sssolovjov@gmail.com", className: "hover:text-slate-900" }, "Email"),
-                React.createElement("a", { href: "/privacy.html", className: "hover:text-slate-900" }, "Privacy"),
-                React.createElement("a", { href: "#hero", className: "hover:text-slate-900" }, "Back to Top ↑")
-              )
-            )
-          )
-        );
-      }
-
-      createRoot(document.getElementById("root")).render(React.createElement(App));
+          }, { threshold: 0.05 });
+          vis.observe(canvas);
+        });
+      })();
     </script>
 
     <script type="text/javascript">
       (function (m, e, t, r, i, k, a) {
-        m[i] = m[i] || function () {
-          (m[i].a = m[i].a || []).push(arguments);
-        };
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
         m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-          if (document.scripts[j].src === r) return;
-        }
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) return; }
         k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
       })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-      ym(106617027, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: false,
-      });
+      ym(106617027, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true });
     </script>
-    <noscript>
-      <div>
-        <img src="https://mc.yandex.ru/watch/106617027" style="position: absolute; left: -9999px" alt="" />
-      </div>
-    </noscript>
-
+    <noscript><div><img src="https://mc.yandex.ru/watch/106617027" style="position:absolute;left:-9999px" alt="" /></div></noscript>
   </body>
 </html>

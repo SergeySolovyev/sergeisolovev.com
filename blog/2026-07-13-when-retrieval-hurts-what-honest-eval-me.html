@@ -3,19 +3,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>When retrieval HURTS: what &#x27;honest eval&#x27; means for AI in high-stakes finance | Sergei Solovev</title>
-<meta name="description" content="A question that rarely gets asked in applied ML: when does adding retrieval make detection *worse* than a simpler baseline? That is the central finding in our recent work on automa">
+<meta name="description" content="A question that rarely gets asked in applied ML: when does adding retrieval make detection <em>worse</em> than a simpler baseline? That is the central finding in our recent work on automa">
 <link rel="canonical" href="https://sergeisolovev.com/blog/2026-07-13-when-retrieval-hurts-what-honest-eval-me.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Sergei Solovev">
 <meta property="og:title" content="When retrieval HURTS: what &#x27;honest eval&#x27; means for AI in high-stakes finance">
-<meta property="og:description" content="A question that rarely gets asked in applied ML: when does adding retrieval make detection *worse* than a simpler baseline? That is the central finding in our recent work on automa">
+<meta property="og:description" content="A question that rarely gets asked in applied ML: when does adding retrieval make detection <em>worse</em> than a simpler baseline? That is the central finding in our recent work on automa">
 <meta property="og:url" content="https://sergeisolovev.com/blog/2026-07-13-when-retrieval-hurts-what-honest-eval-me.html">
 <meta property="og:image" content="https://sergeisolovev.com/blog/assets/2026-07-13-when-retrieval-hurts-what-honest-eval-me.png">
 <meta property="article:author" content="Sergei Solovev">
 <meta property="article:published_time" content="2026-07-13">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="When retrieval HURTS: what &#x27;honest eval&#x27; means for AI in high-stakes finance">
-<meta name="twitter:description" content="A question that rarely gets asked in applied ML: when does adding retrieval make detection *worse* than a simpler baseline? That is the central finding in our recent work on automa">
+<meta name="twitter:description" content="A question that rarely gets asked in applied ML: when does adding retrieval make detection <em>worse</em> than a simpler baseline? That is the central finding in our recent work on automa">
 <meta name="twitter:image" content="https://sergeisolovev.com/blog/assets/2026-07-13-when-retrieval-hurts-what-honest-eval-me.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "When retrieval HURTS: what 'honest eval' means for AI in high-stakes finance", "image": "https://sergeisolovev.com/blog/assets/2026-07-13-when-retrieval-hurts-what-honest-eval-me.png", "author": {"@type": "Person", "@id": "https://sergeisolovev.com/#person", "name": "Sergei Solovev", "alternateName": ["Sergey Solovyev", "Sergei Solovjov", "Сергей Соловьёв"], "url": "https://sergeisolovev.com", "sameAs": ["https://orcid.org/0009-0008-4494-0447", "https://openalex.org/A5127404993", "https://scholar.google.com/citations?user=HGalnA0AAAAJ", "https://github.com/SergeySolovyev", "https://doi.org/10.6084/m9.figshare.32141182", "https://doi.org/10.6084/m9.figshare.32141167", "https://doi.org/10.6084/m9.figshare.31859557", "https://doi.org/10.6084/m9.figshare.31429971", "https://doi.org/10.6084/m9.figshare.31430086"]}, "datePublished": "2026-07-13", "url": "https://sergeisolovev.com/blog/2026-07-13-when-retrieval-hurts-what-honest-eval-me.html", "mainEntityOfPage": "https://sergeisolovev.com/blog/2026-07-13-when-retrieval-hurts-what-honest-eval-me.html", "isBasedOn": {"@type": "ScholarlyArticle", "@id": "https://doi.org/preprint: When Retrieval Hurts (RAG Solidity vuln detection) + honest-eval reputation", "sameAs": "https://doi.org/preprint: When Retrieval Hurts (RAG Solidity vuln detection) + honest-eval reputation", "author": {"@id": "https://sergeisolovev.com/#person"}}}</script>
 <style>
@@ -41,7 +41,7 @@ footer a{color:var(--tradfi)}
 <h1>When retrieval HURTS: what &#x27;honest eval&#x27; means for AI in high-stakes finance</h1>
 <div class="meta">2026-07-13 &middot; Sergei Solovev, HSE University</div>
 <figure class="hero"><img src="assets/2026-07-13-when-retrieval-hurts-what-honest-eval-me.svg" alt="Title card: &#x27;When Retrieval Hurts&#x27; — honest evaluation in AI for high-stakes finance"></figure>
-<p>A question that rarely gets asked in applied ML: when does adding retrieval make detection *worse* than a simpler baseline?</p>
+<p>A question that rarely gets asked in applied ML: when does adding retrieval make detection <em>worse</em> than a simpler baseline?</p>
 <p>That is the central finding in our recent work on automated Solidity vulnerability detection. We built and evaluated a retrieval-augmented pipeline, then ran it against a straightforward non-retrieval approach on the same task. In at least one evaluation tier, the RAG configuration did not outperform the simpler rule. Rather than bury that result, we report it directly and retract the underperforming configuration from our conclusions.</p>
 <p>This matters for anyone deploying AI in high-stakes domains — smart contract auditing, credit risk, fraud detection. The failure mode is not a system that crashes; it is a system that passes internal benchmarks while underperforming in production against a method you already had. The honest-eval discipline is publishing the condition under which your more complex system loses, not just the conditions under which it wins.</p>
 <p>Retrieval adds latency, infrastructure cost, and retrieval noise. If none of those costs buy you lift over a simpler baseline on the distribution that matters, the right call is to say so. That is what we did here.</p>

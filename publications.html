@@ -11,15 +11,15 @@
             <meta property="og:type" content="profile">
             <meta property="og:site_name" content="Sergei Solovev">
             <meta property="og:title" content="Publications | Sergei Solovev">
-            <meta property="og:description" content="Five preprints (2026): smart contract security, RAG evaluation, DeFi MCDM, LOB mid-price prediction, document understanding.">
+            <meta property="og:description" content="Four preprints (2026): smart-contract security from EVM bytecode, honest RAG evaluation, an AI-managed ERC-4626 vault, and limit order book mid-price prediction.">
             <meta property="og:url" content="https://sergeisolovev.com/publications.html">
-            <meta property="og:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+            <meta property="og:image" content="https://sergeisolovev.com/portrait.jpg">
 
             <!-- Twitter Card -->
             <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:title" content="Publications | Sergei Solovev">
-            <meta name="twitter:description" content="Five preprints (2026): smart contract security, RAG, DeFi, LOB prediction, document AI.">
-            <meta name="twitter:image" content="https://sergeisolovev.com/sergey%20solovyev.png">
+            <meta name="twitter:description" content="Four preprints (2026): smart-contract security, RAG evaluation, DeFi MCDM, LOB prediction.">
+            <meta name="twitter:image" content="https://sergeisolovev.com/portrait.jpg">
 
             <!-- JSON-LD ItemList of ScholarlyArticles -->
             <script type="application/ld+json">
@@ -28,7 +28,7 @@
   "@type": "ItemList",
   "name": "Publications by Sergei Solovev",
   "url": "https://sergeisolovev.com/publications.html",
-  "numberOfItems": 5,
+  "numberOfItems": 4,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -37,7 +37,7 @@
         "@type": "ScholarlyArticle",
         "headline": "When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection",
         "url": "https://sergeisolovev.com/papers/rag-solidity.html",
-        "datePublished": "2026-05-01",
+        "datePublished": "2026-04-30",
         "identifier": {
           "@type": "PropertyValue",
           "propertyID": "DOI",
@@ -56,7 +56,7 @@
         "@type": "ScholarlyArticle",
         "headline": "AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification",
         "url": "https://sergeisolovev.com/papers/ai-yield-vault.html",
-        "datePublished": "2026-05-01",
+        "datePublished": "2026-04-30",
         "identifier": {
           "@type": "PropertyValue",
           "propertyID": "DOI",
@@ -94,30 +94,11 @@
         "@type": "ScholarlyArticle",
         "headline": "Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering",
         "url": "https://sergeisolovev.com/papers/ml-vuln-detection.html",
-        "datePublished": "2026-02-26",
+        "datePublished": "2026-02-27",
         "identifier": {
           "@type": "PropertyValue",
           "propertyID": "DOI",
           "value": "10.6084/m9.figshare.31429971"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Sergei Solovev"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "ScholarlyArticle",
-        "headline": "OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction: A Comparative Study on SROIE 2019",
-        "url": "https://sergeisolovev.com/papers/ocr-vs-donut.html",
-        "datePublished": "2026-02-26",
-        "identifier": {
-          "@type": "PropertyValue",
-          "propertyID": "DOI",
-          "value": "10.6084/m9.figshare.31430086"
         },
         "author": {
           "@type": "Person",
@@ -174,7 +155,7 @@
 
             <article class="paper">
   <h2><a href="/papers/rag-solidity.html">When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection</a></h2>
-  <p class="meta">2026-05-01 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.32141182">10.6084/m9.figshare.32141182</a></p>
+  <p class="meta">2026-04-30 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.32141182">10.6084/m9.figshare.32141182</a></p>
   <p class="abstract">Empirical study showing a sample-size sign reversal in naive RAG for Solidity vulnerability detection: +2.0% Macro-F1 at n=100 flips to -2.7% at n=250 on SolidiFI. Argues for bootstrap confidence intervals in any RAG evaluation.</p>
   <p class="links">
     <a href="/papers/rag-solidity.pdf">PDF</a>
@@ -185,7 +166,7 @@
 
 <article class="paper">
   <h2><a href="/papers/ai-yield-vault.html">AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification</a></h2>
-  <p class="meta">2026-05-01 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.32141167">10.6084/m9.figshare.32141167</a></p>
+  <p class="meta">2026-04-30 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.32141167">10.6084/m9.figshare.32141167</a></p>
   <p class="abstract">Autonomous AI agent managing an ERC-4626 yield vault via MCDM scoring (APY/Risk/Cost/Stability). EIP-712 signed decisions, UUPS-upgradeable, 67 unit tests, 76,800+ invariant calls with zero violations. Sepolia deployment included.</p>
   <p class="links">
     <a href="/papers/ai-yield-vault.pdf">PDF</a>
@@ -207,23 +188,12 @@
 
 <article class="paper">
   <h2><a href="/papers/ml-vuln-detection.html">Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering</a></h2>
-  <p class="meta">2026-02-26 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.31429971">10.6084/m9.figshare.31429971</a></p>
+  <p class="meta">2026-02-27 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.31429971">10.6084/m9.figshare.31429971</a></p>
   <p class="abstract">XGBoost + Optuna on 117,091 Slither-labelled Ethereum contracts achieves F1=0.948 using 65 hand-crafted bytecode features in 15 SWC-mapped semantic categories. Binary classification: recall 0.950, MCC 0.832, PR-AUC 0.990.</p>
   <p class="links">
     <a href="/papers/ml-vuln-detection.pdf">PDF</a>
     <span>&middot;</span>
     <a href="https://doi.org/10.6084/m9.figshare.31429971">Figshare</a>
-  </p>
-</article>
-
-<article class="paper">
-  <h2><a href="/papers/ocr-vs-donut.html">OCR-Based vs. End-to-End Transformer Pipelines for Receipt Information Extraction: A Comparative Study on SROIE 2019</a></h2>
-  <p class="meta">2026-02-26 &middot; Preprint, Figshare &middot; DOI: <a href="https://doi.org/10.6084/m9.figshare.31430086">10.6084/m9.figshare.31430086</a></p>
-  <p class="abstract">EasyOCR + heuristic rules vs. Donut end-to-end Transformer on SROIE 2019. Error taxonomy under image degradation typical of messenger-grade distortions (compression, rotation, blur).</p>
-  <p class="links">
-    <a href="/papers/ocr-vs-donut.pdf">PDF</a>
-    <span>&middot;</span>
-    <a href="https://doi.org/10.6084/m9.figshare.31430086">Figshare</a>
   </p>
 </article>
 

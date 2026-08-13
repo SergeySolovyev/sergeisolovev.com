@@ -1,15 +1,171 @@
 {
   "_meta": {
-    "purpose": "Source of truth for the homepage News section (newest 6, rolling) + /news.html (all). Add newest items to the TOP of items[], then run news_publisher.py. English only; use the canonical name 'Sergei Solovev'.",
+    "purpose": "Source of truth for the homepage News section (newest 5, rolling) + /news.html (all). Add newest items to the TOP of items[], then run tools/news_publisher.py. Order is re-sorted by date anyway. English only; use the canonical name 'Sergei Solovev'. Never present a rejected submission as an achievement: ICICPE 2026 (both manuscripts), ARENA 8.0, AIRI Summer School 2026 and MacroHack selection were all rejected.",
     "author": "Sergei Solovev"
   },
   "items": [
+    {
+      "date": "2026-06-30",
+      "display": "Jun 30, 2026",
+      "title": "Peer-reviewed article on Bitcoin in decentralized finance — Informatics. Economics. Management",
+      "desc": "A classification of Bitcoin integration methods in decentralized financial infrastructure. Published in Russian, vol. 5 no. 2 (2026), pp. 3026-3037, CC BY 4.0, under the HSE University Faculty of Computer Science affiliation printed on the article.",
+      "source": "Informatics. Economics. Management",
+      "url": "https://doi.org/10.47813/2782-5280-2026-5-2-3026-3037"
+    },
     {
       "date": "2026-06-19",
       "display": "Jun 19, 2026",
       "title": "Panelist — Pro Markets (ACI Russia): Bank of Russia key rate",
       "desc": "Live panel on the Bank of Russia key-rate decision. Panelists: Igor Safonov, Daria Tarasenko, Sergei Solovev, Dmitry Polevoy. Moderator: Pavel Pikulev.",
       "source": "ACI Russia",
+      "url": ""
+    },
+    {
+      "date": "2026-06-19",
+      "display": "Jun 19, 2026",
+      "title": "Completed the 5-Day AI Agents Intensive — Google and Kaggle",
+      "desc": "Capstone shipped: the DeFi Lending Allocator Agent, non-custodial gas-aware USDC routing across six Ethereum lending venues, deployed on Google Cloud Run. Reproducible replay reports 5.36% net APY against 4.85% for the best-in-hindsight passive hold, over 313 allocation switches with gas costs accounted for. The ML tier lost out-of-sample and is published as a negative result.",
+      "source": "Google and Kaggle",
+      "url": "https://github.com/SergeySolovyev/defi-allocator-agent"
+    },
+    {
+      "date": "2026-06-09",
+      "display": "Jun 9, 2026",
+      "title": "Admitted to the MSc in Blockchain and Digital Currency — Ripple Scholarship",
+      "desc": "Admitted to the University of Nicosia's MSc in Blockchain and Digital Currency with a Ripple Scholarship.",
+      "source": "University of Nicosia",
+      "url": ""
+    },
+    {
+      "date": "2026-05-27",
+      "display": "May 27, 2026",
+      "title": "REVERT went live on Ethereum mainnet — bytecode-level contract risk scoring",
+      "desc": "Public service at revert.pro scoring the roughly 95% of Ethereum mainnet that ships unverified, where source-based tools return nothing. XGBoost over EVM bytecode features, trained on 117,091 Slither-labelled contracts; F1 0.948 agreement with Slither, 95% CI [0.944, 0.951]. Retrocast: Nomad and Curve pETH flagged red before the hacks, Euler missed. Triage, not audit.",
+      "source": "revert.pro",
+      "url": "https://revert.pro"
+    },
+    {
+      "date": "2026-05-27",
+      "display": "May 27, 2026",
+      "title": "Completed both Mastering Web3 tracks — University of Nicosia MOOC",
+      "desc": "Completed both tracks of Mastering Web3, the University of Nicosia's open online course on blockchain, DeFi, NFTs, CBDCs and tokenized assets — the advanced-track exam with a score of 100. The certificates are anchored to Bitcoin and verifiable at verify.unic.ac.cy.",
+      "source": "University of Nicosia",
+      "url": "https://verify.unic.ac.cy/",
+      "images": [
+        {
+          "src": "news/assets/cert-unic-web3-advanced.jpg",
+          "alt": "University of Nicosia Certificate of Accomplishment for Mastering Web3 Advanced Track, examination grade 100, dated 27 May 2026.",
+          "caption": "Mastering Web3, Advanced Track — examination grade 100."
+        },
+        {
+          "src": "news/assets/cert-unic-web3-intro.jpg",
+          "alt": "University of Nicosia Certificate of Accomplishment for Mastering Web3 Introductory Track, dated 20 April 2026.",
+          "caption": "Mastering Web3, Introductory Track, 20 April 2026."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "display": "May 6, 2026",
+      "title": "36-hour professional development programme in applied AI — Yandex EdTech",
+      "desc": "Foundations of Applying AI Technologies in Learning and Research — a 36-academic-hour programme at Yandex Educational Technologies, February to April 2026.",
+      "source": "Yandex EdTech",
+      "url": "",
+      "images": [
+        {
+          "src": "news/assets/cert-yandex-ai-course.jpg",
+          "alt": "Yandex Educational Technologies professional development certificate number 20262147, 36 academic hours, issued 6 May 2026.",
+          "caption": "Professional development certificate, 36 academic hours, Yandex EdTech."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "display": "Apr 30, 2026",
+      "title": "Completed Agents Week — Yandex School of Data Analysis",
+      "desc": "Five-day research intensive on autonomous LLM agents at the Yandex School of Data Analysis, April 2026. Directly adjacent to the on-chain allocation agents I build and run.",
+      "source": "Yandex School of Data Analysis",
+      "url": "",
+      "images": [
+        {
+          "src": "news/assets/cert-yandex-agents-week.jpg",
+          "alt": "Certificate from the Yandex School of Data Analysis for the Agents Week intensive, 6-10 April 2026.",
+          "caption": "Yandex School of Data Analysis, Agents Week, 6-10 April 2026."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "display": "Apr 30, 2026",
+      "title": "Two figshare preprints — honest RAG evaluation and an AI-managed ERC-4626 vault",
+      "desc": "When Retrieval Hurts reports a sample-size sign reversal in naive RAG for Solidity vulnerability detection: plus 2.0% Macro-F1 at n=100 flips to minus 2.7% at n=250 on SolidiFI. The second preprint designs an AI-managed ERC-4626 vault with MCDM scoring, EIP-712 signed decisions, 67 unit tests and over 76,800 invariant calls with no violations. Both CC BY 4.0.",
+      "source": "figshare",
+      "url": "https://doi.org/10.6084/m9.figshare.32141182"
+    },
+    {
+      "date": "2026-04-21",
+      "display": "Apr 21, 2026",
+      "title": "Attended a 72-hour digital-asset compliance programme — SHARD",
+      "desc": "A 72-hour programme on compliance for digital assets: FATF standards and the Travel Rule, KYC/KYT procedures, laundering typologies, on-chain investigation, and VASP compliance operations. Run by SHARD with Talent Valley at the MSU Innovation Science and Technology Centre.",
+      "source": "SHARD",
+      "url": "https://shard.ru/services/training/dpo"
+    },
+    {
+      "date": "2026-03-26",
+      "display": "Mar 26, 2026",
+      "title": "Preprint on limit order book mid-price prediction — dual-branch BiGRU-CNN",
+      "desc": "Domain-aware dual-branch recurrent network for high-frequency mid-price prediction, posted to figshare under CC BY 4.0. Weighted Pearson 0.266 across 12,165 sequences over 12.1 million timesteps from the Wunder Fund RNN challenge; it beats LightGBM on 58.3% of sequences. Two negative findings are reported: feature sufficiency, and degradation from ensembling.",
+      "source": "figshare",
+      "url": "https://doi.org/10.6084/m9.figshare.31859557"
+    },
+    {
+      "date": "2026-02-20",
+      "display": "Feb 20, 2026",
+      "title": "Awarded the Certificate in Foundations of Financial Engineering — WorldQuant University",
+      "desc": "Awarded by WorldQuant University after completing the first two courses of the MSc in Financial Engineering.",
+      "source": "WorldQuant University",
+      "url": ""
+    },
+    {
+      "date": "2025-12-18",
+      "display": "Dec 18, 2025",
+      "title": "Certified for the 2025 5-Day AI Agents Intensive capstone — MetaMaestro",
+      "desc": "Certificate for the capstone of the Google and Kaggle 5-Day AI Agents Intensive, autumn 2025. The capstone, MetaMaestro, is a multi-agent orchestrator on Google ADK spanning four domains and more than ten specialised agents.",
+      "source": "Kaggle and Google",
+      "url": "https://github.com/SergeySolovyev/MetaMaestro"
+    },
+    {
+      "date": "2025-12-02",
+      "display": "Dec 2, 2025",
+      "title": "Moderated the AI for Trading panel — ACI Russia eFX & Digital Summit",
+      "desc": "Moderated the Artificial Intelligence for Trading panel at the ACI Russia eFX & Digital Summit in Moscow, with Ekaterina Lozgacheva (Bank of Russia, Strategic Development of the Financial Market), Alexey Savin (VTB, electronic trading), Alexey Unzhin (Alfa-Bank, algorithmic trading), Sergey Markov (Sberbank, AI technology development) and Dmitry Lesnov (Finam, management board). The discussion started from the Bank of Russia consultation papers on AI in financial markets.",
+      "source": "ACI Russia",
+      "url": "https://acirussia.org/efxsummit",
+      "images": [
+        {
+          "src": "news/assets/efx-summit-2025-discussion.jpg",
+          "alt": "Sergei Solovev and Ekaterina Lozgacheva seated on stage, both holding microphones, mid-discussion.",
+          "caption": "In discussion with Ekaterina Lozgacheva, Bank of Russia — Strategic Development of the Financial Market."
+        },
+        {
+          "src": "news/assets/efx-summit-2025-hall.jpg",
+          "alt": "Wide view of a full conference hall, the six-person panel on stage in front of a screen showing Bank of Russia reports on artificial intelligence.",
+          "caption": "The panel opened against the Bank of Russia consultation papers on AI in financial markets."
+        },
+        {
+          "src": "news/assets/efx-summit-2025-moderating.jpg",
+          "alt": "Sergei Solovev standing with a microphone and a presenter clicker, wearing an eFX and Digital Summit 2025 badge.",
+          "caption": "Moderating the session, ACI Russia eFX & Digital Summit, Moscow."
+        }
+      ],
+      "pinned": true
+    },
+    {
+      "date": "2025-09-28",
+      "display": "Sep 28, 2025",
+      "title": "Accepted to the MSc in Financial Engineering — WorldQuant University",
+      "desc": "Admitted after passing the Quantitative Proficiency Test; the programme started in October 2025.",
+      "source": "WorldQuant University",
       "url": ""
     }
   ]
