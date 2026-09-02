@@ -65,13 +65,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- CV -->
-  <url>
-    <loc>https://sergeisolovev.com/Solovev_Sergei_CV_EN.pdf</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>quarterly</changefreq>
-    <priority>0.5</priority>
-  </url>
   <url><loc>https://sergeisolovev.com/blog/2026-06-06-when-retrieval-hurts-where-rag-actively.html</loc></url>
   <url><loc>https://sergeisolovev.com/blog/2026-06-03-i-built-rag-for-solidity-vuln-detection.html</loc></url>
   <url><loc>https://sergeisolovev.com/blog/</loc></url>
