@@ -100,4 +100,10 @@
   <url><loc>https://sergeisolovev.com/blog/2026-07-20-ai-managed-erc-4626-yield-vault.html</loc></url>
   <url><loc>https://sergeisolovev.com/blog/2026-07-26-machine-learning-based-vulnerability-det.html</loc></url>
   <url><loc>https://sergeisolovev.com/blog/2026-07-23-how-i-d-let-a-quant-team-scale-ai-resear.html</loc></url>
+  <url>
+    <loc>https://sergeisolovev.com/research/defi-allocator-replay.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
