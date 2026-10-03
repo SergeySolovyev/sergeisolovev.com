@@ -10,7 +10,11 @@
       "title": "Panelist — Pro Markets (ACI Russia): new US sanctions against Russia",
       "desc": "Live panel on the new sanctions against Russia approved by the US House of Representatives on 17 September 2026, and whether their growing number is starting to change their economic effect. Panelists: Valery Petrov, Sergei Solovev, Yulia Eliseeva.",
       "source": "ACI Russia",
-      "url": ""
+      "url": "",
+      "people": [
+        {"name": "Valery Petrov", "url": "https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2,_%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9_%D0%A1%D1%82%D0%B0%D0%BD%D0%B8%D1%81%D0%BB%D0%B0%D0%B2%D0%BE%D0%B2%D0%B8%D1%87"},
+        {"name": "Yulia Eliseeva", "url": "https://school.kontur.ru/lecturers/387"}
+      ]
     },
     {
       "date": "2026-09-11",
@@ -24,9 +28,13 @@
       "date": "2026-08-28",
       "display": "Aug 28, 2026",
       "title": "Moderator — Pro Markets (ACI Russia): the crypto market before and after 1 September 2026",
-      "desc": "Moderated the Pro Markets live session on what changes for Russian participants when Federal Law 282-FZ on digital currencies and digital rights takes effect on 1 September 2026, with Stanislav Akulinkin (Financial University under the Government of the Russian Federation, Department of Financial Technologies; RAKIB, Vice President for financial institutions using blockchain) and Mikhail Uspensky (KIAP Attorneys at Law, partner in the tax practice; expert council of the State Duma working group on cryptocurrencies).",
+      "desc": "Moderated the Pro Markets live session on what changes for Russian participants when Federal Law 282-FZ on digital currencies and digital rights takes effect on 1 September 2026, with Stanislav Akulinkin (Financial University under the Government of the Russian Federation, Department of Financial Technologies; RAKIB, Vice President for financial institutions using blockchain) and Mikhail Uspensky (founder of Parallax, a boutique digital and tax law practice; expert council of the State Duma working group on cryptocurrencies).",
       "source": "ACI Russia",
-      "url": ""
+      "url": "",
+      "people": [
+        {"name": "Stanislav Akulinkin", "url": "https://www.fa.ru/university/employee/akulinkin-stanislav-sergeevich"},
+        {"name": "Mikhail Uspensky", "url": "https://uspenskiy.pro/"}
+      ]
     },
     {
       "date": "2026-06-30",
@@ -42,7 +50,12 @@
       "title": "Panelist — Pro Markets (ACI Russia): Bank of Russia key rate",
       "desc": "Live panel on the Bank of Russia key-rate decision. Panelists: Igor Safonov, Daria Tarasenko, Sergei Solovev, Dmitry Polevoy. Moderator: Pavel Pikulev.",
       "source": "ACI Russia",
-      "url": ""
+      "url": "",
+      "people": [
+        {"name": "Daria Tarasenko", "url": "https://30-under-30.forbes.ru/2026/557774-dar-a-tarasenko"},
+        {"name": "Dmitry Polevoy", "url": "https://astra-am.ru/team/"},
+        {"name": "Pavel Pikulev", "url": "https://perforum.io/u/pav.pikulev"}
+      ]
     },
     {
       "date": "2026-06-19",
@@ -165,6 +178,12 @@
       "desc": "Moderated the Artificial Intelligence for Trading panel at the ACI Russia eFX & Digital Summit in Moscow, with Ekaterina Lozgacheva (Bank of Russia, Strategic Development of the Financial Market), Alexey Savin (VTB, electronic trading), Alexey Unzhin (Alfa-Bank, algorithmic trading), Sergey Markov (Sberbank, AI technology development) and Dmitry Lesnov (Finam, management board). The discussion started from the Bank of Russia consultation papers on AI in financial markets.",
       "source": "ACI Russia",
       "url": "https://acirussia.org/efxsummit",
+      "people": [
+        {"name": "Ekaterina Lozgacheva", "url": "https://cbr.ru/about_br/bankstructute/dsrr/lozgachevaen/"},
+        {"name": "Alexey Unzhin", "url": "https://www.moex.com/a8389"},
+        {"name": "Sergey Markov", "url": "https://bookspeaker.agency/sergeymarkov"},
+        {"name": "Dmitry Lesnov", "url": "https://www.linkedin.com/in/dmitry-lesnov-30307588/"}
+      ],
       "images": [
         {
           "src": "news/assets/efx-summit-2025-discussion.jpg",

@@ -47,8 +47,9 @@ NEWS_END = "<!--NEWS:END-->"
 
 PLACEHOLDERS = ("xx", "todo", "tbd", "fixme", "lorem", "{{", "}}", "<placeholder>", "n/a")
 
-SCHEMA_KEYS = {"date", "display", "title", "desc", "source", "url", "images", "pinned"}
+SCHEMA_KEYS = {"date", "display", "title", "desc", "source", "url", "images", "pinned", "people"}
 IMAGE_KEYS = {"src", "alt", "caption"}
+PERSON_KEYS = {"name", "url"}
 
 
 def _walk_strings(value, path="item"):
@@ -140,6 +141,22 @@ def validate(item: dict, index: int) -> tuple[list[str], list[str]]:
         if not str(img.get("alt", "")).strip():
             problems.append(f"image without alt text: {img.get('src', '?')}")
 
+    # people[] links a name mentioned in desc to their public bio/profile. A name
+    # that never actually occurs in desc is dead data — it would silently fail to
+    # linkify and nobody would notice, so that's blocking, not a warning.
+    for person in item.get("people", []) or []:
+        name = str(person.get("name", "")).strip()
+        purl = str(person.get("url", "")).strip()
+        if not name:
+            problems.append("people[] entry without a name")
+        elif name not in desc and name not in title:
+            problems.append(f"people[] name not found in title/desc: {name!r}")
+        if not purl:
+            problems.append(f"people[] entry without url: {name or '?'}")
+        unknown_person_keys = set(person) - PERSON_KEYS
+        if unknown_person_keys:
+            problems.append(f"people[] fields not in schema: {', '.join(sorted(unknown_person_keys))}")
+
     # --- warnings ---
 
     if desc and len(desc) < 40:
@@ -176,6 +193,7 @@ def normalise(item: dict) -> dict:
     out.setdefault("source", "")
     out.setdefault("url", "")
     out.setdefault("images", [])
+    out.setdefault("people", [])
     return out
 
 
@@ -213,6 +231,26 @@ def homepage_selection(items: list[dict]) -> list[dict]:
 
 # ------------------------------------------------------------------ renderers
 
+def linkify_people(escaped_desc: str, people: list[dict]) -> str:
+    """Wrap each people[] name in escaped_desc with a link to their bio.
+
+    Runs on already-escaped text, so names are plain substrings (nobody's legal
+    name contains &, <, > or "), and html.escape leaves them byte-identical —
+    a straight substring replace is safe and keeps desc itself as plain prose
+    in news.json rather than hand-authored HTML.
+    """
+    e = lambda s: html.escape(str(s), quote=True)  # noqa: E731
+    out = escaped_desc
+    for person in people or []:
+        name = str(person.get("name", "")).strip()
+        url = str(person.get("url", "")).strip()
+        if not name or not url:
+            continue
+        link = f'<a href="{e(url)}" target="_blank" rel="noopener">{e(name)}</a>'
+        out = out.replace(e(name), link)
+    return out
+
+
 def render_home_cards(items: list[dict]) -> str:
     """Homepage news, as plain HTML.
 
@@ -232,7 +270,7 @@ def render_home_cards(items: list[dict]) -> str:
             '          <article class="glass news-item">',
             f'            <div class="label">{meta}</div>',
             f'            <h3>{e(it["title"])}</h3>',
-            f'            <p>{e(it["desc"])}</p>',
+            f'            <p>{linkify_people(e(it["desc"]), it.get("people"))}</p>',
         ]
 
         images = it.get("images") or []
@@ -285,7 +323,7 @@ def render_cards(items: list[dict]) -> str:
             '    <article class="card">',
             f'      <div class="meta">{meta}</div>',
             f'      <h2>{e(it["title"])}</h2>',
-            f'      <p>{e(it["desc"])}</p>',
+            f'      <p>{linkify_people(e(it["desc"]), it.get("people"))}</p>',
         ]
 
         images = it.get("images") or []
@@ -375,6 +413,8 @@ __JSONLD__
     .card p{color:var(--dim);font-size:.96rem;margin:.3rem 0 0}
     .card a{display:inline-block;margin-top:.7rem;font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--tradfi);text-decoration:none}
     .card a:hover{color:var(--defi)}
+    .card p a{display:inline;margin-top:0;font-family:inherit;font-size:inherit;color:var(--tradfi);text-decoration:underline;text-decoration-color:var(--stroke)}
+    .card p a:hover{color:var(--defi);text-decoration-color:currentColor}
     .shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:16px -4px 0;padding:0 4px 6px;-webkit-overflow-scrolling:touch}
     .shots figure{flex:0 0 82%;scroll-snap-align:center;margin:0}
     .shots img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--stroke)}
