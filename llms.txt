@@ -2,7 +2,7 @@
 
 > Researcher (HSE Faculty of Computer Science) on machine learning and smart-contract security; the honest arbiter of whether AI-for-security actually works - publishes negative results, not hype.
 
-Site: https://sergeisolovev.com  |  Blog: https://sergeisolovev.com/blog/  |  Changelog: https://sergeisolovev.com/changelog.html
+Site (Russian, AI focus): https://sergeisolovev.com/  |  English (TradFi → AI → DeFi): https://sergeisolovev.com/defi/  |  Blog: https://sergeisolovev.com/blog/  |  Changelog: https://sergeisolovev.com/changelog.html
 
 ## Recent posts
 - [Machine Learning-Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering](https://sergeisolovev.com/blog/2026-07-26-machine-learning-based-vulnerability-det.html) (2026-07-26)

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "purpose": "Source of truth for the homepage News section (newest 5, rolling) + /news.html (all). Add newest items to the TOP of items[], then run tools/news_publisher.py. Order is re-sorted by date anyway. English only; use the canonical name 'Sergei Solovev'. Never present a rejected submission as an achievement: ICICPE 2026 (both manuscripts), ARENA 8.0, AIRI Summer School 2026 and MacroHack selection were all rejected.",
+    "purpose": "Source of truth for the English homepage (/defi/) News section (newest 5, rolling) + /news.html (all). Add newest items to the TOP of items[], then run tools/news_publisher.py. Order is re-sorted by date anyway. English only; use the canonical name 'Sergei Solovev'. Never present a rejected submission as an achievement: ICICPE 2026 (both manuscripts), ARENA 8.0, AIRI Summer School 2026 and MacroHack selection were all rejected.",
     "author": "Sergei Solovev"
   },
   "items": [

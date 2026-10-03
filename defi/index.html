@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sergei Solovev — TradFi → AI → DeFi</title>
+    <link rel="canonical" href="https://sergeisolovev.com/defi/" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="description"
+      content="Practitioner with 20+ years in financial markets, moving from TradFi into AI and DeFi. Execution and treasury for institutional capital, smart-contract security from EVM bytecode, on-chain risk and trust models, digital-asset compliance."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Feed discovery (Feedly, Inoreader, browser feed readers) -->
+    <link rel="alternate" type="application/atom+xml" title="Sergei Solovev — Preprints" href="/feed.xml" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Slack, Telegram link previews) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Sergei Solovev" />
+    <meta property="og:title" content="Sergei Solovev — TradFi → AI → DeFi" />
+    <meta property="og:description" content="Practitioner with 20+ years in financial markets, moving from TradFi into AI and DeFi. Execution and treasury for institutional capital — currently supervising a banking group's treasury. Smart-contract security from EVM bytecode, on-chain risk and trust models, digital-asset compliance; live on-chain agents." />
+    <meta property="og:url" content="https://sergeisolovev.com/defi/" />
+    <meta property="og:image" content="https://sergeisolovev.com/portrait.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sergei Solovev — TradFi → AI → DeFi" />
+    <meta name="twitter:description" content="Practitioner, 20+ years in financial markets — TradFi → AI → DeFi. Execution &amp; treasury, smart-contract security from EVM bytecode, on-chain risk, digital-asset compliance." />
+    <meta name="twitter:image" content="https://sergeisolovev.com/portrait.jpg" />
+
+    <!-- JSON-LD Person schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://sergeisolovev.com/#person",
+      "name": "Sergei Solovev",
+      "url": "https://sergeisolovev.com/",
+      "image": "https://sergeisolovev.com/portrait.jpg",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "HSE University, Faculty of Computer Science"
+      },
+      "jobTitle": "Adviser to the President, top-10 Russian banking group",
+      "knowsAbout": ["smart contract security","machine learning","decentralized finance","vulnerability detection","retrieval-augmented generation","blockchain","EVM bytecode analysis","limit order book prediction","digital asset compliance","counterparty risk","market risk management","treasury operations","trade execution","OTC markets","market liquidity","money market operations"],
+      "sameAs": [
+        "https://github.com/SergeySolovyev",
+        "https://figshare.com/authors/Sergei_Solovev/23264342",
+        "https://openalex.org/A5127404993",
+        "https://orcid.org/0009-0008-4494-0447",
+        "https://scholar.google.com/citations?user=HGalnA0AAAAJ"
+      ]
+    }
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #f4f3ef;
+        --bg-2: #ece9e2;
+        --card: rgba(255, 255, 255, 0.66);
+        --card-strong: rgba(255, 255, 255, 0.82);
+        --stroke: rgba(15, 23, 42, 0.12);
+        --stroke-soft: rgba(51, 65, 85, 0.12);
+        --text: #111827;
+        --text-dim: #374151;
+        --text-muted: #6b7280;
+        --tradfi: #334155;
+        --ai: #b38a5a;
+        --defi: #1f2937;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        line-height: 1.65;
+        background:
+          radial-gradient(circle at 10% 8%, rgba(15, 23, 42, 0.08), transparent 34%),
+          radial-gradient(circle at 88% 12%, rgba(148, 163, 184, 0.14), transparent 32%),
+          radial-gradient(circle at 60% 92%, rgba(179, 138, 90, 0.1), transparent 38%),
+          linear-gradient(150deg, var(--bg), var(--bg-2));
+        background-attachment: fixed;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; }
+      a:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; border-radius: 4px; }
+      img { max-width: 100%; }
+
+      /* ---------- shared atoms ---------- */
+
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+      .glass {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: 22px;
+        backdrop-filter: blur(14px);
+      }
+
+      .eyebrow {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+      }
+
+      .label {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10.5px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      h1, h2, h3.serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+
+      section { padding: 64px 0 8px; }
+      section > .wrap > h2 {
+        font-size: clamp(30px, 4.4vw, 46px);
+        line-height: 1.08;
+        margin: 0 0 26px;
+      }
+      section > .wrap > h2.tight { margin-bottom: 10px; }
+
+      .lede { color: var(--text-dim); max-width: 62ch; margin: 0 0 26px; }
+
+      .grid { display: grid; gap: 16px; }
+      @media (min-width: 760px) {
+        .grid.two { grid-template-columns: 1fr 1fr; }
+        .grid.three { grid-template-columns: repeat(3, 1fr); }
+      }
+      @media (min-width: 1000px) {
+        .grid.four { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      .card { padding: 22px 24px; }
+      .card h3 { font-size: 21px; font-weight: 600; line-height: 1.28; margin: 6px 0 0; }
+      .card p { color: var(--text-dim); font-size: 15px; margin: 10px 0 0; }
+
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .tag {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 999px;
+        padding: 4px 11px;
+      }
+
+      .more {
+        display: inline-block;
+        margin-top: 16px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: var(--tradfi);
+        text-decoration: none;
+      }
+      .more:hover { color: var(--defi); text-decoration: underline; }
+
+      /* ---------- ambient separators & motion ---------- */
+
+      .visual-sep { padding: 44px 0 8px; }
+      .scene-shell {
+        height: 300px;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(100, 116, 139, 0.22);
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(241, 239, 234, 0.66));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74), 0 20px 38px rgba(17, 24, 39, 0.08);
+      }
+      .scene-shell canvas { width: 100%; height: 100%; display: block; }
+      @media (max-width: 768px) { .scene-shell { height: 220px; border-radius: 16px; } }
+
+      /* reveal classes are added from JS, so nothing is hidden when JS is off */
+      .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); }
+      .reveal.in { opacity: 1; transform: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+      }
+
+      /* REVERT wordmark — reproduced from revert.pro brand tokens
+         (--revert-red #D9342B on --terminal-black #0A0A0A, Space Grotesk 700) */
+      .revert-mark {
+        display: inline-block;
+        font-family: "Space Grotesk", "Manrope", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        font-size: 20px;
+        line-height: 1;
+        background: #0a0a0a;
+        border-radius: 8px;
+        padding: 11px 16px 10px;
+        margin: 6px 0 0;
+        transition: background 0.15s ease;
+      }
+      .revert-mark a { color: #d9342b; text-decoration: none; }
+      .revert-mark:hover { background: #1f1f1f; }
+
+      /* ---------- nav ---------- */
+
+      .nav {
+        position: sticky; top: 0; z-index: 20;
+        border-bottom: 1px solid var(--stroke-soft);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(12px);
+      }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 20px; }
+      .brand { font-family: "Instrument Serif", Georgia, serif; font-size: 25px; text-decoration: none; color: var(--defi); }
+      .nav-links { display: none; gap: 22px; }
+      @media (min-width: 860px) { .nav-links { display: flex; } }
+      .nav-links a {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--text-muted); text-decoration: none;
+      }
+      .nav-links a:hover { color: var(--defi); }
+
+      /* ---------- hero ---------- */
+
+      .hero { padding-top: 44px; }
+      .hero-card { padding: 30px; }
+      @media (min-width: 860px) { .hero-card { padding: 40px; } }
+      .hero-grid { display: grid; gap: 30px; align-items: center; }
+      @media (min-width: 860px) { .hero-grid { grid-template-columns: 1.3fr 0.7fr; } }
+
+      .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+      .pill {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--text-muted);
+        border: 1px solid var(--stroke); background: rgba(255,255,255,.72);
+        border-radius: 999px; padding: 5px 12px;
+      }
+      .pill.accent { border-color: rgba(179, 138, 90, 0.5); color: #8a6a3d; }
+
+      .hero h1 { font-size: clamp(44px, 8vw, 74px); line-height: 0.98; letter-spacing: -0.01em; margin: 0; }
+      .hero .role { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(24px, 3.6vw, 36px); color: var(--tradfi); margin: 2px 0 0; }
+      .hero .bio { color: var(--text-dim); font-size: 17px; max-width: 56ch; margin: 18px 0 0; }
+
+      .stats { display: grid; gap: 14px; margin-top: 28px; }
+      @media (min-width: 560px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+      .stat { background: var(--card-strong); border: 1px solid var(--stroke-soft); border-radius: 16px; padding: 15px 17px; }
+      .stat b { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 23px; font-weight: 600; display: block; color: var(--defi); }
+      .stat span { display: block; margin-top: 3px; }
+
+      .portrait { justify-self: center; }
+      @media (min-width: 860px) { .portrait { justify-self: end; } }
+      .portrait-frame { background: var(--card-strong); border: 1px solid var(--stroke-soft); border-radius: 24px; padding: 12px; width: 286px; }
+      .portrait-frame img { width: 100%; height: 356px; object-fit: cover; border-radius: 16px; display: block; }
+      .portrait-frame .label { display: block; text-align: center; margin-top: 11px; }
+
+      /* ---------- news ---------- */
+
+      .news-item { padding: 22px 24px; }
+      .news-item + .news-item { margin-top: 16px; }
+      .news-item h3 { font-size: 19px; font-weight: 600; line-height: 1.3; margin: 7px 0 0; }
+      .news-item p { color: var(--text-dim); font-size: 14.5px; margin: 9px 0 0; }
+      .news-item p a { color: var(--tradfi); text-decoration: underline; text-decoration-color: var(--stroke); }
+      .news-item p a:hover { color: var(--defi); text-decoration-color: currentColor; }
+
+      .shots {
+        display: flex; gap: 12px; overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin: 16px -4px 0; padding: 0 4px 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .shots figure { flex: 0 0 82%; scroll-snap-align: center; margin: 0; }
+      @media (min-width: 760px) { .shots figure { flex: 0 0 46%; } }
+      .shots img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--stroke); }
+      .shots figcaption { font-size: 12.5px; color: var(--text-muted); margin-top: 7px; line-height: 1.45; }
+
+      /* ---------- timeline ---------- */
+
+      .job { padding: 22px 24px; }
+      .job + .job { margin-top: 16px; }
+      .job h3 { font-size: 22px; font-weight: 600; margin: 7px 0 0; }
+      .job .org { color: var(--tradfi); font-weight: 500; font-size: 14.5px; margin-top: 3px; }
+      .job p { color: var(--text-dim); font-size: 14.5px; margin: 11px 0 0; }
+
+      /* ---------- research ---------- */
+
+      .research { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; padding: 24px; }
+      .research .num { font-family: "Instrument Serif", Georgia, serif; font-size: 38px; color: #9ca3af; line-height: 1; }
+      .research h3 { font-size: 21px; font-weight: 600; line-height: 1.25; margin: 0; }
+      .research p { color: var(--text-dim); font-size: 14.5px; margin: 9px 0 0; }
+
+      /* ---------- publications ---------- */
+
+      .pub { padding: 22px 24px; }
+      .pub + .pub { margin-top: 16px; }
+      .pub .t { font-size: 18.5px; font-style: italic; line-height: 1.35; }
+      .pub .m { margin-top: 9px; }
+      .pub .links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 12px; }
+      .pub .links a { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; color: var(--tradfi); text-decoration: none; }
+      .pub .links a:hover { color: var(--defi); text-decoration: underline; }
+      .badge {
+        display: inline-block; font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+        color: #6b5327; background: rgba(179, 138, 90, 0.16);
+        border: 1px solid rgba(179, 138, 90, 0.34);
+        border-radius: 999px; padding: 3px 9px; margin-right: 8px; vertical-align: 2px;
+      }
+
+      /* ---------- skills ---------- */
+
+      .skillset { padding: 20px 22px; }
+      .skillset h3 { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tradfi); font-weight: 600; margin: 0 0 12px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chip { font-size: 13.5px; color: var(--text-dim); border: 1px solid var(--stroke); background: rgba(255,255,255,.74); border-radius: 9px; padding: 5px 11px; }
+
+      /* ---------- contact ---------- */
+
+      .contact-card { padding: 34px 26px; text-align: center; }
+      @media (min-width: 760px) { .contact-card { padding: 44px 40px; } }
+      .contact-card h2 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.06; margin: 12px 0 0; }
+      .contact-card p { color: var(--text-dim); max-width: 60ch; margin: 16px auto 0; }
+      .btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+      .btn {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+        text-decoration: none; border-radius: 999px; padding: 13px 22px;
+        border: 1px solid var(--stroke); background: rgba(255,255,255,.74); color: var(--tradfi);
+      }
+      .btn.solid { background: var(--defi); border-color: var(--defi); color: #fff; }
+      .btn:hover { border-color: var(--ai); }
+
+      /* ---------- footer ---------- */
+
+      footer { margin-top: 70px; border-top: 1px solid var(--stroke-soft); background: rgba(255,255,255,.5); }
+      .foot { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 26px 0; }
+      .foot .name { font-family: "Instrument Serif", Georgia, serif; font-size: 27px; line-height: 1; }
+      .foot-links { display: flex; flex-wrap: wrap; gap: 20px; }
+      .foot-links a { text-decoration: none; }
+
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/defi/">S. Solovev</a>
+        <div class="nav-links">
+          <a href="#news">News</a>
+          <a href="#experience">Experience</a>
+          <a href="#advisory">Advisory</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="/blog/">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="top">
+        <div class="wrap">
+          <div class="glass hero-card">
+            <div class="hero-grid">
+              <div>
+                <div class="pills">
+                  <span class="pill">Moscow, Russia</span>
+                  <span class="pill accent">Open to advisory roles</span>
+                </div>
+                <h1>Sergei Solovev</h1>
+                <p class="role">TradFi &rarr; AI &rarr; DeFi</p>
+                <p class="bio">Practitioner with 20+ years in financial markets. Operating at the rare intersection of classical finance, AI/ML/DL, and decentralized finance (DeFi).</p>
+                <div class="stats">
+                  <div class="stat"><b>$4B+</b><span class="label">Portfolio managed</span></div>
+                  <div class="stat"><b>20+</b><span class="label">Years in finance</span></div>
+                  <div class="stat"><b>Live</b><span class="label">On-chain agents</span></div>
+                </div>
+              </div>
+              <div class="portrait">
+                <div class="portrait-frame">
+                  <img src="/portrait.jpg" alt="Sergei Solovev" width="768" height="1344" />
+                  <span class="label">Last role: Adviser to the President &middot; top-10 Russian banking group</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NEWS ================= -->
+      <section id="news">
+        <div class="wrap">
+          <div class="eyebrow">Latest</div>
+          <h2>News &amp; Appearances</h2>
+          <!--NEWS:START-->
+          <article class="glass news-item">
+            <div class="label">Sep 18, 2026 &middot; ACI Russia</div>
+            <h3>Panelist — Pro Markets (ACI Russia): new US sanctions against Russia</h3>
+            <p>Live panel on the new sanctions against Russia approved by the US House of Representatives on 17 September 2026, and whether their growing number is starting to change their economic effect. Panelists: <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2,_%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9_%D0%A1%D1%82%D0%B0%D0%BD%D0%B8%D1%81%D0%BB%D0%B0%D0%B2%D0%BE%D0%B2%D0%B8%D1%87" target="_blank" rel="noopener">Valery Petrov</a>, Sergei Solovev, <a href="https://school.kontur.ru/lecturers/387" target="_blank" rel="noopener">Yulia Eliseeva</a>.</p>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Sep 11, 2026 &middot; ACI Russia</div>
+            <h3>Represented ACI Russia at the Bank of Russia&#x27;s expert discussion on stablecoin regulation</h3>
+            <p>Attended as head of the working group of the ACI Russia Council on Digital Currencies, representing the association at the Bank of Russia&#x27;s expert discussion of its consultation paper on stablecoin regulation, held at the Financial University under the Government of the Russian Federation on 11 September 2026. Earlier led the preparation of the association&#x27;s response to the same paper: aggregated six polls of the professional community, presented the draft to the ACI Russia Council, and the approved text was submitted to the Bank of Russia&#x27;s Financial Market Strategy Department on 31 August 2026.</p>
+            <a class="more" href="https://www.cbr.ru/Content/Document/File/193894/Consultation_Paper_25062026_52.pdf" rel="noopener">Details &rarr;</a>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Aug 28, 2026 &middot; ACI Russia</div>
+            <h3>Moderator — Pro Markets (ACI Russia): the crypto market before and after 1 September 2026</h3>
+            <p>Moderated the Pro Markets live session on what changes for Russian participants when Federal Law 282-FZ on digital currencies and digital rights takes effect on 1 September 2026, with <a href="https://www.fa.ru/university/employee/akulinkin-stanislav-sergeevich" target="_blank" rel="noopener">Stanislav Akulinkin</a> (Financial University under the Government of the Russian Federation, Department of Financial Technologies; RAKIB, Vice President for financial institutions using blockchain) and <a href="https://uspenskiy.pro/" target="_blank" rel="noopener">Mikhail Uspensky</a> (founder of Parallax, a boutique digital and tax law practice; expert council of the State Duma working group on cryptocurrencies).</p>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Jun 30, 2026 &middot; Informatics. Economics. Management</div>
+            <h3>Peer-reviewed article on Bitcoin in decentralized finance — Informatics. Economics. Management</h3>
+            <p>A classification of Bitcoin integration methods in decentralized financial infrastructure. Published in Russian, vol. 5 no. 2 (2026), pp. 3026-3037, CC BY 4.0, under the HSE University Faculty of Computer Science affiliation printed on the article.</p>
+            <a class="more" href="https://doi.org/10.47813/2782-5280-2026-5-2-3026-3037" rel="noopener">Details &rarr;</a>
+          </article>
+          <article class="glass news-item">
+            <div class="label">Dec 2, 2025 &middot; ACI Russia</div>
+            <h3>Moderated the AI for Trading panel — ACI Russia eFX &amp; Digital Summit</h3>
+            <p>Moderated the Artificial Intelligence for Trading panel at the ACI Russia eFX &amp; Digital Summit in Moscow, with <a href="https://cbr.ru/about_br/bankstructute/dsrr/lozgachevaen/" target="_blank" rel="noopener">Ekaterina Lozgacheva</a> (Bank of Russia, Strategic Development of the Financial Market), Alexey Savin (VTB, electronic trading), <a href="https://www.moex.com/a8389" target="_blank" rel="noopener">Alexey Unzhin</a> (Alfa-Bank, algorithmic trading), <a href="https://bookspeaker.agency/sergeymarkov" target="_blank" rel="noopener">Sergey Markov</a> (Sberbank, AI technology development) and <a href="https://www.linkedin.com/in/dmitry-lesnov-30307588/" target="_blank" rel="noopener">Dmitry Lesnov</a> (Finam, management board). The discussion started from the Bank of Russia consultation papers on AI in financial markets.</p>
+            <div class="shots">
+              <figure><img src="/news/assets/efx-summit-2025-discussion.jpg" alt="Sergei Solovev and Ekaterina Lozgacheva seated on stage, both holding microphones, mid-discussion." loading="lazy" /><figcaption>In discussion with Ekaterina Lozgacheva, Bank of Russia — Strategic Development of the Financial Market.</figcaption></figure>
+              <figure><img src="/news/assets/efx-summit-2025-hall.jpg" alt="Wide view of a full conference hall, the six-person panel on stage in front of a screen showing Bank of Russia reports on artificial intelligence." loading="lazy" /><figcaption>The panel opened against the Bank of Russia consultation papers on AI in financial markets.</figcaption></figure>
+              <figure><img src="/news/assets/efx-summit-2025-moderating.jpg" alt="Sergei Solovev standing with a microphone and a presenter clicker, wearing an eFX and Digital Summit 2025 badge." loading="lazy" /><figcaption>Moderating the session, ACI Russia eFX &amp; Digital Summit, Moscow.</figcaption></figure>
+            </div>
+            <a class="more" href="https://acirussia.org/efxsummit" rel="noopener">Details &rarr;</a>
+          </article>
+          <!--NEWS:END-->
+          <a class="more" href="/news.html">All news &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ================= JOURNEY ================= -->
+      <section id="journey">
+        <div class="wrap">
+          <div class="eyebrow">The Journey</div>
+          <h2>Three Domains, One Vision</h2>
+          <div class="grid three">
+            <article class="glass card">
+              <div class="label">2006 — 2026</div>
+              <h3 class="serif" style="font-size:28px;color:#1f2937">TradFi</h3>
+              <p>Portfolio management &gt;$4B, multi-asset trading, risk models (VaR, GARCH), treasury operations. Bloomberg BQNT quantitative tools.</p>
+            </article>
+            <article class="glass card">
+              <div class="label">2024 — Research</div>
+              <h3 class="serif" style="font-size:28px;color:#334155">AI / ML</h3>
+              <p>MSc programmes in AI and Financial Engineering. Time-series forecasting, smart-contract vulnerability detection from EVM bytecode, honest evaluation of ML in high-stakes settings.</p>
+            </article>
+            <article class="glass card">
+              <div class="label">Frontier</div>
+              <h3 class="serif" style="font-size:28px;color:#b38a5a">DeFi</h3>
+              <p>Full DeFi lifecycle: mining &rarr; wrapping &rarr; liquidity (Uniswap, Aave, Curve). Smart-contract architecture, tokenomics, Solidity. ML-based security.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ambient: the original Three.js descent scene -->
+      <div class="visual-sep" aria-hidden="true">
+        <div class="wrap"><div class="scene-shell" data-three="descent"></div></div>
+      </div>
+
+      <!-- ================= EXPERIENCE ================= -->
+      <section id="experience">
+        <div class="wrap">
+          <div class="eyebrow">Career</div>
+          <h2>Professional Experience</h2>
+
+          <article class="glass job">
+            <div class="label">Last position</div>
+            <h3>Adviser to the President</h3>
+            <div class="org">Top-10 Russian banking group</div>
+            <p>Led AI transformation: roadmap, use-case prioritization, pilot launches. Supervised Treasury and Financial Markets Operations, including cross-border payments and settlements.</p>
+            <div class="tags"><span class="tag">AI Strategy</span><span class="tag">Treasury</span><span class="tag">Cross-Border Payments</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">Mar 2022 — Feb 2026</div>
+            <h3>Director, Financial Markets Operations</h3>
+            <div class="org">Top-10 Russian banking group</div>
+            <p>Ran four desks — money markets (repo, interbank, deposits), securities, FX (spot, swaps, forwards, futures) and brokerage. Securities portfolio &gt;$4B, daily money-market operations up to RUB 100B. Member of the bank's collegiate bodies, reporting directly to the President.</p>
+            <div class="tags"><span class="tag">$4B Portfolio</span><span class="tag">Desk Leadership</span><span class="tag">Money Markets</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">May 2012 — Mar 2022</div>
+            <h3>Chief Trader</h3>
+            <div class="org">Top-10 Russian banking group</div>
+            <p>Multi-asset trading and portfolio management: bonds, Eurobonds, FX, derivatives. Rebuilt execution and settlement infrastructure from scratch after counterparty and vendor access was lost. Built quantitative screeners in Bloomberg BQNT: Eurobonds (1000+ issuers) and US equities with DCF models (2000+ companies).</p>
+            <div class="tags"><span class="tag">Multi-asset</span><span class="tag">Derivatives</span><span class="tag">Bloomberg BQNT</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">Aug 2009 — May 2012</div>
+            <h3>Head of Market Risk</h3>
+            <div class="org">Russian bank, state group</div>
+            <p>Led risk team. VaR models (SMA, EWMA, GARCH, historical simulation), stress testing, limit framework. CBR regulatory interaction.</p>
+            <div class="tags"><span class="tag">VaR Models</span><span class="tag">Risk Management</span><span class="tag">GARCH</span></div>
+          </article>
+
+          <article class="glass job">
+            <div class="label">2006 — 2009</div>
+            <h3>Earlier Roles</h3>
+            <div class="org">IFD Kapital (Lukoil Group) &middot; South Telecom (Rostelecom)</div>
+            <p>OTC derivatives risk, collateral management, Basel II. Investor relations and rating agency communications.</p>
+            <div class="tags"><span class="tag">OTC Derivatives</span><span class="tag">Basel II</span><span class="tag">Investor Relations</span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= ADVISORY / RUNNING ================= -->
+      <section id="advisory">
+        <div class="wrap">
+          <div class="eyebrow">Shipped</div>
+          <h2>What I Advise On — and What's Running</h2>
+          <div class="grid three">
+            <article class="glass card">
+              <h3 class="revert-mark"><a href="https://revert.pro" rel="noopener">REVERT</a></h3>
+              <p>Bytecode-only risk triage for the ~95% of Ethereum mainnet that ships unverified — which contracts to review first, not a bug verdict.</p>
+              <div class="label" style="margin-top:14px">Live &middot; revert.pro</div>
+              <a class="more" href="https://revert.pro" rel="noopener">Open &rarr;</a>
+            </article>
+            <article class="glass card">
+              <h3>AI Yield Vault (ERC-4626)</h3>
+              <p>Tokenized vault rebalanced by an off-chain agent: Aave V3 and Compound V3 adapters, decisions signed with EIP-712, 67 tests and 76,800 invariant calls with no violations.</p>
+              <div class="label" style="margin-top:14px">Sepolia testnet &middot; open source</div>
+              <a class="more" href="https://doi.org/10.6084/m9.figshare.32141167" rel="noopener">Open &rarr;</a>
+            </article>
+            <article class="glass card">
+              <h3>DeFi allocator</h3>
+              <p>Non-custodial, gas-aware USDC routing across six Ethereum lending venues. Custody never leaves the depositor; the replay and the losing ML tier are both published.</p>
+              <div class="label" style="margin-top:14px">Live agent &middot; open source</div>
+              <a class="more" href="https://github.com/SergeySolovyev/defi-allocator-agent" rel="noopener">Open &rarr;</a>
+              <a class="more" href="/research/defi-allocator-replay.html">Watch the replay &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ambient: network pulses -->
+      <div class="visual-sep" aria-hidden="true">
+        <div class="wrap"><div class="scene-shell"><canvas data-scene="network"></canvas></div></div>
+      </div>
+
+      <!-- ================= RESEARCH ================= -->
+      <section id="research">
+        <div class="wrap">
+          <div class="eyebrow">Academic</div>
+          <h2>Research Interests</h2>
+          <div class="grid">
+            <article class="glass research">
+              <div class="num">01</div>
+              <div>
+                <h3>Risk and Compliance for On-Chain Capital</h3>
+                <p>Counterparty risk and trust models in digital-asset infrastructure: where custody actually sits, how many participants must stay honest, and what that means for allocation. FATF/Travel Rule and KYT applied to real flows.</p>
+              </div>
+            </article>
+            <article class="glass research">
+              <div class="num">02</div>
+              <div>
+                <h3>ML for Security of Digital Financial Systems</h3>
+                <p>Vulnerability detection in smart contracts from EVM bytecode with noisy labels. Bridging TradFi risk management with DeFi security.</p>
+              </div>
+            </article>
+            <article class="glass research">
+              <div class="num">03</div>
+              <div>
+                <h3>AI &times; DeFi: Intelligent Decentralized Systems</h3>
+                <p>On-chain anomaly detection, protocol risk scoring, AMM optimization, intelligent liquidity management. DeFi as testbed for autonomous ML agents.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PUBLICATIONS ================= -->
+      <section id="publications">
+        <div class="wrap">
+          <div class="eyebrow">Publications</div>
+          <h2>Publications &amp; Awards</h2>
+
+          <article class="glass pub">
+            <div class="t">A Classification of Bitcoin Integration Methods in Decentralized Financial Infrastructure</div>
+            <div class="m label"><span class="badge">Peer-reviewed</span>Solovev, S. (Jun 2026) &middot; Informatics. Economics. Management, 5(2), 3026&ndash;3037 &middot; in Russian</div>
+            <div class="links"><a href="https://doi.org/10.47813/2782-5280-2026-5-2-3026-3037" rel="noopener">Open DOI &rarr;</a></div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">Precision at the Gate: Per-Clip Detector Confidence Outranks Recall in a Modernized DeepSORT Pipeline</div>
+            <div class="m label">Solovev, S. (Jun 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.32814077" rel="noopener">Open DOI &rarr;</a>
+              <a href="https://github.com/SergeySolovyev/Modernized-DeepSORT" rel="noopener">Code &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">When Retrieval Hurts: An Honest Evaluation of RAG for Solidity Vulnerability Detection</div>
+            <div class="m label">Solovev, S. (Apr 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.32141182" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/rag-solidity.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">AI-Managed ERC-4626 Yield Vault with Multi-Criteria Decision Making: Design, Implementation, and Formal Verification</div>
+            <div class="m label">Solovev, S. (Apr 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.32141167" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/ai-yield-vault.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">When Less Is More: Domain-Aware Dual-Branch Recurrent Networks for Limit Order Book Mid-Price Prediction</div>
+            <div class="m label">Solovev, S. (Mar 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.31859557" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/lob-mid-price.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">Machine Learning&ndash;Based Vulnerability Detection in Ethereum Smart Contracts via EVM Bytecode Feature Engineering</div>
+            <div class="m label">Solovev, S. (Feb 2026) &middot; Preprint, figshare</div>
+            <div class="links">
+              <a href="https://doi.org/10.6084/m9.figshare.31429971" rel="noopener">Open DOI &rarr;</a>
+              <a href="/papers/ml-vuln-detection.html">Paper page &rarr;</a>
+            </div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">12th place — Legal AI Assistant on NPF Budushchee data (RAG competition, HSE University)</div>
+            <div class="m label"><span class="badge">Competition</span>Jun 2026 &middot; Retrieval over court decisions &middot; Recall@5 0.594 (private) &middot; All Cups</div>
+            <div class="links"><a href="https://cups.online/ru/rounds/1794/leaderboard" rel="noopener">Leaderboard &rarr;</a></div>
+          </article>
+
+          <article class="glass pub">
+            <div class="t">Prize-winner — Sales Rhythms Hackathon (VK AllCups / VK Education)</div>
+            <div class="m label"><span class="badge">Award</span>Feb 2026 &middot; Sales forecasting &amp; dynamic pricing</div>
+          </article>
+
+          <a class="more" href="/publications.html">View all publications &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ================= EDUCATION ================= -->
+      <section id="education">
+        <div class="wrap">
+          <div class="eyebrow">Education</div>
+          <h2>Academic Foundation</h2>
+          <div class="grid four">
+            <article class="glass card">
+              <h3 style="font-size:19px">MSc in Artificial Intelligence</h3>
+              <p>HSE University, Faculty of Computer Science — Moscow</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Thesis: Multi-Agent AI for Smart-Contract Security</p>
+            </article>
+            <article class="glass card">
+              <h3 style="font-size:19px">MSc in Blockchain and Digital Currency</h3>
+              <p>University of Nicosia — Cyprus</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Ripple Scholarship</p>
+            </article>
+            <article class="glass card">
+              <h3 style="font-size:19px">Masters in Finance (MiF)</h3>
+              <p>New Economic School — Moscow</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Merit-based tuition grant</p>
+            </article>
+            <article class="glass card">
+              <h3 style="font-size:19px">MSc in Financial Engineering</h3>
+              <p>WorldQuant University</p>
+              <p style="font-size:13px;color:var(--text-muted);font-style:italic">Certificate in Foundations of Financial Engineering, 2026</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section id="skills">
+        <div class="wrap">
+          <div class="eyebrow">Technical</div>
+          <h2>Skills &amp; Tools</h2>
+          <div class="grid three">
+            <article class="glass skillset">
+              <h3>Programming</h3>
+              <div class="chips"><span class="chip">Python</span><span class="chip">Jupyter</span><span class="chip">C++</span><span class="chip">Git</span><span class="chip">SQL</span><span class="chip">Bloomberg BQNT</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>ML / Data Science</h3>
+              <div class="chips"><span class="chip">Feature Engineering</span><span class="chip">LightGBM / XGBoost</span><span class="chip">Time-Series</span><span class="chip">Classification</span><span class="chip">Validation</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>Compliance &amp; Risk</h3>
+              <div class="chips"><span class="chip">FATF / Travel Rule</span><span class="chip">KYC / KYT</span><span class="chip">VASP operations</span><span class="chip">Counterparty risk</span><span class="chip">Trust models</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>Finance</h3>
+              <div class="chips"><span class="chip">OTC Execution</span><span class="chip">Treasury Operations</span><span class="chip">Bloomberg Terminal</span><span class="chip">VaR Models</span><span class="chip">Stress Testing</span><span class="chip">Derivatives Pricing</span><span class="chip">Credit Analysis</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>DeFi &amp; Blockchain</h3>
+              <div class="chips"><span class="chip">Uniswap</span><span class="chip">Aave</span><span class="chip">Curve</span><span class="chip">Solidity</span><span class="chip">EVM Bytecode</span><span class="chip">Tokenomics</span></div>
+            </article>
+            <article class="glass skillset">
+              <h3>Languages</h3>
+              <div class="chips"><span class="chip">English — Fluent</span><span class="chip">Russian — Native</span><span class="chip">German — Basic</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ambient: agent orbits -->
+      <div class="visual-sep" aria-hidden="true">
+        <div class="wrap"><div class="scene-shell"><canvas data-scene="orbit"></canvas></div></div>
+      </div>
+
+      <!-- ================= COMMUNITY ================= -->
+      <section id="community">
+        <div class="wrap">
+          <div class="eyebrow">Community</div>
+          <h2>Service &amp; Affiliations</h2>
+          <div class="grid three">
+            <article class="glass card">
+              <h3>Associated Board Member, ACI Russia</h3>
+              <p>The Financial Markets Association of Russia — currency and money-market professionals.</p>
+            </article>
+            <article class="glass card">
+              <h3>Speaker and Panel Moderator</h3>
+              <p>Solo talk on multi-level smart-contract defence, Cybersecurity track, Nauchny Telegraf (2026). Panelist on the Bank of Russia key rate, ACI Russia Pro Markets (2026). Moderator of the AI for Trading panel, ACI Russia eFX &amp; Digital Summit (2025).</p>
+            </article>
+            <article class="glass card">
+              <h3>Securities-Market Qualifications</h3>
+              <p>Russian regulator-issued professional qualifications: FSFR series 1.0 and 5.0 (2007–2011) and National Qualification Assessment certificates in broker-dealer activity and securities portfolio management (2022).</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section id="contact" style="padding-bottom:20px">
+        <div class="wrap">
+          <div class="glass contact-card">
+            <div class="eyebrow" style="margin-bottom:0">Get in touch</div>
+            <h2>Risk, Execution, Security and Compliance for On-Chain Capital</h2>
+            <p>Open to advisory roles with protocols, funds, trading desks and treasuries — and to research collaboration. Twenty years of institutional execution and treasury on one side, someone who reads the bytecode on the other. Most recently supervised Treasury and Financial Markets Operations at a top-10 Russian banking group.</p>
+            <div class="btns">
+              <a class="btn solid" href="mailto:sssolovjov@gmail.com">Email me</a>
+              <a class="btn" href="https://github.com/SergeySolovyev" rel="noopener">GitHub</a>
+              <a class="btn" href="https://orcid.org/0009-0008-4494-0447" rel="noopener">ORCID</a>
+              <a class="btn" href="https://scholar.google.com/citations?user=HGalnA0AAAAJ" rel="noopener">Google Scholar</a>
+              <a class="btn" href="mailto:sssolovjov@gmail.com?subject=CV%20request">Request CV</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <div class="name">Sergei Solovev</div>
+          <div class="label" style="margin-top:4px">&copy; 2026 &middot; TradFi &rarr; AI &rarr; DeFi</div>
+        </div>
+        <div class="foot-links label">
+          <a href="/publications.html">Publications</a>
+          <a href="/news.html">News</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://github.com/SergeySolovyev" rel="noopener">GitHub</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/" lang="ru">По-русски</a>
+          <a href="#top">Back to top &uarr;</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Scroll reveal — classes are added from JS, so nothing is hidden when JS is off
+        if ("IntersectionObserver" in window && !reduced) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+            });
+          }, { rootMargin: "0px 0px -8% 0px" });
+          document.querySelectorAll("main section > .wrap").forEach(function (el) {
+            el.classList.add("reveal");
+            io.observe(el);
+          });
+        }
+
+        // Scrolling feeds energy into the scenes; they speed up briefly, then settle.
+        // On a phone this replaces hover: the page answers the only gesture it gets.
+        var lastScroll = window.scrollY || 0, energy = 0;
+        window.addEventListener("scroll", function () {
+          var y = window.scrollY || 0;
+          energy = Math.min(2.5, energy + Math.abs(y - lastScroll) * 0.004);
+          lastScroll = y;
+        }, { passive: true });
+        (function cool() { energy *= 0.95; requestAnimationFrame(cool); })();
+
+        var TAU = Math.PI * 2;
+        function lerp(a, b, k) { return a + (b - a) * k; }
+
+        document.querySelectorAll("canvas[data-scene]").forEach(function (canvas) {
+          var mode = canvas.getAttribute("data-scene");
+          var ctx = canvas.getContext("2d");
+          if (!ctx) return;
+          var w = 0, h = 0, S = 1, t = Math.random() * 20, raf = 0, running = false;
+
+          function resize() {
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = canvas.clientWidth; h = canvas.clientHeight;
+            S = Math.min(1, w / 720);
+            canvas.width = Math.max(1, Math.round(w * dpr));
+            canvas.height = Math.max(1, Math.round(h * dpr));
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          }
+
+          function proj(p) { var s = 430 / (670 + p[2]); return [w / 2 + p[0] * s * S, h / 2 + p[1] * s, s]; }
+          function rotY(p, a) { var c = Math.cos(a), s = Math.sin(a); return [p[0] * c - p[2] * s, p[1], p[0] * s + p[2] * c]; }
+          function rotX(p, a) { var c = Math.cos(a), s = Math.sin(a); return [p[0], p[1] * c - p[2] * s, p[1] * s + p[2] * c]; }
+
+          var nodes = [], edges = [], pulses = [], blocks = [], sats = [], ball = null, burst = 0, i;
+
+          if (mode === "network") {
+            var N = 26;
+            for (i = 0; i < N; i++) nodes.push([(Math.random() - 0.5) * 470, (Math.random() - 0.5) * 175, (Math.random() - 0.5) * 330]);
+            for (i = 0; i < N; i++) { edges.push([i, (i + 7) % N]); edges.push([i, (i + 13) % N]); }
+            for (i = 0; i < 9; i++) pulses.push({ e: (Math.random() * edges.length) | 0, k: Math.random(), v: 0.0025 + Math.random() * 0.0035, amber: i < 3 });
+          }
+          if (mode === "orbit") {
+            for (i = 0; i < 12; i++) blocks.push({ ph: i / 12 * TAU, trail: [] });
+            for (i = 0; i < 16; i++) sats.push({ a: i / 16 * TAU, r: 150 + (i % 4) * 24, y: (i % 5 - 2) * 15, sp: 0.26 + (i % 6) * 0.05 });
+          }
+          // The descent separator is the original Three.js scene (module script
+          // below); this engine only drives the network and orbit canvases.
+
+          function drawNetwork() {
+            var ay = t * 0.14, ax = 0.16 + Math.sin(t * 0.25) * 0.06;
+            var p3 = [], pp = [], n;
+            for (n = 0; n < nodes.length; n++) {
+              var q = rotX(rotY(nodes[n], ay), ax);
+              p3.push(q); pp.push(proj(q));
+            }
+            ctx.lineWidth = 1;
+            edges.forEach(function (ed) {
+              var a = pp[ed[0]], b = pp[ed[1]];
+              ctx.strokeStyle = "rgba(148,163,184," + (0.1 + 0.09 * (a[2] + b[2])) + ")";
+              ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+            });
+            pulses.forEach(function (pu) {
+              pu.k += pu.v * (1 + energy * 2);
+              if (pu.k >= 1) { pu.k = 0; pu.e = (Math.random() * edges.length) | 0; }
+              var ed = edges[pu.e], A = p3[ed[0]], B = p3[ed[1]];
+              for (var k = 2; k >= 0; k--) {
+                var kk = Math.max(0, pu.k - k * 0.045);
+                var p = proj([lerp(A[0], B[0], kk), lerp(A[1], B[1], kk), lerp(A[2], B[2], kk)]);
+                ctx.fillStyle = pu.amber ? "rgba(179,138,90," + (0.95 - k * 0.3) + ")" : "rgba(51,65,85," + (0.8 - k * 0.26) + ")";
+                ctx.beginPath(); ctx.arc(p[0], p[1], Math.max(0.4, (pu.amber ? 3.4 : 2.5) * p[2] - k * 0.5), 0, TAU); ctx.fill();
+              }
+            });
+            for (n = 0; n < pp.length; n++) {
+              var pt = pp[n];
+              ctx.fillStyle = "rgba(51,65,85," + (0.3 + 0.45 * pt[2]) + ")";
+              ctx.beginPath(); ctx.arc(pt[0], pt[1], (3.2 + 0.5 * Math.sin(t * 1.4 + n)) * pt[2] + 0.6, 0, TAU); ctx.fill();
+            }
+          }
+
+          function drawOrbit() {
+            var tilt = 0.35;
+            burst += 0.0038 * (1 + energy);
+            if (burst > 1) burst = 0;
+            ctx.strokeStyle = "rgba(179,138,90," + (0.45 * (1 - burst)).toFixed(3) + ")";
+            ctx.lineWidth = 1.4;
+            ctx.beginPath();
+            ctx.ellipse(w / 2, h / 2, (60 + burst * 190) * S, (60 + burst * 190) * 0.4, 0, 0, TAU);
+            ctx.stroke();
+            ctx.lineWidth = 1;
+            for (var k2 = 0; k2 < 3; k2++) {
+              ctx.strokeStyle = "rgba(148,163,184,0.42)";
+              ctx.beginPath();
+              for (var a = 0; a <= 60; a++) {
+                var th = a / 60 * TAU;
+                var p = proj(rotX(rotY([46 * Math.cos(th), 46 * Math.sin(th), 0], t * 0.4 + k2 * 2.1), 0.7 + k2 * 1.05));
+                if (a === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
+              }
+              ctx.stroke();
+            }
+            ctx.fillStyle = "rgba(51,65,85,0.9)";
+            ctx.beginPath(); ctx.arc(w / 2, h / 2, 6.5, 0, TAU); ctx.fill();
+            blocks.forEach(function (b, i2) {
+              var an = b.ph + t * 0.26;
+              var p2 = proj(rotX([Math.cos(an) * 195, Math.sin(i2 * 0.7 + t * 1.1) * 20, Math.sin(an) * 135], tilt));
+              b.trail.push(p2);
+              if (b.trail.length > 10) b.trail.shift();
+              for (var k3 = 0; k3 < b.trail.length; k3++) {
+                var tp = b.trail[k3], f = k3 / b.trail.length;
+                var size = (7 * tp[2] + 2) * (0.35 + 0.65 * f);
+                ctx.fillStyle = "rgba(179,138,90," + (0.08 + 0.75 * f).toFixed(3) + ")";
+                ctx.fillRect(tp[0] - size / 2, tp[1] - size / 2, size, size);
+              }
+            });
+            sats.forEach(function (s3, i3) {
+              var a2 = s3.a + t * s3.sp;
+              var p4 = proj(rotX([Math.cos(a2) * s3.r, s3.y + Math.cos(t * 0.9 + i3 * 0.4) * 9, Math.sin(a2) * s3.r * 0.72], tilt));
+              ctx.fillStyle = "rgba(107,114,128," + (0.25 + 0.4 * p4[2]).toFixed(3) + ")";
+              ctx.beginPath(); ctx.arc(p4[0], p4[1], 2.1 * p4[2] + 0.5, 0, TAU); ctx.fill();
+            });
+          }
+
+          function frame() {
+            t += 0.011 * (1 + energy);
+            ctx.clearRect(0, 0, w, h);
+            if (mode === "network") drawNetwork(); else drawOrbit();
+            if (running) raf = requestAnimationFrame(frame);
+          }
+
+          resize();
+          window.addEventListener("resize", function () { resize(); if (!running) frame(); });
+
+          if (reduced || !("IntersectionObserver" in window)) { frame(); return; }
+          var vis = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                if (!running) { running = true; raf = requestAnimationFrame(frame); }
+              } else if (running) {
+                running = false;
+                cancelAnimationFrame(raf);
+              }
+            });
+          }, { threshold: 0.05 });
+          vis.observe(canvas);
+        });
+      })();
+    </script>
+
+    <script type="module">
+      // The original descent scene, ported verbatim from the pre-redesign site:
+      // same geometry, materials, lights, motion and pointer response. Three.js
+      // is the one external dependency this page keeps — for exactly this scene.
+      // In sandboxed previews the import fails and the shell simply stays quiet.
+      (async function () {
+        var host = document.querySelector('[data-three="descent"]');
+        if (!host) return;
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var THREE;
+        try {
+          THREE = await import("https://esm.sh/three@0.171.0");
+        } catch (e) {
+          return;
+        }
+
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color("#ece9e2");
+
+        var camera = new THREE.PerspectiveCamera(54, 1, 0.1, 60);
+        camera.position.set(0, 1.55, 4.6);
+        camera.lookAt(0, 0.25, 0);
+
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        renderer.setClearAlpha(0);
+        host.appendChild(renderer.domElement);
+
+        var ambient = new THREE.AmbientLight(0xffffff, 0.78);
+        var lightA = new THREE.DirectionalLight(0x64748b, 1.15);
+        lightA.position.set(2, 3, 2);
+        var lightB = new THREE.DirectionalLight(0xb38a5a, 0.7);
+        lightB.position.set(-2, 2, -1);
+        scene.add(ambient, lightA, lightB);
+
+        var group = new THREE.Group();
+        group.position.y = 0.52;
+        scene.add(group);
+
+        var mouse = new THREE.Vector2(0, 0);
+        var raycaster = new THREE.Raycaster();
+        var plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+        var target = new THREE.Vector3();
+        var soft = new THREE.Vector3();
+        var active = false;
+        var isVisible = true;
+
+        var geom = new THREE.PlaneGeometry(6.2, 4.9, 92, 72);
+        var pos = geom.attributes.position;
+        var base = new Float32Array(pos.count);
+        for (var i = 0; i < pos.count; i++) {
+          var x = pos.getX(i);
+          var y = pos.getY(i);
+          var z = 0.25 * Math.sin(x * 1.6) + 0.18 * Math.cos(y * 2.2);
+          pos.setZ(i, z);
+          base[i] = z;
+        }
+        geom.computeVertexNormals();
+
+        var mat = new THREE.MeshStandardMaterial({
+          color: 0x64748b,
+          wireframe: true,
+          roughness: 0.38,
+          metalness: 0.1,
+          transparent: true,
+          opacity: 0.92,
+        });
+        var mesh = new THREE.Mesh(geom, mat);
+        mesh.rotation.x = -Math.PI / 2.2;
+        group.add(mesh);
+
+        var orbGeom = new THREE.SphereGeometry(0.11, 26, 26);
+        var orbMat = new THREE.MeshStandardMaterial({ color: 0xb38a5a, emissive: 0x78350f, emissiveIntensity: 0.2 });
+        var orb = new THREE.Mesh(orbGeom, orbMat);
+        orb.position.set(-1.7, 0.35, 0.2);
+        group.add(orb);
+
+        function resize() {
+          var w = host.clientWidth;
+          var h = host.clientHeight;
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w, h, false);
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        host.addEventListener("pointermove", function (e) {
+          var rect = host.getBoundingClientRect();
+          mouse.set(((e.clientX - rect.left) / rect.width) * 2 - 1, -(((e.clientY - rect.top) / rect.height) * 2 - 1));
+          active = true;
+        }, { passive: true });
+        host.addEventListener("pointerleave", function () { active = false; }, { passive: true });
+
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { isVisible = entry.isIntersecting; });
+        }, { threshold: 0.1 }).observe(host);
+
+        var t = 0;
+        function animate() {
+          t += 0.013;
+          if (isVisible) {
+            raycaster.setFromCamera(mouse, camera);
+            raycaster.ray.intersectPlane(plane, target);
+            if (active) soft.lerp(target, 0.08);
+            else soft.lerp(new THREE.Vector3(0, 0, 0), 0.045);
+
+            group.rotation.y += 0.0018;
+            group.rotation.x = Math.sin(t * 0.37) * 0.07;
+
+            for (var i = 0; i < pos.count; i++) {
+              var vx = pos.getX(i);
+              var vy = pos.getY(i);
+              var dist = Math.hypot(vx - soft.x, vy - soft.z);
+              var influence = Math.max(0, 1 - dist / 2.1);
+              var wobble = Math.sin(t * 2.7 + vx * 1.5 + vy * 1.2) * 0.012;
+              var targetZ = base[i] + influence * 0.24 + wobble;
+              pos.setZ(i, pos.getZ(i) + (targetZ - pos.getZ(i)) * 0.1);
+            }
+            pos.needsUpdate = true;
+            geom.computeVertexNormals();
+
+            orb.position.x = Math.sin(t * 1.15) * 1.7 + soft.x * 0.22;
+            orb.position.z = Math.cos(t * 1.05) * 1.38 + soft.z * 0.2;
+            orb.position.y = 0.24 + Math.sin(t * 2.4) * 0.08;
+
+            renderer.render(scene, camera);
+          }
+          requestAnimationFrame(animate);
+        }
+        animate();
+      })();
+    </script>
+
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) return; }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+      ym(106617027, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106617027" style="position:absolute;left:-9999px" alt="" /></div></noscript>
+  </body>
+</html>

@@ -4,7 +4,7 @@
 Replaces the droplet script of the same name, lost when the DigitalOcean box went
 away. Contract is unchanged and still documented in news.json's own _meta block:
 
-    news.json  ->  index.html  (newest N, injected between the NEWS markers)
+    news.json  ->  defi/index.html  (English homepage at /defi/; newest N, between the NEWS markers)
                ->  news.html   (all items, fully static + JSON-LD ItemList)
 
 Run it from anywhere; paths resolve relative to this file's parent repo:
@@ -33,7 +33,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NEWS_JSON = ROOT / "news.json"
-INDEX = ROOT / "index.html"
+INDEX = ROOT / "defi" / "index.html"
 NEWS_PAGE = ROOT / "news.html"
 
 HOMEPAGE_LIMIT = 5
@@ -427,13 +427,13 @@ __JSONLD__
 <body>
   <div class="wrap">
     <div class="top">
-      <a class="brand" href="/">Sergei Solovev</a>
-      <nav><a href="/">Home</a><a href="/blog/">Blog</a><a href="/publications.html">Publications</a></nav>
+      <a class="brand" href="/defi/">Sergei Solovev</a>
+      <nav><a href="/defi/">Home</a><a href="/blog/">Blog</a><a href="/publications.html">Publications</a></nav>
     </div>
     <div class="eyebrow">Latest</div>
     <h1>News &amp; Appearances</h1>
 __CARDS__
-    <footer>&copy; __YEAR__ Sergei Solovev &middot; TradFi &rarr; AI &rarr; DeFi &middot; <a href="/">Home</a></footer>
+    <footer>&copy; __YEAR__ Sergei Solovev &middot; TradFi &rarr; AI &rarr; DeFi &middot; <a href="/defi/">Home</a></footer>
   </div>
 </body>
 </html>
